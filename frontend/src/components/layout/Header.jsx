@@ -116,7 +116,7 @@ const Header = () => {
 
           <a
             href="/cart"
-            className="a-cart mt-3"
+            className="a-cart mt-2"
             style={{ textDecoration: "none" }}
           >
             <span id="cart" className="ms-3">

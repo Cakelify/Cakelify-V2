@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+
+.div_border {
+  border: 1px solid rgb(186, 186, 186);
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.grid_price_prod_delete {
+  display: flex;
+  justify-content: space-around;
+}
+
+.img_title_gap {
+  display: flex;
+  justify-content: space-between;
+}
+.product_pad {
+  padding-left: 2rem;
+  padding-top: 0.4rem;
+}
+
+.symbol_plus,
+.symbol_minus {
+  margin-top: 4px;
+}
+
+.display_flex_ConfirmOrder {
+  display: flex;
+  justify-content: center;
+}
+
+.card_style {
+  background-color: #f8f9fa;
+  border-radius: 1rem;
+}
+
+.imgEmptyCart {
+  padding-top: 2rem;
+  width: 15rem;
+  height: 15rem;
+  padding-left: 6rem;
+}
+
+.fontStyle {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.buttonBG {
+  box-shadow: 0 0.2rem 0.5rem 0 rgba(213, 217, 217, 0.5);
+}

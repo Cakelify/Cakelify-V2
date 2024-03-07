@@ -1,0 +1,35 @@
+.productCategory {
+  display: flex;
+}
+
+.CategoryJarCakes,
+.CategoryCake,
+.CategoryPastry {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  border: 2px solid #ff7f7d;
+  padding: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 139, 0.5);
+}
+.Offer {
+  background: linear-gradient(180deg, #0050ae 0%, #1879d2 100%);
+  padding: 1rem;
+}
+
+.Pastry,
+.JarCake {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 18px;
+}
+.Cake {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.categoryPara {
+  font-weight: 600;
+}

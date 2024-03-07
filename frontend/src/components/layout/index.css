@@ -1,0 +1,29 @@
+.fontStyle1 {
+  font-family: "Caveat", cursive;
+}
+.fontStyle {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.bottom-arrow {
+  width: 2rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  transform: rotate(45deg);
+  position: relative;
+  z-index: 1;
+  bottom: 1rem;
+  left: 7.8rem;
+}
+
+.bottom-arrow:after {
+}
+
+.bg-shadow {
+  box-shadow: rgba(0, 0, 0, 0.176) 40px 60px 60px -20px;
+}

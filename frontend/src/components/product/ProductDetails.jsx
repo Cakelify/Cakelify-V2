@@ -39,6 +39,10 @@ const ProductDetails = () => {
     }
   }, [isError]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const increseQty = () => {
     const count = document.querySelector(".count");
 

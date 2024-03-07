@@ -63,9 +63,7 @@ const Home = () => {
       <div className="ForDesktop">
         <div className="row">
           {keyword && (
-            <div className="col-6 col-md-3 mt-5">
-              <Filters />
-            </div>
+            <div className="col-6 col-md-3 mt-5">{/* <Filters /> */}</div>
           )}
           <div className={keyword ? "col-6 col-md-9" : "col-6 col-md-12"}>
             <h1 id="products_heading" className="text-secondary">
@@ -94,11 +92,7 @@ const Home = () => {
 
       <div className="ForMobile bg-bg-grey">
         <div className="mt-16">
-          {keyword && (
-            <div className="">
-              <Filters />
-            </div>
-          )}
+          {keyword && <div className="">{/* <Filters /> */}</div>}
           <div className="pt-20">
             <h2 className="mt-6 mb-3 ml-2 text-lg font-bold">
               Eventful Indulgences

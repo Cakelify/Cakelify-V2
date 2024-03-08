@@ -14,7 +14,7 @@ function App() {
   const userRoutes = useUserRoutes();
   const adminRoutes = useAdminRoutes();
   return (
-    <Router>
+    <Router scrollToTop={true}>
       <div className="App bg-bg-grey">
         <Toaster position="top-center" />
         <Header />

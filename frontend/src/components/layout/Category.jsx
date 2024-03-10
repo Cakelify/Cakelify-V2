@@ -36,7 +36,7 @@ function FlavourCategory() {
   return (
     <>
       <div className="mt-4 pt-4 bg-alpha-liteyellow"> </div>
-      <div className="flex  flex-col mt-16 ">
+      <div className="flex  flex-col mt-32 ">
         <h1 id="" className="text-secondary text-center">
           {keyword ? `${keyword}` : "Our Best Seller"}
         </h1>

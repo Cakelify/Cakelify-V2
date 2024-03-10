@@ -15,7 +15,6 @@ import "./Category/Category.css";
 import FAQ from "./layout/FAQ";
 import ReviewSlider from "./layout/ReviewSlider";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ringImage from "./ringImage.png";
 
 // Import Swiper styles
 import "swiper/css";
@@ -187,53 +186,53 @@ const Home = () => {
           </h2>
           <div className="flex flex-wrap justify-around mb-4 p-2 ">
             <div className="border-2  rounded-md px-4 py-3 mb-6 font-semibold">
-              <Link
-                to="/flavourfulCategory/?keyword=Chocolate"
+              <a
+                href="/flavourfulCategory/?keyword=Chocolate"
                 className="no-underline text-black"
               >
                 Chocolate
-              </Link>
+              </a>
             </div>
             <div className="border-2 rounded-md font-semibold px-4 py-3 mb-6 ml-1">
-              <Link
-                to="/flavourfulCategory/?keyword=Red%20Velvet"
+              <a
+                href="/flavourfulCategory/?keyword=Red%20Velvet"
                 className="no-underline text-black"
               >
                 Red Velvet
-              </Link>
+              </a>
             </div>
             <div className="border-2 rounded-md px-4 py-3 mb-6 font-semibold">
               {" "}
-              <Link
-                to="/flavourfulCategory/?keyword=Strawberry"
+              <a
+                href="/flavourfulCategory/?keyword=Strawberry"
                 className="no-underline text-black"
               >
                 Strawberry
-              </Link>
+              </a>
             </div>
             <div className="border-2 font-semibold rounded-md px-4 py-3 mb-6">
-              <Link
-                to="/flavourfulCategory/?keyword=Blackforest"
+              <a
+                href="/flavourfulCategory/?keyword=Blackforest"
                 className="no-underline text-black"
               >
                 Blackforest
-              </Link>
+              </a>
             </div>
             <div className="border-2 rounded-md px-4 font-semibold py-3 mb-6">
-              <Link
-                to="/flavourfulCategory/?keyword=Pineapple"
+              <a
+                href="/flavourfulCategory/?keyword=Pineapple"
                 className="no-underline text-black"
               >
                 Pineapple
-              </Link>
+              </a>
             </div>
             <div className="border-2 rounded-md font-semibold px-3 py-3 mb-6">
-              <Link
-                to="/flavourfulCategory/?keyword=Butterscotch"
+              <a
+                href="/flavourfulCategory/?keyword=Butterscotch"
                 className="no-underline text-black"
               >
                 Butterscotch
-              </Link>
+              </a>
             </div>
           </div>
         </div>

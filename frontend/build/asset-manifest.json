@@ -1,13 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.482c2d93.css",
-    "main.js": "/static/js/main.91c04c13.js",
+    "main.js": "/static/js/main.7ca21c6c.js",
     "static/js/703.dd222d96.chunk.js": "/static/js/703.dd222d96.chunk.js",
     "static/js/198.701b915e.chunk.js": "/static/js/198.701b915e.chunk.js",
     "static/media/EmptyCart.png": "/static/media/EmptyCart.7664fe40e1931409b380.png",
     "static/media/PureVeg.png": "/static/media/PureVeg.1684fc71ddb0a0991cc9.png",
     "static/media/CakelifyLogo.png": "/static/media/CakelifyLogo.aa42d9ff8fc4ca9b6fdc.png",
-    "static/media/ringImage.png": "/static/media/ringImage.accf996f69c26764694b.png",
     "static/media/Cakes.png": "/static/media/Cakes.978707ddee87e87a8734.png",
     "static/media/pastry.png": "/static/media/pastry.05da4641d7976d54027f.png",
     "static/media/JarCakes.png": "/static/media/JarCakes.6b3d22403ddd687a169a.png",
@@ -17,12 +16,12 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "main.482c2d93.css.map": "/static/css/main.482c2d93.css.map",
-    "main.91c04c13.js.map": "/static/js/main.91c04c13.js.map",
+    "main.7ca21c6c.js.map": "/static/js/main.7ca21c6c.js.map",
     "703.dd222d96.chunk.js.map": "/static/js/703.dd222d96.chunk.js.map",
     "198.701b915e.chunk.js.map": "/static/js/198.701b915e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.482c2d93.css",
-    "static/js/main.91c04c13.js"
+    "static/js/main.7ca21c6c.js"
   ]
 }

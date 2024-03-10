@@ -11,7 +11,6 @@ import NewReview from "../reviews/NewReview";
 import ListReviews from "../reviews/ListReviews";
 import NotFound from "../layout/NotFound";
 import "./button.css";
-import ScrollToTopOnMount from "../layout/ScrollToTopOnMount";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -86,8 +85,7 @@ const ProductDetails = () => {
   return (
     <>
       <MetaData title={product?.name} />
-      <ScrollToTopOnMount />
-      <div className="row d-flex justify-content-around pt-36">
+      <div className="row d-flex justify-content-around pt-36" id="top">
         <div className="col-12 col-lg-5 img-fluid" id="">
           <div className="p-3">
             <img

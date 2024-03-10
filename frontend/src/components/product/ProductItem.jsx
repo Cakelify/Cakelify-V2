@@ -33,7 +33,7 @@ const ProductItem = ({ product, columnSize }) => {
 
           <div className="max-w-72">
             <h5 className="card-title mt-0">
-              <Link to={`/product/${product?._id}`}>{product?.name}</Link>
+              <a href={`/product/${product?._id}`}>{product?.name}</a>
             </h5>
             <div className="ratings mt-auto d-flex">
               <StarRatings
@@ -57,13 +57,13 @@ const ProductItem = ({ product, columnSize }) => {
                 &#8377;{product?.beforePrice}
               </p>
             </div>
-            <Link
-              to={`/product/${product?._id}`}
+            <a
+              href={`/product/${product?._id}`}
               id="view_btn"
               className="button-6 buttonBG"
             >
               View Details
-            </Link>
+            </a>
           </div>
         </div>
       </div>

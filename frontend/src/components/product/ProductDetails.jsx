@@ -39,10 +39,6 @@ const ProductDetails = () => {
     }
   }, [isError]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const increseQty = () => {
     const count = document.querySelector(".count");
 
@@ -96,12 +92,12 @@ const ProductDetails = () => {
               height="390"
             />
           </div>
-          <div className="row justify-content-start mt-3 ">
+          <div className="flex mt-2">
             {product?.images?.map((img) => (
-              <div className="col-2 ms-4">
+              <div className="ml-2">
                 <a role="button">
                   <img
-                    className={`d-block border rounded p-3 cursor-pointer ${
+                    className={`d-block border rounded p-3 cursor-pointer buttonBG ${
                       img.url === activeImg ? "border-warning" : ""
                     } `}
                     height="100"
@@ -182,13 +178,13 @@ const ProductDetails = () => {
             <hr />
 
             <h5 className="mt-2 pl-1 ">Description:</h5>
-            <p className="pl-1 text-md fontStyle tracking-wide">
+            <p className="pl-1 text-md fontStyle tracking-normal wordSpacing p-2">
               {product?.description}
             </p>
             <hr />
-            <p id="product_seller mb-3" className="pl-1 ">
+            {/* <p id="product_seller mb-3" className="pl-1 ">
               Sold by: <strong>{product?.seller}</strong>
-            </p>
+            </p> */}
 
             {isAuthenticated ? (
               <NewReview productId={product?._id} />

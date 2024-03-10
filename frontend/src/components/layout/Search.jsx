@@ -73,7 +73,7 @@ const Search = () => {
               type="text"
               id="search_field"
               aria-describedby="search_btn"
-              className="w-80 border-2 rounded-start-2 "
+              className="w-80 border-1 border-black rounded-start-2 "
               placeholder={
                 isLoading
                   ? "🔎 Search for your favorite Cakes"

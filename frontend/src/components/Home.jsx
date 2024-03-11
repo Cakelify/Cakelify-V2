@@ -174,6 +174,15 @@ const Home = () => {
             </div>
           </section>
         </div>
+        <div className="flex justify-center mt-6">
+          <a
+            href="/flavourfulCategory"
+            id="cart_btn"
+            className="btn btn-primary d-inline ms-4 buttonBG"
+          >
+            View All
+          </a>
+        </div>
         {/* <CustomPagination
           resPerPage={data?.resPerPage}
           filteredProductsCount={data?.filteredProductsCount}

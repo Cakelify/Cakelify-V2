@@ -11,15 +11,18 @@ const ProductItem = ({ product, columnSize }) => {
       {" "}
       <div className={`col-sm-12 col-md-6 cakeBG col-lg-${columnSize} my-3`}>
         <div className="cardProduct">
-          <img
-            className="card-img-top mx-auto"
-            src={
-              product?.images[0]
-                ? product?.images[0]?.url
-                : "/images/default_product.png"
-            }
-            alt={product?.name}
-          />
+          <a href={`/product/${product?._id}`}>
+            <img
+              className="card-img-top mx-auto"
+              src={
+                product?.images[0]
+                  ? product?.images[0]?.url
+                  : "/images/default_product.png"
+              }
+              alt={product?.name}
+            />
+          </a>
+
           <div>
             <img
               className="relative w-4 bottom-36 ml-1 mb-0 left-28"

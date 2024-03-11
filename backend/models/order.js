@@ -21,9 +21,11 @@ const orderSchema = new mongoose.Schema(
       },
       latitude: {
         type: String,
+        required: false,
       },
       longitude: {
         type: String,
+        required: false,
       },
     },
     user: {

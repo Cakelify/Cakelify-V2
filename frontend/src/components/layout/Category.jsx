@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useGetProductsQuery } from "../../redux/api/productsApi";
 import ProductItem from "../product/ProductItem";
 import Loader from "./Loader";
+import CustomPagination from "./CustomPagination";
 
 function FlavourCategory() {
   let [searchParams] = useSearchParams();
@@ -38,7 +39,7 @@ function FlavourCategory() {
       <div className="mt-4 pt-4 bg-alpha-liteyellow"> </div>
       <div className="flex  flex-col mt-32 ">
         <h1 id="" className="text-secondary text-center">
-          {keyword ? `${keyword}` : "Our Best Seller"}
+          {keyword ? `${keyword}` : "All Products"}
         </h1>
       </div>
       <div className="">
@@ -50,10 +51,10 @@ function FlavourCategory() {
           </div>
         </section>
       </div>
-      {/* <CustomPagination
-          resPerPage={data?.resPerPage}
-          filteredProductsCount={data?.filteredProductsCount}
-        /> */}
+      <CustomPagination
+        resPerPage={data?.resPerPage}
+        filteredProductsCount={data?.filteredProductsCount}
+      />
     </>
   );
 }

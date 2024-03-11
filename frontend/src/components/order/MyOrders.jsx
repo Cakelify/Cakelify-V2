@@ -8,6 +8,7 @@ import MetaData from "../layout/MetaData";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../../redux/features/cartSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
+import MenuBar from "../layout/MenuBar";
 
 const MyOrders = () => {
   const { data, isLoading, error } = useMyOrdersQuery();
@@ -81,6 +82,9 @@ const MyOrders = () => {
       <MetaData title={"My Orders"} />
 
       <h1 className="my-5">{data?.orders?.length} Orders</h1>
+      <div className="w-full">
+        <MenuBar />
+      </div>
 
       <MDBDataTable data={setOrders()} />
     </div>

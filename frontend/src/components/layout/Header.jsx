@@ -9,7 +9,6 @@ import { useLazyLogoutQuery } from "../../redux/api/authApi";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import "./Header.css";
 import MarqueeAnnouncement from "./Marquee";
-import MenuIcon from "@mui/icons-material/Menu";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -76,21 +75,6 @@ const Header = () => {
                   </Link>
                 )}
 
-                <Link className="dropdown-item" to="/">
-                  {" "}
-                  Home{" "}
-                </Link>
-
-                <Link className="dropdown-item" to="/me/orders">
-                  {" "}
-                  Orders{" "}
-                </Link>
-
-                <Link className="dropdown-item" to="/me/profile">
-                  {" "}
-                  Profile{" "}
-                </Link>
-
                 <Link
                   className="dropdown-item text-danger"
                   to="/"
@@ -111,12 +95,12 @@ const Header = () => {
           )}
 
           <a style={{ textDecoration: "none" }} href="/">
-            <img src={CakelifyLogo} className="w-40 mr-5" alt="" />
+            <img src={CakelifyLogo} className="w-36 mr-5" alt="" />
           </a>
 
           <a
             href="/cart"
-            className="a-cart mt-2"
+            className="a-cart mt-3"
             style={{ textDecoration: "none" }}
           >
             <span id="cart" className="ms-3">

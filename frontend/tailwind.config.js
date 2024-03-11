@@ -11,6 +11,7 @@ module.exports = {
         "alpha-grey": "#565959",
         "alpha-liteyellow": "#fafaf1",
         "bg-grey": "#f8f8f8",
+        "border-color": "#e6e7eb",
       },
     },
   },

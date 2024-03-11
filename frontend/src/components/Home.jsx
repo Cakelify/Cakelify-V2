@@ -22,6 +22,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import MenuBar from "./layout/MenuBar";
 
 const Home = () => {
   let [searchParams] = useSearchParams();
@@ -158,6 +159,9 @@ const Home = () => {
                 </Link>
               </div>
             </div>
+          </div>
+          <div className="">
+            <MenuBar />
           </div>
         </div>
         <div className="flex  flex-col mt-2  ">

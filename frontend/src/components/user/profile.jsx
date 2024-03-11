@@ -3,6 +3,7 @@ import UserLayout from "../layout/UserLayout";
 import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MetaData from "../layout/MetaData";
+import MenuBar from "../layout/MenuBar";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
@@ -24,7 +25,9 @@ const Profile = () => {
               />
             </figure>
           </div>
-
+          <div className="mr-6">
+            <MenuBar />
+          </div>
           <div className="col-12 col-md-5">
             <h4>Full Name</h4>
             <p>{user?.name}</p>

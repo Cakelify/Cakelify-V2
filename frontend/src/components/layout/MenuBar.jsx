@@ -32,59 +32,66 @@ export default function MenuBar() {
       <div className="w-full boxShadow h-14 bg-white absolute bottom-0 z-30">
         <div className="flex justify-around mt-1">
           <div className="flex flex-col justify-center gap-0">
-            <Link className="dropdown-item" to="/">
-              {selectedButton === 1 ? (
-                <span>
+            {selectedButton === 1 ? (
+              <span>
+                <Link className="dropdown-item" to="/">
                   <HomeIcon className="ml-1 text-alpha-pink" />{" "}
-                  <p className="text text-sm font-bold">store</p>
-                </span>
-              ) : (
-                <span className="">
+                </Link>
+                <p className="text text-sm font-bold">store</p>
+              </span>
+            ) : (
+              <span className="">
+                <Link className="dropdown-item" to="/">
                   <HomeIcon
                     className="ml-1 text-gray-400"
                     onClick={() => handleButtonClick(1)}
                   />
-                  <p className="text text-sm ">store</p>
-                </span>
-              )}
-            </Link>
+                </Link>
+                <p className="text text-sm ">store</p>
+              </span>
+            )}
           </div>
 
           <div className="flex flex-col justify-center gap-0">
-            <Link className="dropdown-item" to="/me/orders">
-              {selectedButton === 2 ? (
-                <span>
+            {selectedButton === 2 ? (
+              <span>
+                {" "}
+                <Link className="dropdown-item" to="/me/orders">
                   <LocalMallIcon className=" ml-2 text-alpha-pink" />{" "}
-                  <p className="text text-sm font-bold">orders</p>
-                </span>
-              ) : (
-                <span className="">
+                </Link>
+                <p className="text text-sm font-bold">orders</p>
+              </span>
+            ) : (
+              <span className="">
+                <Link className="dropdown-item" to="/me/orders">
                   <LocalMallIcon
                     className="text-gray-400 ml-2"
                     onClick={() => handleButtonClick(2)}
                   />
-                  <p className="text text-sm ">orders</p>
-                </span>
-              )}
-            </Link>
+                </Link>
+                <p className="text text-sm ">orders</p>
+              </span>
+            )}
           </div>
           <div className="flex flex-col justify-center gap-0">
-            <Link className="dropdown-item" to="/me/profile">
-              {selectedButton === 3 ? (
-                <span>
+            {selectedButton === 3 ? (
+              <span>
+                <Link className="dropdown-item" to="/me/profile">
                   <AccountCircleIcon className=" text-alpha-pink ml-4 " />{" "}
-                  <p className="text text-sm font-bold">account</p>
-                </span>
-              ) : (
-                <span className="">
+                </Link>{" "}
+                <p className="text text-sm font-bold">account</p>
+              </span>
+            ) : (
+              <span className="">
+                <Link className="dropdown-item" to="/me/profile">
                   <AccountCircleIcon
                     className="text-gray-400 ml-3"
                     onClick={() => handleButtonClick(3)}
                   />
-                  <p className="text text-sm ">account</p>
-                </span>
-              )}
-            </Link>
+                </Link>
+                <p className="text text-sm ">account</p>
+              </span>
+            )}
           </div>
         </div>
       </div>

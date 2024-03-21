@@ -15,6 +15,9 @@ import "./Category/Category.css";
 import FAQ from "./layout/FAQ";
 import ReviewSlider from "./layout/ReviewSlider";
 import { Swiper, SwiperSlide } from "swiper/react";
+import WB1 from "./WB1.jpg";
+import WB2 from "./WB2.jpg";
+import WB3 from "./WB3.jpg";
 
 // Import Swiper styles
 import "swiper/css";
@@ -91,9 +94,34 @@ const Home = () => {
       {/* For Mobile Version */}
 
       <div className="ForMobile bg-bg-grey">
-        <div className="mt-16">
+        <div className="mt-16 -z-50 ">
           {keyword && <div className="">{/* <Filters /> */}</div>}
-          <div className="pt-20">
+          <div className="mt-40 -z-50">
+            <Swiper
+              spaceBetween={30}
+              centeredSlides={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Autoplay, Pagination, Navigation]}
+              className="mySwiper"
+            >
+              <SwiperSlide className="-z-50">
+                <img src={WB1} alt="" className="-z-50" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={WB2} alt="" className="-z-50" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={WB3} alt="" className="-z-50" />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+          <div className="pt-2">
             <h2 className="mt-6 mb-3 ml-2 text-lg font-bold">
               Eventful Indulgences
             </h2>

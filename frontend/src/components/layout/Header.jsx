@@ -35,7 +35,7 @@ const Header = () => {
     <div>
       <MarqueeAnnouncement />
 
-      <nav className="pt-1 p-0 mt-4 boxShadow bg-transparent-grey fixed top-3 w-full ">
+      <nav className="pt-1 p-0 mt-4 boxShadow bg-transparent-grey fixed top-3 w-full z-50 ">
         <div className="custom-nav-div">
           {user ? (
             <div className="mt-2">
@@ -95,7 +95,7 @@ const Header = () => {
           )}
 
           <a style={{ textDecoration: "none" }} href="/">
-            <img src={CakelifyLogo} className="w-36 mr-5" alt="" />
+            <img src={CakelifyLogo} className="w-36 mr-5 z-50" alt="" />
           </a>
 
           <a

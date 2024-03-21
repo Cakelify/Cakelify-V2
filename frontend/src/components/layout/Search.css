@@ -31,3 +31,7 @@
 .search-input::placeholder {
   animation: placeholderPulse 1s ease infinite;
 }
+
+.buttonBG {
+  box-shadow: 0 0.2rem 0.5rem 0 rgba(213, 217, 217, 0.5);
+}

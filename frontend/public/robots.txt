@@ -1,3 +1,20 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: /checkout
+Disallow: /account
+Disallow: /cart
+Disallow: /api
+Disallow: /reset-password
+Disallow: /login
+Disallow: /signup
+Disallow: /logout
+Disallow: /orders
+Allow: /profile
+Disallow: /update-profile
+Disallow: /update-password
+Disallow: /reset-password
+Disallow: /forgot-password
+Disallow: /search
+Disallow: /contact
+Allow: /about
+Allow:/Home

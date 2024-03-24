@@ -32,7 +32,7 @@ export default function MenuBar() {
       <div className="w-full boxShadow h-14 bg-white absolute bottom-0 z-30">
         <div className="flex justify-around mt-1">
           <div className="flex flex-col justify-center gap-0">
-            {selectedButton === 1 ? (
+            {selectedButton === 1 && window.location.pathname === "/" ? (
               <span>
                 <Link className="dropdown-item" to="/">
                   <HomeIcon className="ml-1 text-alpha-pink" />{" "}
@@ -53,7 +53,8 @@ export default function MenuBar() {
           </div>
 
           <div className="flex flex-col justify-center gap-0">
-            {selectedButton === 2 ? (
+            {selectedButton === 2 &&
+            window.location.pathname === "/me/orders" ? (
               <span>
                 {" "}
                 <Link className="dropdown-item" to="/me/orders">
@@ -74,7 +75,8 @@ export default function MenuBar() {
             )}
           </div>
           <div className="flex flex-col justify-center gap-0">
-            {selectedButton === 3 ? (
+            {selectedButton === 3 &&
+            window.location.pathname === "/me/profile" ? (
               <span>
                 <Link className="dropdown-item" to="/me/profile">
                   <AccountCircleIcon className=" text-alpha-pink ml-4 " />{" "}

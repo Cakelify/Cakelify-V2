@@ -8,7 +8,7 @@ import "./Header.css";
 const Footer = () => {
   return (
     <footer className="flex justify-center flex-col ">
-      <img src="footer.png" className="mt-4 mb-10 boxShadow" alt="" />
+      <img src="footer.png" className="mt-4 mb-10 boxShadow1" alt="" />
 
       <div className=" mb-2 text-slate-950">
         <div className="ml-3 flex flex-col text-left ">

@@ -29,7 +29,7 @@
   background-color: #f42e9f;
   width: 100%;
   height: 35px;
-  z-index: 9999;
+  z-index: 9;
 }
 
 @keyframes marqueeAnimation {
@@ -85,7 +85,7 @@
 
 .boxShadow {
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.22);
-  z-index: 9999;
+  z-index: 9;
 }
 
 .boxShadow1 {

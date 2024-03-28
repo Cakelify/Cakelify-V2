@@ -29,7 +29,7 @@ export default function MenuBar() {
 
   return (
     <>
-      <div className="w-full boxShadow h-14 bg-white absolute bottom-0 z-30">
+      <div className="w-full boxShadow h-14 bg-white absolute bottom-0 z-30 pr-2">
         <div className="flex justify-around mt-1">
           <div className="flex flex-col justify-center gap-0">
             {selectedButton === 1 && window.location.pathname === "/" ? (

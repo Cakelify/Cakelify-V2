@@ -15,7 +15,7 @@ function App() {
   const adminRoutes = useAdminRoutes();
   return (
     <Router scrollToTop={true}>
-      <div className="App bg-bg-grey">
+      <div className="App ">
         <Toaster position="top-center" />
         <Header />
 

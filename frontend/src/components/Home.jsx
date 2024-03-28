@@ -93,7 +93,7 @@ const Home = () => {
 
       {/* For Mobile Version */}
 
-      <div className="ForMobile bg-bg-grey">
+      <div className="ForMobile ">
         <div className="mt-16 -z-50 ">
           {keyword && <div className="">{/* <Filters /> */}</div>}
           <div className="mt-40 -z-50">
@@ -138,7 +138,7 @@ const Home = () => {
                 {" "}
                 <Link
                   to="/flavourfulCategory/?keyword=Engagement"
-                  className="no-underline text-black "
+                  className="no-underline text-black  "
                 >
                   Engagement💍
                 </Link>

@@ -192,8 +192,8 @@ const Home = () => {
         <div className="flex justify-center mt-6">
           <a
             href="/flavourfulCategory"
-            id="cart_btn"
-            className="btn btn-primary d-inline ms-4 buttonBG"
+            id="view_btn"
+            className="btn btn-primary d-inline ms-4 buttonBG boxShadow"
           >
             View All
           </a>

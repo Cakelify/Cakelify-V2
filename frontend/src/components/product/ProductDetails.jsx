@@ -11,6 +11,8 @@ import NewReview from "../reviews/NewReview";
 import ListReviews from "../reviews/ListReviews";
 import NotFound from "../layout/NotFound";
 import "./button.css";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -113,7 +115,7 @@ const ProductDetails = () => {
         </div>
         <div className="p-3">
           <div className="col-12 col-lg-5 mt-3 ">
-            <h3 className="pl-1 ">{product?.name}</h3>
+            <h3 className="pl-1 fontHeading ">{product?.name}</h3>
             <p className="pl-1" id="product_id">
               Product # {product?._id}
             </p>
@@ -136,10 +138,29 @@ const ProductDetails = () => {
             </div>
             <hr />
 
-            <p className="pl-1" id="product_price">
+            <p className="pl-1 fontHeading text-beta-pink" id="product_price">
               &#8377;{product?.price}
             </p>
-            <div className="stockCounter d-inline pl-1">
+
+            <div className="addCartSection pt-4 pb-4 d-flex align-items-center ml-1 ">
+              <div className="counterSec flex">
+                <input
+                  type="number"
+                  className="form-control count d-inline pt-2"
+                  value={quantity}
+                  readonly
+                />
+                <div className="mr-2">
+                  <span className="arrow plus" onClick={increseQty}>
+                    <KeyboardArrowUpIcon />
+                  </span>
+                  <span className="arrow minus" onClick={decreseQty}>
+                    <KeyboardArrowDownIcon />
+                  </span>
+                </div>
+              </div>
+
+              {/* <div className="stockCounter d-inline pl-1">
               <span className="btn btn-danger minus" onClick={decreseQty}>
                 -
               </span>
@@ -152,17 +173,16 @@ const ProductDetails = () => {
               <span className="btn btn-primary plus" onClick={increseQty}>
                 +
               </span>
+            </div> */}
+              <button
+                type="button"
+                className="buttonBG ml-6 p-2.5 rounded-md bg-beta-pink text-white font-semibold"
+                disabled={product?.stock <= 0}
+                onClick={setItemToCart}
+              >
+                Add to Cart
+              </button>
             </div>
-            <button
-              type="button"
-              id="cart_btn"
-              className="btn btn-primary d-inline ms-4 buttonBG"
-              disabled={product?.stock <= 0}
-              onClick={setItemToCart}
-            >
-              Add to Cart
-            </button>
-
             <hr />
 
             <p className="pl-1">
@@ -178,7 +198,7 @@ const ProductDetails = () => {
             <hr />
 
             <h5 className="mt-2 pl-1 ">Description:</h5>
-            <p className="pl-1 text-md fontStyle tracking-normal wordSpacing p-2">
+            <p className="pl-1 fontStyle tracking-normal wordSpacing text-slate-100p-2">
               {product?.description}
             </p>
             <hr />

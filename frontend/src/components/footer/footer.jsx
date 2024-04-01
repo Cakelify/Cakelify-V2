@@ -1,5 +1,4 @@
 import React from "react";
-import "./footer.css";
 
 import Icon1 from "./icon-1.svg";
 import Icon2 from "./icon-2.svg";
@@ -68,11 +67,11 @@ const Footer = () => {
                   Senapati Nagar Dighori Nagpur
                 </p> */}
                 <p className="mb-1">
-                  <HeadphonesOutlinedIcon className="text-alpha-pink" />{" "}
+                  <HeadphonesOutlinedIcon className="text-beta-pink" />{" "}
                   <strong>Call Us:</strong> (+91) - 7875380727{" "}
                 </p>
                 <p>
-                  <EmailOutlinedIcon className="text-alpha-pink" />{" "}
+                  <EmailOutlinedIcon className="text-beta-pink" />{" "}
                   <strong>Email:</strong> hello@cakelify.shop
                 </p>
                 {/* <p>
@@ -135,17 +134,17 @@ const Footer = () => {
                   <ul className="list list-inline">
                     <li className="list-inline-item">
                       <Link to={""}>
-                        <FacebookOutlinedIcon className="text-alpha-pink ml-2" />
+                        <FacebookOutlinedIcon className="text-beta-pink ml-2" />
                       </Link>
                     </li>
                     <li className="list-inline-item">
                       <Link to={""}>
-                        <TwitterIcon className="text-alpha-pink" />
+                        <TwitterIcon className="text-beta-pink" />
                       </Link>
                     </li>
                     <li className="list-inline-item">
                       <Link to={""}>
-                        <InstagramIcon className="text-alpha-pink" />
+                        <InstagramIcon className="text-beta-pink" />
                       </Link>
                     </li>
                   </ul>

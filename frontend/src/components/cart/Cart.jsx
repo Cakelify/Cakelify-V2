@@ -67,7 +67,7 @@ const Cart = () => {
       ) : (
         <>
           <hr />
-          <h4 className="mt-36 text-red-700">
+          <h4 className="mt-36 text-beta-pink font-bold">
             My Cart(<>{cartItems?.length} items)</>
           </h4>
 

@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&display=swap");
 
 .button-6 {
   align-items: center;
@@ -57,5 +59,41 @@
 }
 
 .fontStyle {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Lato", sans-serif;
+}
+
+.fontHeading {
+  font-family: "Quicksand", sans-serif;
+}
+
+.addCartSection {
+  width: 100%;
+  height: auto;
+}
+
+.addCartSection .counterSec {
+  width: 22%;
+  height: auto;
+  border-radius: 8px;
+  border: 1.5px solid #f42e9f !important;
+  overflow: hidden;
+  padding-left: 10px;
+}
+
+.addCartSection .counterSec input {
+  width: 30px;
+  height: 40px;
+  border: 0px;
+  outline: none !important;
+  text-align: center;
+  padding: 0px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }

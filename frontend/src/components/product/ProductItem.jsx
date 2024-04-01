@@ -63,7 +63,7 @@ const ProductItem = ({ product, columnSize }) => {
             <a
               href={`/product/${product?._id}`}
               id="view_btn"
-              className="button-6 buttonBG"
+              className="button-6 buttonBG "
             >
               View Details
             </a>

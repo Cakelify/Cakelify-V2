@@ -59,7 +59,7 @@
 }
 
 .fontStyle {
-  font-family: "Lato", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .fontHeading {
@@ -96,4 +96,26 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+/* .detailsPageTabs {
+  border-radius: 15px !important;
+} */
+
+/* .customTabs ul li {
+  border-radius: 15px !important;
+} */
+
+.customTabs ul li button {
+  padding: 5px 15px !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  font-size: 14px !important;
+  text-transform: capitalize !important;
+  border-radius: 30px !important;
+  color: #000;
+}
+
+.customTabs ul li button.active {
+  color: #f42e9f;
+  font-weight: 600;
 }

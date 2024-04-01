@@ -189,11 +189,11 @@ const Home = () => {
             </div>
           </section>
         </div>
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-6 mr-3">
           <a
             href="/flavourfulCategory"
             id="view_btn"
-            className="btn btn-primary d-inline ms-4 buttonBG boxShadow"
+            className="btn btn-primary d-inline ms-4 buttonBG "
           >
             View All
           </a>

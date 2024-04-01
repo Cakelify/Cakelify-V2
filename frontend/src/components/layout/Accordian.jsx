@@ -10,7 +10,7 @@ export default function Accordian({ title, answer }) {
         className="flex justify-between w-full"
       >
         {accordionOpen ? (
-          <span className="font-semibold text-xl text-red-600 font-extrabold">
+          <span className="font-semibold text-xl text-beta-pink font-extrabold">
             {title}
           </span>
         ) : (

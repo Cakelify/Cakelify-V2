@@ -13,6 +13,7 @@ import NotFound from "../layout/NotFound";
 import "./button.css";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Button } from "@mui/material";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -26,6 +27,8 @@ const ProductDetails = () => {
   );
   const product = data?.product;
   const { isAuthenticated } = useSelector((state) => state.auth);
+
+  const [activeTabs, setActiveTabs] = useState(0);
 
   useEffect(() => {
     setActiveImg(
@@ -197,11 +200,51 @@ const ProductDetails = () => {
 
             <hr />
 
-            <h5 className="mt-2 pl-1 ">Description:</h5>
-            <p className="pl-1 fontStyle tracking-normal wordSpacing text-slate-100p-2">
+            <div className="card mt-3 p-3 detailsPageTabs">
+              <div className="customTabs">
+                <ul className="list list-inline">
+                  <li className="list-inline-item">
+                    <Button
+                      className={`${activeTabs === 0 && "active"}`}
+                      onClick={() => setActiveTabs(0)}
+                    >
+                      Description
+                    </Button>
+                  </li>
+                  <li className="list-inline-item">
+                    <Button
+                      className={`${activeTabs === 1 && "active"}`}
+                      onClick={() => setActiveTabs(1)}
+                    >
+                      {" "}
+                      Reviews
+                    </Button>
+                  </li>
+                </ul>
+                <br />
+                {activeTabs === 0 && (
+                  <div className="tabContent">
+                    <p className="pl-1 font-sans tracking-normal wordSpacing text-slate-100p-2">
+                      {product?.description}
+                    </p>
+                  </div>
+                )}
+
+                {activeTabs === 1 && (
+                  <div className="tabContent">
+                    {product?.reviews?.length > 0 && (
+                      <ListReviews reviews={product?.reviews} />
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* <h5 className="mt-2 pl-1 ">Description:</h5>
+            <p className="pl-1 font-sans tracking-normal wordSpacing text-slate-100p-2">
               {product?.description}
-            </p>
-            <hr />
+            </p> */}
+
             {/* <p id="product_seller mb-3" className="pl-1 ">
               Sold by: <strong>{product?.seller}</strong>
             </p> */}
@@ -214,10 +257,10 @@ const ProductDetails = () => {
               </div>
             )}
           </div>
-
-          {product?.reviews?.length > 0 && (
+          <hr />
+          {/* {product?.reviews?.length > 0 && (
             <ListReviews reviews={product?.reviews} />
-          )}
+          )} */}
         </div>
       </div>
     </>

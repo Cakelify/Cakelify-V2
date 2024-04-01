@@ -3,14 +3,12 @@ import StarRatings from "react-star-ratings";
 
 const ListReviews = ({ reviews }) => {
   return (
-    <div class="reviews p-2">
-      <h3>Other's Reviews:</h3>
-      <hr />
+    <div class="reviews ">
       {reviews?.map((review) => (
         <div key={review?._id} class="review-card my-3">
           <div class="row">
-            <div class="col-1">
-              {/* <img
+            <div class="p-0">
+              <img
                 src={
                   review?.user?.avatar
                     ? review?.user?.avatar?.url
@@ -19,10 +17,10 @@ const ListReviews = ({ reviews }) => {
                 alt="User Name"
                 width="50"
                 height="50"
-                class="rounded-circle"
-              /> */}
+                className="rounded-circle w-24 h-24"
+              />
             </div>
-            <div class="">
+            <div class="m-0">
               <StarRatings
                 rating={review?.rating}
                 starRatedColor="#ffb829"

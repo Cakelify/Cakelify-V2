@@ -26,6 +26,7 @@ import "swiper/css/navigation";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import MenuBar from "./layout/MenuBar";
+import CatSlider from "./catSlider";
 
 const Home = () => {
   let [searchParams] = useSearchParams();
@@ -122,28 +123,10 @@ const Home = () => {
             </Swiper>
           </div>
           <div className="pt-2">
-            <h2 className="mt-6 mb-3 ml-2 text-lg font-bold">
+            <h2 className="mt-8 mb-3 ml-2 text-lg font-bold">
               Eventful Indulgences
             </h2>
-            <div className="flex flex-wrap justify-around p-2 ">
-              <div className="border-2 rounded-xl  py-3 w-40 text-center font-semibold">
-                <Link
-                  to="/flavourfulCategory/?keyword=Anniversary"
-                  className="no-underline text-black"
-                >
-                  Anniversary 💖
-                </Link>
-              </div>
-              <div className="border-2 rounded-xl font-semibold w-40 text-center   ml-1  flex flex-col justify-center">
-                {" "}
-                <Link
-                  to="/flavourfulCategory/?keyword=Engagement"
-                  className="no-underline text-black  "
-                >
-                  Engagement💍
-                </Link>
-              </div>
-            </div>
+            <CatSlider />
           </div>
           <h5 className="mt-6 mb-3 ml-2 text-lg font-bold"> Offers for you</h5>
           <div className="Offer m-2 rounded-md text-white mt-3 max-w-46">

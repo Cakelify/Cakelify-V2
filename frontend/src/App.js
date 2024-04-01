@@ -2,13 +2,13 @@ import "./App.css";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import { Toaster } from "react-hot-toast";
 
 import useUserRoutes from "./components/routes/userRoutes";
 import useAdminRoutes from "./components/routes/adminRoutes";
 import NotFound from "./components/layout/NotFound";
+import Footer from "./components/footer/footer";
 
 function App() {
   const userRoutes = useUserRoutes();

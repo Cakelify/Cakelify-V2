@@ -93,13 +93,13 @@ const ConfirmOrder = () => {
             </p>
 
             <hr />
-            <Link
-              to="/payment_method"
+            <a
+              href="/payment_method"
               id="checkout_btn"
               className="btn btn-primary w-100"
             >
               Proceed to Payment
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -86,6 +86,11 @@ const Footer = () => {
                     <h3 className="mt-3 mb-3 text-black ">More Info</h3>
                     <ul className="m-0 p-0">
                       <li>
+                        <a className="no-underline text-black" href="/aboutus">
+                          About Us
+                        </a>
+                      </li>
+                      <li>
                         <a
                           className="no-underline text-black"
                           href="/shippinganddelivery"

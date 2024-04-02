@@ -25,6 +25,7 @@ import CancellationAndRefund from "../businessPolicy/CancellationandRefund";
 import ContactUs from "../businessPolicy/ContactUs";
 import ShippingAndDelivery from "../businessPolicy/ShippingAndDelivery";
 import TermsAndConditions from "../businessPolicy/TermsAndConditions";
+import AboutUs from "../businessPolicy/AboutUs";
 
 const userRoutes = () => {
   return (
@@ -39,6 +40,7 @@ const userRoutes = () => {
       <Route path="/contactus" element={<ContactUs />} />
       <Route path="/shippinganddelivery" element={<ShippingAndDelivery />} />
       <Route path="/termsandconditions" element={<TermsAndConditions />} />
+      <Route path="/aboutus" element={<AboutUs />} />
       <Route path="/product/:id" element={<ProductDetails />} />
       <Route path="/flavourfulCategory" element={<FlavourCategory />} />
       <Route path="/login" element={<Login />} />

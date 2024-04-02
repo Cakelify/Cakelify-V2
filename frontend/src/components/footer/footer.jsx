@@ -86,30 +86,45 @@ const Footer = () => {
                     <h3 className="mt-3 mb-3 text-black ">More Info</h3>
                     <ul className="m-0 p-0">
                       <li>
-                        <Link className="no-underline text-black" to="#">
-                          About Us
-                        </Link>
+                        <a
+                          className="no-underline text-black"
+                          href="/shippinganddelivery"
+                        >
+                          Shipping And Delivery
+                        </a>
                       </li>
 
                       <li>
-                        <Link className="no-underline text-black" to="#">
+                        <a
+                          className="no-underline text-black"
+                          href="/privacypolicy"
+                        >
                           Privacy Policy
-                        </Link>
+                        </a>
                       </li>
                       <li>
-                        <Link className="no-underline text-black" to="#">
+                        <a
+                          className="no-underline text-black"
+                          href="/termsandconditions"
+                        >
                           Terms &amp; Conditions
-                        </Link>
+                        </a>
                       </li>
                       <li>
-                        <Link className="no-underline text-black" to="#">
+                        <a
+                          className="no-underline text-black"
+                          href="/contactus"
+                        >
                           Contact Us
-                        </Link>
+                        </a>
                       </li>
                       <li>
-                        <Link className="no-underline text-black" to="#">
+                        <a
+                          className="no-underline text-black"
+                          href="/cancellationandrefund"
+                        >
                           Cancellation and Refund
-                        </Link>
+                        </a>
                       </li>
                     </ul>
                   </div>

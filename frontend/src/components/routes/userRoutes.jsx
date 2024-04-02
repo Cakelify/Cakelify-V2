@@ -20,12 +20,25 @@ import Invoice from "../invoice/Invoice";
 import Home from "../Home";
 import { Route } from "react-router-dom";
 import FlavourCategory from "../layout/Category";
+import PrivacyPolicy from "../businessPolicy/PrivacyPolicy";
+import CancellationAndRefund from "../businessPolicy/CancellationandRefund";
+import ContactUs from "../businessPolicy/ContactUs";
+import ShippingAndDelivery from "../businessPolicy/ShippingAndDelivery";
+import TermsAndConditions from "../businessPolicy/TermsAndConditions";
 
 const userRoutes = () => {
   return (
     <>
       {" "}
       <Route path="/" element={<Home />} />
+      <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+      <Route
+        path="/cancellationandrefund"
+        element={<CancellationAndRefund />}
+      />
+      <Route path="/contactus" element={<ContactUs />} />
+      <Route path="/shippinganddelivery" element={<ShippingAndDelivery />} />
+      <Route path="/termsandconditions" element={<TermsAndConditions />} />
       <Route path="/product/:id" element={<ProductDetails />} />
       <Route path="/flavourfulCategory" element={<FlavourCategory />} />
       <Route path="/login" element={<Login />} />

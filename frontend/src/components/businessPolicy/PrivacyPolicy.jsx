@@ -7,13 +7,13 @@ const PrivacyPolicy = () => {
   return (
     <div className="p-3 mt-36">
       <MetaData title={"Privacy Policy"} />
-      <h3>Privacy Policy for Cakelify</h3>
-      <h5>
+      <h5>Privacy Policy for Cakelify</h5>
+      <h6>
         At Cakelify, we value your privacy and are committed to protecting your
         personal information. This Privacy Policy outlines how we collect, use,
         and safeguard your information when you visit our website or make a
         purchase from us
-      </h5>
+      </h6>
       <ol>
         <li>
           Information We Collect: - When you visit our website, we may collect
@@ -51,13 +51,13 @@ const PrivacyPolicy = () => {
           you consent to the terms of this Privacy Policy.
         </li>
       </ol>
-      <h5>
+      <h6>
         If you have any questions or concerns about our privacy practices,
         please contact us <br />
         Cakelify <br />
         hello@cakelify.shop <br />
         7875380727
-      </h5>
+      </h6>
     </div>
   );
 };

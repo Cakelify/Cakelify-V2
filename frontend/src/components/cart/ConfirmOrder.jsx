@@ -66,10 +66,10 @@ const ConfirmOrder = () => {
   const checkoutHandler = async (amount) => {
     const {
       data: { key },
-    } = await axios.get("http://www.localhost:4000/api/v1/getkey");
+    } = await axios.get("/api/v1/getkey");
     const {
       data: { order },
-    } = await axios.post("http://localhost:4000/api/v1/checkout", {
+    } = await axios.post("/api/v1/checkout", {
       amount,
     });
     const options = {
@@ -81,7 +81,7 @@ const ConfirmOrder = () => {
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ8J1P1RQRL9r7A7Mh5WqI6QZCL145mX9PXQ&s",
       order_id: order.id,
-      callback_url: "http://localhost:4000/api/v1/paymentverification",
+      callback_url: "/api/v1/paymentverification",
       prefill: {
         name: "Vrushali kalaskar",
         email: "vrushalikalaskarkk143@gmail.com",

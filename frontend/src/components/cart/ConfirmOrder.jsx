@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MetaData from "../layout/MetaData";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { caluclateOrderCost } from "../../helpers/helpers";
+import axios from "axios";
+import But from "./But";
+import { useCreateNewOrderMutation } from "../../redux/api/orderApi";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const ConfirmOrder = () => {
   const { cartItems, shippingInfo } = useSelector((state) => state.cart);
@@ -10,6 +15,88 @@ const ConfirmOrder = () => {
 
   const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
     caluclateOrderCost(cartItems);
+
+  const [method, setMethod] = useState("");
+
+  const navigate = useNavigate();
+
+  const [createNewOrder, { isLoading, error, isSuccess }] =
+    useCreateNewOrderMutation();
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error?.data?.message);
+    }
+
+    if (isSuccess) {
+      navigate("/me/orders?order_success=true");
+    }
+  }, [error, isSuccess]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
+      caluclateOrderCost(cartItems);
+
+    if (method === "COD") {
+      // Create COD Order
+      const orderData = {
+        shippingInfo,
+        orderItems: cartItems,
+        itemsPrice,
+        shippingAmount: shippingPrice,
+        taxAmount: taxPrice,
+        totalAmount: totalPrice,
+        paymentInfo: {
+          status: "Not Paid",
+        },
+        paymentMethod: "COD",
+      };
+
+      createNewOrder(orderData);
+    }
+
+    if (method === "Card") {
+      // Stripe Checkout
+      // alert("Card");
+    }
+  };
+
+  const checkoutHandler = async (amount) => {
+    const {
+      data: { key },
+    } = await axios.get("http://www.localhost:4000/api/v1/getkey");
+    const {
+      data: { order },
+    } = await axios.post("http://localhost:4000/api/v1/checkout", {
+      amount,
+    });
+    const options = {
+      key,
+      amount: order.amount,
+      currency: "INR",
+      name: "Cakelify",
+      description: "Tutorial of Razorpay",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ8J1P1RQRL9r7A7Mh5WqI6QZCL145mX9PXQ&s",
+      order_id: order.id,
+      callback_url: "http://localhost:4000/api/v1/paymentverification",
+      prefill: {
+        name: "Vrushali kalaskar",
+        email: "vrushalikalaskarkk143@gmail.com",
+        contact: "9890473307",
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#121212",
+      },
+    };
+    const razor = new window.Razorpay(options);
+    razor.open();
+  };
 
   return (
     <>
@@ -93,13 +180,38 @@ const ConfirmOrder = () => {
             </p>
 
             <hr />
-            <a
-              href="/payment_method"
-              id="checkout_btn"
-              className="btn btn-primary w-100"
-            >
-              Proceed to Payment
-            </a>
+            <form className="" onSubmit={submitHandler}>
+              <h2 className="mb-4 mt-12 ml-4">Select Payment Method</h2>
+
+              <div className="">
+                <button
+                  name="payment_mode"
+                  value="COD"
+                  onClick={(e) => setMethod("COD")}
+                  id="checkout_btn"
+                  type="submit"
+                  className="h-12 text-white font-semibold w-100 "
+                >
+                  Cash on Delivery
+                </button>
+              </div>
+              <div className="">
+                {/* <button
+                  className="h-12 text-white font-semibold w-100 "
+                  type="radio"
+                  name="payment_mode"
+                  // id="cardradio"
+                  value="Card"
+                  onClick={(e) => setMethod("Card")}
+                >
+                </button> */}
+
+                <But amount={totalPrice} checkoutHandler={checkoutHandler} />
+                {/* <label className="form-check-label" htmlFor="cardradio">
+                  Card - VISA, MasterCard
+                </label> */}
+              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ export const orderApi = createApi({
       query: (id) => `/orders/${id}`,
       providesTags: ["Order"],
     }),
-    stripeCheckoutSession: builder.mutation({
+    razorpayCheckoutSession: builder.mutation({
       query(body) {
         return {
           url: "/payment/checkout_session",
@@ -62,7 +62,7 @@ export const orderApi = createApi({
 
 export const {
   useCreateNewOrderMutation,
-  useStripeCheckoutSessionMutation,
+  useRazorpayCheckoutSessionMutation,
   useMyOrdersQuery,
   useOrderDetailsQuery,
   useLazyGetDashboardSalesQuery,

@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { connectDatabase } from "./config/dbConnect.js";
 import errorMiddleware from "./middlewares/errors.js";
+import paymentRoute from "./routes/paymentRoutes.js";
+import cors from "cors";
+import Razorpay from "razorpay";
 
 import path from "path";
 // import { fileURLToPath } from "url";
@@ -24,6 +27,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 // Connecting to database
 connectDatabase();
 
+app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 
@@ -36,6 +40,7 @@ import { fileURLToPath } from "url";
 app.use("/api/v1", productRoutes);
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", orderRoutes);
+app.use("/api/v1", paymentRoute);
 
 if (process.env.NODE_ENV === "PRODUCTION") {
   app.use(express.static(path.join(__dirname, "../frontend/build")));
@@ -44,6 +49,15 @@ if (process.env.NODE_ENV === "PRODUCTION") {
     res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
   });
 }
+
+export const instance = new Razorpay({
+  key_id: process.env.RAZORPAY_API_KEY,
+  key_secret: process.env.RAZORPAY_API_SECRET,
+});
+
+app.get("/api/v1/getkey", (req, res) =>
+  res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
+);
 
 // Using error middleware
 app.use(errorMiddleware);

@@ -26,6 +26,7 @@ import ContactUs from "../businessPolicy/ContactUs";
 import ShippingAndDelivery from "../businessPolicy/ShippingAndDelivery";
 import TermsAndConditions from "../businessPolicy/TermsAndConditions";
 import AboutUs from "../businessPolicy/AboutUs";
+import OrderSuccess from "../cart/orderSuccess";
 
 const userRoutes = () => {
   return (
@@ -101,6 +102,14 @@ const userRoutes = () => {
         element={
           <ProtectedRoute>
             <PaymentMethod />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/ordersuccess"
+        element={
+          <ProtectedRoute>
+            <OrderSuccess />
           </ProtectedRoute>
         }
       />

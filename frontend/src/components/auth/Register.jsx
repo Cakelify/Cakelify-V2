@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import MetaData from "../layout/MetaData";
+import "./bgImage.css";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -47,7 +48,7 @@ const Register = () => {
   return (
     <>
       <MetaData title={"Register"} />
-      <div className="row wrapper">
+      <div className="row wrapper bgImage">
         <div className="col-10 col-lg-5">
           <form className="shadow rounded bg-body" onSubmit={submitHandler}>
             <h2 className="mb-4 mt-28">Register</h2>

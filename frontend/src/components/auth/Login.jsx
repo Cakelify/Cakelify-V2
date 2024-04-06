@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import MetaData from "../layout/MetaData";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./bgImage.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -38,7 +39,7 @@ const Login = () => {
   return (
     <>
       <MetaData title={"Login"} />
-      <div className="row wrapper mt-4 h-auto">
+      <div className="row wrapper mt-4 h-auto bgImage">
         <div className="col-10 col-lg-5">
           <form className="shadow rounded bg-body" onSubmit={submitHandler}>
             <h2 className="mb-4 mt-24">Login</h2>

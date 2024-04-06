@@ -4,6 +4,7 @@ import Icon1 from "./icon-1.svg";
 import Icon2 from "./icon-2.svg";
 import Icon3 from "./icon-3.svg";
 import { Link } from "react-router-dom";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import HeadphonesOutlinedIcon from "@mui/icons-material/HeadphonesOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
@@ -152,18 +153,18 @@ const Footer = () => {
                 <div className="d-flex align-items-center">
                   <h5 className="mb-3 mr-2">Follow Us</h5>
                   <ul className="list list-inline">
-                    <li className="list-inline-item">
+                    {/* <li className="list-inline-item">
                       <Link to={""}>
                         <FacebookOutlinedIcon className="text-beta-pink ml-2" />
                       </Link>
-                    </li>
+                    </li> */}
                     <li className="list-inline-item">
-                      <Link to={""}>
-                        <TwitterIcon className="text-beta-pink" />
+                      <Link to={"https://wa.me/+918830641796"}>
+                        <WhatsAppIcon className="text-beta-pink" />
                       </Link>
                     </li>
                     <li className="list-inline-item">
-                      <Link to={""}>
+                      <Link to={"https://instagram.com/cakelify.in"}>
                         <InstagramIcon className="text-beta-pink" />
                       </Link>
                     </li>

@@ -627,3 +627,14 @@ footer {
 .bg-shadow {
   box-shadow: rgba(0, 0, 0, 0.176) 40px 60px 60px -20px;
 }
+
+.fly-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.fly-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

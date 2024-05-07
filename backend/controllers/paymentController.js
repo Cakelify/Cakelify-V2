@@ -40,6 +40,6 @@ export const paymentVerification = async (req, res) => {
       `http://localhost:3000/paymentsuccess?.reference=${razorpay_payment_id}`
     );
   } else {
-    res.redirect(`http://cakelify.shop/ordersuccess`);
+    res.redirect(`http://cakelify.in/ordersuccess`);
   }
 };

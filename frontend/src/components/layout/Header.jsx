@@ -9,11 +9,14 @@ import { useLazyLogoutQuery } from "../../redux/api/authApi";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import "./Header.css";
 import MarqueeAnnouncement from "./Marquee";
+import { Fragment, useState } from "react";
+import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const Header = () => {
   const navigate = useNavigate();
   const { isLoading } = useGetMeQuery();
-
+  const [open, setOpen] = useState(false);
   const [logout] = useLazyLogoutQuery();
 
   const { user } = useSelector((state) => state.auth);
@@ -37,83 +40,179 @@ const Header = () => {
 
       <nav className="pt-1 p-0 mt-4 boxShadow bg-transparent-grey fixed top-3 w-full z-50 ">
         <div className="custom-nav-div">
-          {user ? (
-            <div className="mt-2">
-              <button
-                className="btn dropdown-toggle text-white"
-                type="button"
-                id="dropDownMenuButton"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+          <Transition.Root show={open} as={Fragment}>
+            <Dialog
+              as="div"
+              className="relative z-40 lg:hidden"
+              onClose={setOpen}
+            >
+              <Transition.Child
+                as={Fragment}
+                enter="transition-opacity ease-linear duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="transition-opacity ease-linear duration-300"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
               >
-                <figure className="avatar avatar-nav">
-                  <img
-                    src={
-                      user?.avatar
-                        ? user?.avatar?.url
-                        : "/images/default_avatar.jpg"
-                    }
-                    alt="User Avatar"
-                    className="rounded-circle"
-                  />
-                </figure>
-              </button>
-              <div
-                className="dropdown-menu w-100"
-                aria-labelledby="dropDownMenuButton"
-              >
-                <span
-                  className="dropdown-item"
-                  style={{ fontFamily: "cursive" }}
-                >
-                  Hello {user.name}😊
-                </span>
-                {user?.role === "admin" && (
-                  <Link className="dropdown-item" to="/admin/dashboard">
-                    {" "}
-                    Dashboard{" "}
-                  </Link>
-                )}
+                <div className="fixed inset-0 bg-black bg-opacity-25" />
+              </Transition.Child>
 
-                <Link
-                  className="dropdown-item text-danger"
-                  to="/"
-                  onClick={logoutHandler}
+              <div className="fixed inset-0 z-40 flex">
+                <Transition.Child
+                  as={Fragment}
+                  enter="transition ease-in-out duration-300 transform"
+                  enterFrom="-translate-x-full"
+                  enterTo="translate-x-0"
+                  leave="transition ease-in-out duration-300 transform"
+                  leaveFrom="translate-x-0"
+                  leaveTo="-translate-x-full"
                 >
-                  {" "}
-                  Logout{" "}
-                </Link>
+                  <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+                    <div className="flex px-4 pb-2 pt-5">
+                      <button
+                        type="button"
+                        className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+                        onClick={() => setOpen(false)}
+                      >
+                        <span className="absolute -inset-0.5" />
+                        <span className="sr-only">Close menu</span>
+                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                      </button>
+                    </div>
+
+                    {/* Links */}
+
+                    <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                      <ul className="m-0 p-0">
+                        <h3>
+                          <li className="mb-3">
+                            <a
+                              className="no-underline text-black"
+                              href="/aboutus"
+                            >
+                              About Us
+                            </a>
+                          </li>
+                          <li className="mb-3">
+                            <a
+                              className="no-underline text-black"
+                              href="/shippinganddelivery"
+                            >
+                              Shipping And Delivery
+                            </a>
+                          </li>
+
+                          <li className="mb-3">
+                            <a
+                              className="no-underline text-black"
+                              href="/privacypolicy"
+                            >
+                              Privacy Policy
+                            </a>
+                          </li>
+                          <li className="mb-3">
+                            <a
+                              className="no-underline text-black"
+                              href="/termsandconditions"
+                            >
+                              Terms &amp; Conditions
+                            </a>
+                          </li>
+                          <li className="mb-3">
+                            <a
+                              className="no-underline text-black"
+                              href="/contactus"
+                            >
+                              Contact Us
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              className="no-underline text-black"
+                              href="/cancellationandrefund"
+                            >
+                              Cancellation and Refund
+                            </a>
+                          </li>
+                        </h3>
+                      </ul>
+
+                      {user ? (
+                        <div>
+                          <div>
+                            <h5 className="" style={{ fontFamily: "cursive" }}>
+                              Hello {user.name}😊
+                            </h5>
+
+                            <Link
+                              to="/"
+                              className="-m-2 block p-2 font-medium text-gray-900"
+                              onClick={logoutHandler}
+                            >
+                              {" "}
+                              Logout{" "}
+                            </Link>
+                          </div>
+                        </div>
+                      ) : (
+                        !isLoading && (
+                          <div className="flow-root">
+                            <Link
+                              to="/login"
+                              className="-m-2 block p-2 font-medium text-gray-900"
+                            >
+                              {" "}
+                              Sign in
+                            </Link>
+                          </div>
+                        )
+                      )}
+
+                      {user?.role === "admin" && (
+                        <div className="flow-root">
+                          <Link
+                            className="-m-2 block p-2 font-medium text-gray-900"
+                            to="/admin/dashboard"
+                          >
+                            {" "}
+                            Dashboard{" "}
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
               </div>
-            </div>
-          ) : (
-            !isLoading && (
-              <Link to="/login" className="avatar avatar-nav">
-                {" "}
-                <img src="/images/default_avatar.jpg" id="login_btn" alt="" />
-              </Link>
-            )
-          )}
+            </Dialog>
+          </Transition.Root>
+          <button
+            type="button"
+            className="relative rounded-md ml-2 p-2 text-gray-800 lg:hidden"
+            onClick={() => setOpen(true)}
+          >
+            <span className="absolute -inset-0.5" />
+            <span className="sr-only">Open menu</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
 
           <a style={{ textDecoration: "none" }} href="/">
-            <img src={CakelifyLogo} className="w-36 mr-5 z-50" alt="" />
+            <img src={CakelifyLogo} className="w-36 z-50" alt="" />
           </a>
 
           <a
             href="/cart"
-            className="a-cart mt-3"
+            className="a-cart mt-3 "
             style={{ textDecoration: "none" }}
           >
-            <span id="cart" className="ms-3">
+            <span id="cart" className="">
               {" "}
-              <ShoppingCartRoundedIcon className="cartIcon" />
+              <ShoppingCartRoundedIcon className="cartIcon ml-3" />
               <span className="cart_count" id="cart_count">
                 {cartItems?.length}
               </span>{" "}
             </span>
           </a>
-          {/* <div className="mr-2 mt-2.5">
-            <MenuIcon />
-          </div> */}
         </div>
 
         <div className="mx-2 mb-1">
@@ -126,17 +225,7 @@ const Header = () => {
 
 export default Header;
 
-// import { Fragment, useState } from "react";
-// import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
-// import {
-//   Bars3Icon,
-//   MagnifyingGlassIcon,
-//   ShoppingBagIcon,
-//   XMarkIcon,
-// } from "@heroicons/react/24/outline";
-
 // export default function NavigationBar() {
-//   const [open, setOpen] = useState(false);
 
 //   const navigate = useNavigate();
 //   const { isLoading } = useGetMeQuery();
@@ -162,82 +251,6 @@ export default Header;
 //   return (
 //     <div className="bg-white">
 //       {/* Mobile menu */}
-//       <Transition.Root show={open} as={Fragment}>
-//         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
-//           <Transition.Child
-//             as={Fragment}
-//             enter="transition-opacity ease-linear duration-300"
-//             enterFrom="opacity-0"
-//             enterTo="opacity-100"
-//             leave="transition-opacity ease-linear duration-300"
-//             leaveFrom="opacity-100"
-//             leaveTo="opacity-0"
-//           >
-//             <div className="fixed inset-0 bg-black bg-opacity-25" />
-//           </Transition.Child>
-
-//           <div className="fixed inset-0 z-40 flex">
-//             <Transition.Child
-//               as={Fragment}
-//               enter="transition ease-in-out duration-300 transform"
-//               enterFrom="-translate-x-full"
-//               enterTo="translate-x-0"
-//               leave="transition ease-in-out duration-300 transform"
-//               leaveFrom="translate-x-0"
-//               leaveTo="-translate-x-full"
-//             >
-//               <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
-//                 <div className="flex px-4 pb-2 pt-5">
-//                   <button
-//                     type="button"
-//                     className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
-//                     onClick={() => setOpen(false)}
-//                   >
-//                     <span className="absolute -inset-0.5" />
-//                     <span className="sr-only">Close menu</span>
-//                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-//                   </button>
-//                 </div>
-
-//                 {/* Links */}
-
-//                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-//                   <div className="flow-root">
-//                     <a
-//                       href="#"
-//                       className="-m-2 block p-2 font-medium text-gray-900"
-//                     >
-//                       Sign in
-//                     </a>
-//                   </div>
-//                   <div className="flow-root">
-//                     <a
-//                       href="#"
-//                       className="-m-2 block p-2 font-medium text-gray-900"
-//                     >
-//                       Create account
-//                     </a>
-//                   </div>
-//                 </div>
-
-//                 <div className="border-t border-gray-200 px-4 py-6">
-//                   <a href="#" className="-m-2 flex items-center p-2">
-//                     <img
-//                       src="https://tailwindui.com/img/flags/flag-canada.svg"
-//                       alt=""
-//                       className="block h-auto w-5 flex-shrink-0"
-//                     />
-//                     <span className="ml-3 block text-base font-medium text-gray-900">
-//                       CAD
-//                     </span>
-//                     <span className="sr-only">, change currency</span>
-//                   </a>
-//                 </div>
-//               </Dialog.Panel>
-//             </Transition.Child>
-//           </div>
-//         </Dialog>
-//       </Transition.Root>
 
 //       <header className="relative bg-white">
 //         <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
@@ -250,15 +263,6 @@ export default Header;
 //         >
 //           <div className="border-b border-gray-200">
 //             <div className="flex h-16 items-center">
-//               <button
-//                 type="button"
-//                 className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
-//                 onClick={() => setOpen(true)}
-//               >
-//                 <span className="absolute -inset-0.5" />
-//                 <span className="sr-only">Open menu</span>
-//                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-//               </button>
 
 //               {/* Logo */}
 //               <div className="ml-4 flex lg:ml-0">

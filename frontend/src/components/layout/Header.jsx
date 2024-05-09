@@ -87,7 +87,7 @@ const Header = () => {
 
                     <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                       <ul className="m-0 p-0">
-                        <h3>
+                        <h5>
                           <li className="mb-3">
                             <a
                               className="no-underline text-black"
@@ -142,15 +142,15 @@ const Header = () => {
                             </a>
                           </li>
                           <hr />
-                        </h3>
+                        </h5>
                       </ul>
 
                       {user ? (
                         <div>
                           <div>
-                            <h5 className="" style={{ fontFamily: "cursive" }}>
+                            <h6 className="" style={{ fontFamily: "cursive" }}>
                               Hello {user.name}😊
-                            </h5>
+                            </h6>
 
                             <Link
                               to="/"

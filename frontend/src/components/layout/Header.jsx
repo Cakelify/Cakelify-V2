@@ -12,6 +12,8 @@ import MarqueeAnnouncement from "./Marquee";
 import { Fragment, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -94,6 +96,7 @@ const Header = () => {
                               About Us
                             </a>
                           </li>
+                          <hr />
                           <li className="mb-3">
                             <a
                               className="no-underline text-black"
@@ -102,7 +105,7 @@ const Header = () => {
                               Shipping And Delivery
                             </a>
                           </li>
-
+                          <hr />
                           <li className="mb-3">
                             <a
                               className="no-underline text-black"
@@ -111,6 +114,7 @@ const Header = () => {
                               Privacy Policy
                             </a>
                           </li>
+                          <hr />
                           <li className="mb-3">
                             <a
                               className="no-underline text-black"
@@ -119,6 +123,7 @@ const Header = () => {
                               Terms &amp; Conditions
                             </a>
                           </li>
+                          <hr />
                           <li className="mb-3">
                             <a
                               className="no-underline text-black"
@@ -127,6 +132,7 @@ const Header = () => {
                               Contact Us
                             </a>
                           </li>
+                          <hr />
                           <li>
                             <a
                               className="no-underline text-black"
@@ -135,6 +141,7 @@ const Header = () => {
                               Cancellation and Refund
                             </a>
                           </li>
+                          <hr />
                         </h3>
                       </ul>
 
@@ -180,6 +187,37 @@ const Header = () => {
                           </Link>
                         </div>
                       )}
+                    </div>
+                    <div className="row lastStrip pl-4 pt-8">
+                      <a style={{ textDecoration: "none" }} href="/">
+                        <img
+                          src={CakelifyLogo}
+                          className="w-36 z-50 pb-2"
+                          alt=""
+                        />
+                      </a>
+                      <div className="col-md-3 part3  part_3">
+                        <div className="d-flex align-items-center">
+                          <h5 className="mb-3 mr-2">Follow Us</h5>
+                          <ul className="list list-inline">
+                            {/* <li className="list-inline-item">
+                      <Link to={""}>
+                        <FacebookOutlinedIcon className="text-beta-pink ml-2" />
+                      </Link>
+                    </li> */}
+                            <li className="list-inline-item">
+                              <Link to={"https://wa.me/+918830641796"}>
+                                <WhatsAppIcon className="text-beta-pink" />
+                              </Link>
+                            </li>
+                            <li className="list-inline-item">
+                              <Link to={"https://instagram.com/cakelify.in"}>
+                                <InstagramIcon className="text-beta-pink" />
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </Dialog.Panel>
                 </Transition.Child>

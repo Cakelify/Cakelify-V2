@@ -87,7 +87,7 @@ const Header = () => {
 
                     <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                       <ul className="m-0 p-0">
-                        <h5>
+                        <h6>
                           <li className="mb-3">
                             <a
                               className="no-underline text-black"
@@ -142,7 +142,16 @@ const Header = () => {
                             </a>
                           </li>
                           <hr />
-                        </h5>
+                          <li className="mb-3">
+                            <a
+                              className="no-underline text-black"
+                              href="/career"
+                            >
+                              Career
+                            </a>
+                          </li>
+                          <hr />
+                        </h6>
                       </ul>
 
                       {user ? (

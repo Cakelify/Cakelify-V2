@@ -7,6 +7,7 @@ import errorMiddleware from "./middlewares/errors.js";
 import paymentRoute from "./routes/paymentRoutes.js";
 import cors from "cors";
 import Razorpay from "razorpay";
+import messageRoute from "./routes/careerRoute.js";
 
 import path from "path";
 // import { fileURLToPath } from "url";
@@ -41,6 +42,7 @@ app.use("/api/v1", productRoutes);
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", orderRoutes);
 app.use("/api/v1", paymentRoute);
+app.use("/api/v1", messageRoute);
 
 if (process.env.NODE_ENV === "PRODUCTION") {
   app.use(express.static(path.join(__dirname, "../frontend/build")));

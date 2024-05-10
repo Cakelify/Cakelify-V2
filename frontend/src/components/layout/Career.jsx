@@ -167,7 +167,11 @@ const Career = () => {
     }
   };
   return (
-    <form className="p-3 mt-36" onSubmit={handleSubmit}>
+    <form
+      className="p-3 mt-36"
+      action="https://formspree.io/f/mqkrjeqw"
+      method="POST"
+    >
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 ">
           <h2 className="font-semibold leading-7 text-gray-900 text-2xl">
@@ -198,7 +202,7 @@ const Career = () => {
                   placeholder="First Name"
                   name="firstName"
                   id="firstName"
-                  autoComplete="firstName"
+                  autoComplete="off"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={handleChange}
                   value={formData.firstName}
@@ -219,7 +223,7 @@ const Career = () => {
                   placeholder="Last Name"
                   name="lastName"
                   id="lastName"
-                  autoComplete="family-name"
+                  autoComplete="ofe"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.lastName}
                   onChange={handleChange}
@@ -244,7 +248,7 @@ const Career = () => {
                   placeholder="Language"
                   name="language"
                   id="language"
-                  autoComplete="language"
+                  autoComplete="off"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={handleChange}
                   value={formData.language}
@@ -266,7 +270,7 @@ const Career = () => {
                   type="number"
                   name="age"
                   id="age"
-                  autoComplete="age"
+                  autoComplete="off"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-600 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.age}
                   onChange={handleChange}
@@ -288,7 +292,7 @@ const Career = () => {
                   id="email"
                   name="email"
                   type="email"
-                  autoComplete="email"
+                  autoComplete="off"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.email}
                   onChange={handleChange}
@@ -313,7 +317,7 @@ const Career = () => {
                   placeholder="Qualification"
                   name="qualification"
                   id="qualification"
-                  autoComplete="qualification"
+                  autoComplete="off"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={handleChange}
                   value={formData.qualification}
@@ -334,7 +338,7 @@ const Career = () => {
                   placeholder="Street address"
                   name="address"
                   id="address"
-                  autoComplete="address"
+                  autoComplete="off"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.address}
                   onChange={handleChange}
@@ -355,7 +359,7 @@ const Career = () => {
                   type="number"
                   name="phone"
                   id="phone"
-                  autoComplete="phone"
+                  autoComplete="off"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.phone}
                   onChange={handleChange}

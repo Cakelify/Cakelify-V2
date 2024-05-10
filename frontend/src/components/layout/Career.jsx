@@ -51,6 +51,7 @@ import React, { useState } from "react";
 //           <label>Message:</label>
 //           <input
 //             type="text"
+
 //             name="message"
 //             value={formData.message}
 //             onChange={handleChange}
@@ -194,10 +195,11 @@ const Career = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  placeholder="First Name"
                   name="firstName"
                   id="firstName"
                   autoComplete="firstName"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={handleChange}
                   value={formData.firstName}
                 />
@@ -214,10 +216,11 @@ const Career = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  placeholder="Last Name"
                   name="lastName"
                   id="lastName"
                   autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.lastName}
                   onChange={handleChange}
                 />
@@ -238,10 +241,11 @@ const Career = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  placeholder="Language"
                   name="language"
                   id="language"
                   autoComplete="language"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={handleChange}
                   value={formData.language}
                 />
@@ -258,11 +262,12 @@ const Career = () => {
 
               <div className="mt-2">
                 <input
+                  placeholder="Age"
                   type="number"
                   name="age"
                   id="age"
                   autoComplete="age"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-600 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.age}
                   onChange={handleChange}
                 />
@@ -279,11 +284,12 @@ const Career = () => {
 
               <div className="mt-2">
                 <input
+                  placeholder="Email"
                   id="email"
                   name="email"
                   type="email"
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.email}
                   onChange={handleChange}
                 />
@@ -297,17 +303,18 @@ const Career = () => {
               >
                 Qualification{" "}
                 <span className=" text-gray-400">
-                  (MBA, MCA, BBA, BCA, BBA,etc)
+                  (MBA, MCA, BBA, BCA, BCCA,etc)
                 </span>
               </label>
 
               <div className="mt-2">
                 <input
                   type="text"
+                  placeholder="Qualification"
                   name="qualification"
                   id="qualification"
                   autoComplete="qualification"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={handleChange}
                   value={formData.qualification}
                 />
@@ -324,10 +331,11 @@ const Career = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  placeholder="Street address"
                   name="address"
                   id="address"
                   autoComplete="address"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.address}
                   onChange={handleChange}
                 />
@@ -348,9 +356,10 @@ const Career = () => {
                   name="phone"
                   id="phone"
                   autoComplete="phone"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.phone}
                   onChange={handleChange}
+                  placeholder="Phone Number"
                 />
               </div>
             </div>

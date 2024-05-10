@@ -145,7 +145,7 @@ const Header = () => {
                           <li className="mb-3">
                             <a
                               className="no-underline text-black"
-                              href="/career"
+                              href="/messages"
                             >
                               Career
                             </a>

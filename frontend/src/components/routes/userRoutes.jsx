@@ -49,7 +49,7 @@ const userRoutes = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/password/forgot" element={<ForgotPassword />} />
       <Route path="/password/reset/:token" element={<ResetPassword />} />
-      <Route path="/career" element={<Career />} />
+      <Route path="/messages" element={<Career />} />
       <Route
         path="/me/profile"
         element={

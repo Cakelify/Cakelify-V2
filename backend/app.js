@@ -5,8 +5,6 @@ import cookieParser from "cookie-parser";
 import { connectDatabase } from "./config/dbConnect.js";
 import errorMiddleware from "./middlewares/errors.js";
 import cors from "cors";
-import Razorpay from "razorpay";
-import messageRoute from "./routes/careerRoute.js";
 
 import path from "path";
 // import { fileURLToPath } from "url";
@@ -36,6 +34,7 @@ import productRoutes from "./routes/products.js";
 import authRoutes from "./routes/auth.js";
 import orderRoutes from "./routes/order.js";
 import paymentRoutes from "./routes/payment.js";
+import messageRoute from "./routes/careerRoute.js";
 import { fileURLToPath } from "url";
 
 app.use("/api/v1", productRoutes);
@@ -51,15 +50,6 @@ if (process.env.NODE_ENV === "PRODUCTION") {
     res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
   });
 }
-
-// export const instance = new Razorpay({
-//   key_id: process.env.RAZORPAY_API_KEY,
-//   key_secret: process.env.RAZORPAY_API_SECRET,
-// });
-
-// app.get("/api/v1/getkey", (req, res) =>
-//   res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
-// );
 
 // Using error middleware
 app.use(errorMiddleware);

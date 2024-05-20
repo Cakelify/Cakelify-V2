@@ -3,8 +3,8 @@ import Razorpay from "razorpay";
 import crypto from "crypto";
 import Order from "../models/order.js";
 const razorpay = new Razorpay({
-  key_id: "rzp_live_NLupneROI3HH01",
-  key_secret: "TFeWD0lAQz0laKnhOP5CG54Y",
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
 // Create Razorpay order   =>  /api/v1/payment/checkout_session

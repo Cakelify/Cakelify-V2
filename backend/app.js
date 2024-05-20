@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { connectDatabase } from "./config/dbConnect.js";
 import errorMiddleware from "./middlewares/errors.js";
-import paymentRoutes from "./routes/payment.js";
 import cors from "cors";
 import Razorpay from "razorpay";
 import messageRoute from "./routes/careerRoute.js";
@@ -36,6 +35,7 @@ app.use(cookieParser());
 import productRoutes from "./routes/products.js";
 import authRoutes from "./routes/auth.js";
 import orderRoutes from "./routes/order.js";
+import paymentRoutes from "./routes/payment.js";
 import { fileURLToPath } from "url";
 
 app.use("/api/v1", productRoutes);

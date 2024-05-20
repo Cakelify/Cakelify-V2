@@ -10,7 +10,6 @@ import { newOrder } from "../controllers/orderControllers.js";
 
 router
   .route("/payment/checkout_session")
-
   .post(isAuthenticatedUser, razorpayCheckoutSession);
 
 router.route("/orders/new").post(isAuthenticatedUser, newOrder);

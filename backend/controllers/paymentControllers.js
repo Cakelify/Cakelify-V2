@@ -23,13 +23,6 @@ export const razorpayCheckoutSession = catchAsyncErrors(
       amount: totalAmount * 100, // amount in the smallest currency unit
       currency: "INR",
       receipt: `receipt_${req.user._id}`,
-      // notify: {
-      //   sms: true,
-      //   email: true,
-      // },
-      // // reminder_enable: true,
-      // callback_url: `https://localhost:3000/me/orders`,
-      // callback_method: "get",
     };
 
     const order = await razorpay.orders.create(options);

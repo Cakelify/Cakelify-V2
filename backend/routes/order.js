@@ -9,6 +9,8 @@ import {
   getSales,
   myOrders,
   newOrder,
+  razorpayCheckoutSession,
+  razorpayPaymentVerification,
   updateOrder,
 } from "../controllers/orderControllers.js";
 
@@ -28,5 +30,15 @@ router
   .route("/admin/orders/:id")
   .put(isAuthenticatedUser, authorizeRoles("admin"), updateOrder)
   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteOrder);
+
+router
+  .route("/payment/checkout_session")
+  .post(isAuthenticatedUser, razorpayCheckoutSession);
+
+router.route("/orders/new").post(isAuthenticatedUser, newOrder);
+
+router
+  .route("/payment/verify")
+  .post(isAuthenticatedUser, razorpayPaymentVerification);
 
 export default router;

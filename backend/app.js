@@ -33,14 +33,12 @@ app.use(cookieParser());
 import productRoutes from "./routes/products.js";
 import authRoutes from "./routes/auth.js";
 import orderRoutes from "./routes/order.js";
-import paymentRoutes from "./routes/payment.js";
 import messageRoute from "./routes/careerRoute.js";
 import { fileURLToPath } from "url";
 
 app.use("/api/v1", productRoutes);
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", orderRoutes);
-app.use("/api/v1", paymentRoutes);
 app.use("/api/v1", messageRoute);
 
 if (process.env.NODE_ENV === "PRODUCTION") {

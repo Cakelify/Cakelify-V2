@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { connectDatabase } from "./config/dbConnect.js";
 import errorMiddleware from "./middlewares/errors.js";
-import paymentRoute from "./routes/paymentRoutes.js";
+import paymentRoutes from "./routes/payment.js";
 import cors from "cors";
 import Razorpay from "razorpay";
 import messageRoute from "./routes/careerRoute.js";
@@ -41,7 +41,7 @@ import { fileURLToPath } from "url";
 app.use("/api/v1", productRoutes);
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", orderRoutes);
-app.use("/api/v1", paymentRoute);
+app.use("/api/v1", paymentRoutes);
 app.use("/api/v1", messageRoute);
 
 if (process.env.NODE_ENV === "PRODUCTION") {
@@ -52,14 +52,14 @@ if (process.env.NODE_ENV === "PRODUCTION") {
   });
 }
 
-export const instance = new Razorpay({
-  key_id: process.env.RAZORPAY_API_KEY,
-  key_secret: process.env.RAZORPAY_API_SECRET,
-});
+// export const instance = new Razorpay({
+//   key_id: process.env.RAZORPAY_API_KEY,
+//   key_secret: process.env.RAZORPAY_API_SECRET,
+// });
 
-app.get("/api/v1/getkey", (req, res) =>
-  res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
-);
+// app.get("/api/v1/getkey", (req, res) =>
+//   res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
+// );
 
 // Using error middleware
 app.use(errorMiddleware);

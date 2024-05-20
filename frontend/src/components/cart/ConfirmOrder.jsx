@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import MetaData from "../layout/MetaData";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { caluclateOrderCost } from "../../helpers/helpers";
-import axios from "axios";
-import But from "./But";
-import { useCreateNewOrderMutation } from "../../redux/api/orderApi";
+import {
+  useCreateNewOrderMutation,
+  useRazorpayCheckoutSessionMutation,
+} from "../../redux/api/orderApi";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -15,17 +16,19 @@ const ConfirmOrder = () => {
 
   const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
     caluclateOrderCost(cartItems);
-
   const [method, setMethod] = useState("");
 
   const navigate = useNavigate();
 
-  const [createNewOrder, { isLoading, error, isSuccess }] =
-    useCreateNewOrderMutation();
+  const [createNewOrder, { error, isSuccess }] = useCreateNewOrderMutation();
+  const [
+    razorpayCheckoutSession,
+    { data: checkoutData, error: checkoutError, isLoading },
+  ] = useRazorpayCheckoutSessionMutation();
 
   useEffect(() => {
     if (error) {
-      toast.error(error?.data?.message);
+      toast.error(error.data.message);
     }
 
     if (isSuccess) {
@@ -33,69 +36,73 @@ const ConfirmOrder = () => {
     }
   }, [error, isSuccess]);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
 
     const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
       caluclateOrderCost(cartItems);
 
-    if (method === "COD") {
-      // Create COD Order
-      const orderData = {
-        shippingInfo,
-        orderItems: cartItems,
-        itemsPrice,
-        shippingAmount: shippingPrice,
-        taxAmount: taxPrice,
-        totalAmount: totalPrice,
-        paymentInfo: {
-          status: "Not Paid",
-        },
-        paymentMethod: "COD",
-      };
+    let orderData = {
+      shippingInfo,
+      orderItems: cartItems,
+      itemsPrice,
+      shippingAmount: shippingPrice,
+      taxAmount: taxPrice,
+      totalAmount: totalPrice,
+      paymentMethod: method,
+    };
 
+    if (method === "COD") {
+      orderData = { ...orderData, paymentInfo: { status: "Not Paid" } };
       createNewOrder(orderData);
+      navigate("/me/orders?order_success=true");
     }
 
     if (method === "Card") {
-      // Stripe Checkout
-      // alert("Card");
-    }
-  };
+      const { data: checkoutData, error: checkoutError } =
+        await razorpayCheckoutSession(orderData);
+      if (checkoutError) {
+        toast.error(checkoutError.data.message);
+      } else {
+        const options = {
+          key: "rzp_live_NLupneROI3HH01",
+          amount: checkoutData.order.amount,
+          currency: "INR",
+          name: "Cakelify",
+          description: "Test Transaction",
+          image:
+            "https://cakelify.shop/static/media/CakelifyLogo.aa42d9ff8fc4ca9b6fdc.png",
+          order_id: checkoutData.order.id,
+          handler: function (response) {
+            toast.success("Payment Successful");
+            orderData = { ...orderData, paymentInfo: { status: "Paid" } };
+            createNewOrder({
+              ...orderData,
+              paymentInfo: {
+                id: response.razorpay_payment_id,
+                status: "Paid",
+              },
+            });
+            navigate("/ordersuccess");
+          },
+          prefill: {
+            name: user.name,
+            email: user.email,
+            contact: shippingInfo.phoneNo,
+          },
+          notes: {
+            name: user.name,
+            address: shippingInfo.address,
+          },
+          theme: {
+            color: "#3399cc",
+          },
+        };
 
-  const checkoutHandler = async (amount) => {
-    const {
-      data: { key },
-    } = await axios.get("/api/v1/getkey");
-    const {
-      data: { order },
-    } = await axios.post("/api/v1/checkout", {
-      amount,
-    });
-    const options = {
-      key,
-      amount: order.amount,
-      currency: "INR",
-      name: "Cakelify",
-      description: "Tutorial of Razorpay",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ8J1P1RQRL9r7A7Mh5WqI6QZCL145mX9PXQ&s",
-      order_id: order.id,
-      callback_url: "/api/v1/paymentverification",
-      prefill: {
-        name: "Vrushali kalaskar",
-        email: "vrushalikalaskarkk143@gmail.com",
-        contact: "9890473307",
-      },
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
-      theme: {
-        color: "#121212",
-      },
-    };
-    const razor = new window.Razorpay(options);
-    razor.open();
+        const rzp1 = new window.Razorpay(options);
+        rzp1.open();
+      }
+    }
   };
 
   return (
@@ -195,21 +202,18 @@ const ConfirmOrder = () => {
                   Cash on Delivery
                 </button>
               </div>
-              <div className="">
-                {/* <button
-                  className="h-12 text-white font-semibold w-100 "
-                  type="radio"
-                  name="payment_mode"
-                  // id="cardradio"
-                  value="Card"
-                  onClick={(e) => setMethod("Card")}
-                >
-                </button> */}
 
-                <But amount={totalPrice} checkoutHandler={checkoutHandler} />
-                {/* <label className="form-check-label" htmlFor="cardradio">
-                  Card - VISA, MasterCard
-                </label> */}
+              <div className="">
+                <button
+                  name="payment_mode"
+                  value="COD"
+                  onClick={(e) => setMethod("Card")}
+                  id="checkout_btn"
+                  type="submit"
+                  className="h-12 text-white font-semibold w-100 "
+                >
+                  Pay-UPI/CARD/NET-BANKING
+                </button>
               </div>
             </form>
           </div>

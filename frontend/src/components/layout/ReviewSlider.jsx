@@ -58,9 +58,7 @@ function ReviewSlider() {
                 <div>
                   <div className="bg-alpha-pink max-h-max text-black rounded-3xl ">
                     <div className="flex flex-col justify-center items-center gap-4 p-7 ">
-                      <p className="text-white font-semibold fontStyle">
-                        {d.review}
-                      </p>
+                      <p className="text-white font-semibold">{d.review}</p>
                     </div>
                   </div>
                   <div class="bottom-arrow bg-alpha-pink  rounded-sm"></div>

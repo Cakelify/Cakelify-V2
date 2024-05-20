@@ -117,7 +117,7 @@ const Cart = () => {
                             width="75"
                           />
                         </div>
-                        <div className="pl-2 pt-2 text-left text-base font-medium fontStyle">
+                        <div className="pl-2 pt-2 text-left text-base font-medium ">
                           <Link
                             className=" text-black no-underline"
                             to={`/products/${item?.product}`}

@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MenuBar from "../layout/MenuBar";
 
 const MyOrders = () => {
-  const { data, isLoading, error } = useMyOrdersQuery();
+  const { data, isLoading, error, refetch } = useMyOrdersQuery(); // Added refetch function
 
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
@@ -26,6 +26,7 @@ const MyOrders = () => {
 
     if (orderSuccess) {
       dispatch(clearCart());
+      refetch(); // Refetch orders after successful payment
       navigate("/me/orders");
     }
   }, [error, orderSuccess]);
@@ -81,7 +82,7 @@ const MyOrders = () => {
     <div>
       <MetaData title={"My Orders"} />
 
-      <h1 className="my-5">{data?.orders?.length} Orders</h1>
+      <h1 className="">{data?.orders?.length} Orders</h1>
       <div className="w-full">
         <MenuBar />
       </div>

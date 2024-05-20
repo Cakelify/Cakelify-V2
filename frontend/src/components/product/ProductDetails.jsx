@@ -21,14 +21,14 @@ const ProductDetails = () => {
 
   const [quantity, setQuantity] = useState(1);
   const [activeImg, setActiveImg] = useState("");
+  const [buttonText, setButtonText] = useState("Add to Cart");
+  const [activeTabs, setActiveTabs] = useState(0);
 
   const { data, isLoading, error, isError } = useGetProductDetailsQuery(
     params?.id
   );
   const product = data?.product;
   const { isAuthenticated } = useSelector((state) => state.auth);
-
-  const [activeTabs, setActiveTabs] = useState(0);
 
   useEffect(() => {
     setActiveImg(
@@ -62,6 +62,13 @@ const ProductDetails = () => {
     setQuantity(qty);
   };
 
+  const handleButtonClick = () => {
+    if (buttonText === "Add to Cart") {
+      setItemToCart();
+      setButtonText("Go to Cart");
+    }
+  };
+
   const setItemToCart = () => {
     const cartItem = {
       product: product?._id,
@@ -79,7 +86,7 @@ const ProductDetails = () => {
 
   if (isLoading) return <Loader />;
 
-  if (error && error?.status == 404) {
+  if (error && error?.status === 404) {
     return <NotFound />;
   }
 
@@ -99,7 +106,7 @@ const ProductDetails = () => {
           </div>
           <div className="flex mt-2">
             {product?.images?.map((img) => (
-              <div className="ml-2">
+              <div className="ml-2" key={img.url}>
                 <a role="button">
                   <img
                     className={`d-block border rounded p-3 cursor-pointer buttonBG ${
@@ -109,7 +116,7 @@ const ProductDetails = () => {
                     width="100"
                     src={img?.url}
                     alt={img?.url}
-                    onClick={(e) => setActiveImg(img.url)}
+                    onClick={() => setActiveImg(img.url)}
                   />
                 </a>
               </div>
@@ -151,7 +158,7 @@ const ProductDetails = () => {
                   type="number"
                   className="form-control count d-inline pt-2"
                   value={quantity}
-                  readonly
+                  readOnly
                 />
                 <div className="mr-2">
                   <span className="arrow plus" onClick={increseQty}>
@@ -163,28 +170,23 @@ const ProductDetails = () => {
                 </div>
               </div>
 
-              {/* <div className="stockCounter d-inline pl-1">
-              <span className="btn btn-danger minus" onClick={decreseQty}>
-                -
-              </span>
-              <input
-                type="number"
-                className="form-control count d-inline"
-                value={quantity}
-                readonly
-              />
-              <span className="btn btn-primary plus" onClick={increseQty}>
-                +
-              </span>
-            </div> */}
-              <button
-                type="button"
-                className="buttonBG ml-6 p-2.5 rounded-md bg-beta-pink text-white font-semibold"
-                disabled={product?.stock <= 0}
-                onClick={setItemToCart}
-              >
-                Add to Cart
-              </button>
+              {buttonText === "Add to Cart" ? (
+                <button
+                  type="button"
+                  className="buttonBG ml-6 p-2.5 rounded-md bg-beta-pink text-white font-semibold"
+                  disabled={product?.stock <= 0}
+                  onClick={handleButtonClick}
+                >
+                  {buttonText}
+                </button>
+              ) : (
+                <a
+                  href="/cart" // Replace '/cart' with the actual URL of your cart page
+                  className="buttonBG ml-6 p-2.5 rounded-md bg-beta-pink text-white font-semibold no-underline"
+                >
+                  {buttonText}
+                </a>
+              )}
             </div>
             <hr />
 
@@ -240,15 +242,6 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/* <h5 className="mt-2 pl-1 ">Description:</h5>
-            <p className="pl-1 font-sans tracking-normal wordSpacing text-slate-100p-2">
-              {product?.description}
-            </p> */}
-
-            {/* <p id="product_seller mb-3" className="pl-1 ">
-              Sold by: <strong>{product?.seller}</strong>
-            </p> */}
-
             {isAuthenticated ? (
               <NewReview productId={product?._id} />
             ) : (
@@ -257,10 +250,6 @@ const ProductDetails = () => {
               </div>
             )}
           </div>
-          <hr />
-          {/* {product?.reviews?.length > 0 && (
-            <ListReviews reviews={product?.reviews} />
-          )} */}
         </div>
       </div>
     </>

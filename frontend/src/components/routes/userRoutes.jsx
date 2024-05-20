@@ -26,8 +26,9 @@ import ContactUs from "../businessPolicy/ContactUs";
 import ShippingAndDelivery from "../businessPolicy/ShippingAndDelivery";
 import TermsAndConditions from "../businessPolicy/TermsAndConditions";
 import AboutUs from "../businessPolicy/AboutUs";
-import OrderSuccess from "../cart/orderSuccess";
+// import OrderSuccess from "../cart/orderSuccess";
 import Career from "../layout/Career";
+import OrderSuccess from "../cart/orderSuccess";
 
 const userRoutes = () => {
   return (

@@ -24,7 +24,7 @@ export const orderApi = createApi({
     razorpayCheckoutSession: builder.mutation({
       query(body) {
         return {
-          url: "/payment/checkout_session",
+          url: "/confirm_order",
           method: "POST",
           body,
         };

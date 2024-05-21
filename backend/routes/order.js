@@ -32,7 +32,7 @@ router
   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteOrder);
 
 router
-  .route("/confirm_order")
+  .route("/payment/checkout_session")
   .post(isAuthenticatedUser, razorpayCheckoutSession);
 
 router.route("/orders/new").post(isAuthenticatedUser, newOrder);

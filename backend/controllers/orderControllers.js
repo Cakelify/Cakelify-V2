@@ -214,7 +214,7 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-// Create Razorpay order   =>  /api/v1/payment/checkout_session
+// Create Razorpay order   =>  /api/v1/orders/checkout_session
 export const razorpayCheckoutSession = catchAsyncErrors(
   async (req, res, next) => {
     const {
@@ -241,7 +241,7 @@ export const razorpayCheckoutSession = catchAsyncErrors(
   }
 );
 
-// Verify Razorpay payment and create order   =>  /api/v1/payment/verify
+// Verify Razorpay payment and create order   =>  /api/v1/orderst/verify
 export const razorpayPaymentVerification = catchAsyncErrors(
   async (req, res, next) => {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =

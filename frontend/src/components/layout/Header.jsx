@@ -14,6 +14,7 @@ import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import Verified from "./verify.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -157,10 +158,16 @@ const Header = () => {
                       {user ? (
                         <div>
                           <div>
-                            <h6 className="" style={{ fontFamily: "cursive" }}>
-                              Hello {user.name}😊
-                            </h6>
-
+                            {" "}
+                            <div className="flex">
+                              <h6
+                                className="mr-2"
+                                style={{ fontFamily: "cursive" }}
+                              >
+                                Hello {user.name}
+                              </h6>
+                              <img src={Verified} className="h-6" alt="" />
+                            </div>
                             <Link
                               to="/"
                               className="-m-2 block p-2 font-medium text-gray-900"

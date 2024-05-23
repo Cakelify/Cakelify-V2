@@ -14,9 +14,7 @@ import {
   updateOrder,
 } from "../controllers/orderControllers.js";
 
-router
-  .route("/orders/checkout_session")
-  .post(isAuthenticatedUser, razorpayCheckoutSession);
+router.route("/orders/new").post(isAuthenticatedUser, newOrder);
 router.route("/orders/:id").get(isAuthenticatedUser, getOrderDetails);
 router.route("/me/orders").get(isAuthenticatedUser, myOrders);
 

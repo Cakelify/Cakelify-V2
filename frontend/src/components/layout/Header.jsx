@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
 import Search from "./Search";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useGetMeQuery } from "../../redux/api/userApi";
@@ -9,8 +9,7 @@ import { useLazyLogoutQuery } from "../../redux/api/authApi";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import "./Header.css";
 import MarqueeAnnouncement from "./Marquee";
-import { Fragment, useState } from "react";
-import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -30,18 +29,15 @@ const Header = () => {
     navigate(0);
   };
 
-  const textStyle = {
-    fontFamily: "Allura",
-    fontSize: "3.2rem",
-    fontWeight: "900",
-    letterSpacing: "2.7px",
-    color: "red",
+  const handleLinkClick = () => {
+    setOpen(false);
   };
+
   return (
     <div>
       <MarqueeAnnouncement />
 
-      <nav className="pt-1 p-0 mt-4 boxShadow bg-transparent-grey fixed top-3 w-full z-50 ">
+      <nav className="pt-1 p-0 mt-4 boxShadow bg-transparent-grey fixed top-3 w-full z-50">
         <div className="custom-nav-div">
           <Transition.Root show={open} as={Fragment}>
             <Dialog
@@ -84,72 +80,77 @@ const Header = () => {
                       </button>
                     </div>
 
-                    {/* Links */}
-
                     <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                       <ul className="m-0 p-0">
                         <h6>
                           <li className="mb-3">
-                            <a
+                            <Link
                               className="no-underline text-black"
-                              href="/aboutus"
+                              to="/aboutus"
+                              onClick={handleLinkClick}
                             >
                               About Us
-                            </a>
+                            </Link>
                           </li>
                           <hr />
                           <li className="mb-3">
-                            <a
+                            <Link
                               className="no-underline text-black"
-                              href="/shippinganddelivery"
+                              to="/shippinganddelivery"
+                              onClick={handleLinkClick}
                             >
                               Shipping And Delivery
-                            </a>
+                            </Link>
                           </li>
                           <hr />
                           <li className="mb-3">
-                            <a
+                            <Link
                               className="no-underline text-black"
-                              href="/privacypolicy"
+                              to="/privacypolicy"
+                              onClick={handleLinkClick}
                             >
                               Privacy Policy
-                            </a>
+                            </Link>
                           </li>
                           <hr />
                           <li className="mb-3">
-                            <a
+                            <Link
                               className="no-underline text-black"
-                              href="/termsandconditions"
+                              to="/termsandconditions"
+                              onClick={handleLinkClick}
                             >
-                              Terms &amp; Conditions
-                            </a>
+                              Terms & Conditions
+                            </Link>
                           </li>
                           <hr />
                           <li className="mb-3">
-                            <a
+                            <Link
                               className="no-underline text-black"
-                              href="/contactus"
+                              to="/contactus"
+                              onClick={handleLinkClick}
                             >
                               Contact Us
-                            </a>
+                            </Link>
                           </li>
                           <hr />
                           <li>
-                            <a
+                            <Link
                               className="no-underline text-black"
-                              href="/cancellationandrefund"
+                              to="/cancellationandrefund"
+                              onClick={handleLinkClick}
                             >
                               Cancellation and Refund
-                            </a>
+                            </Link>
                           </li>
                           <hr />
                           <li className="mb-3">
-                            <a
+                            <Link
                               className="no-underline text-black"
-                              href="/messages"
+                              to="/messages"
+                              onClick={handleLinkClick}
                             >
                               Career
-                            </a>
+                            </Link>
                           </li>
                           <hr />
                         </h6>
@@ -157,26 +158,25 @@ const Header = () => {
 
                       {user ? (
                         <div>
-                          <div>
-                            {" "}
-                            <div className="flex">
-                              <h6
-                                className="mr-2"
-                                style={{ fontFamily: "cursive" }}
-                              >
-                                Hello {user.name}
-                              </h6>
-                              <img src={Verified} className="h-6" alt="" />
-                            </div>
-                            <Link
-                              to="/"
-                              className="-m-2 block p-2 font-medium text-gray-900"
-                              onClick={logoutHandler}
+                          <div className="flex">
+                            <h6
+                              className="mr-2"
+                              style={{ fontFamily: "cursive" }}
                             >
-                              {" "}
-                              Logout{" "}
-                            </Link>
+                              Hello {user.name}
+                            </h6>
+                            <img src={Verified} className="h-6" alt="" />
                           </div>
+                          <Link
+                            to="/"
+                            className="-m-2 block p-2 font-medium text-gray-900"
+                            onClick={() => {
+                              logoutHandler();
+                              handleLinkClick();
+                            }}
+                          >
+                            Logout
+                          </Link>
                         </div>
                       ) : (
                         !isLoading && (
@@ -184,8 +184,8 @@ const Header = () => {
                             <Link
                               to="/login"
                               className="-m-2 block p-2 font-medium text-gray-900"
+                              onClick={handleLinkClick}
                             >
-                              {" "}
                               Sign in
                             </Link>
                           </div>
@@ -197,9 +197,9 @@ const Header = () => {
                           <Link
                             className="-m-2 block p-2 font-medium text-gray-900"
                             to="/admin/dashboard"
+                            onClick={handleLinkClick}
                           >
-                            {" "}
-                            Dashboard{" "}
+                            Dashboard
                           </Link>
                         </div>
                       )}
@@ -212,15 +212,10 @@ const Header = () => {
                           alt=""
                         />
                       </a>
-                      <div className="col-md-3 part3  part_3">
+                      <div className="col-md-3 part3 part_3">
                         <div className="d-flex align-items-center">
                           <h5 className="mb-3 mr-2">Follow Us</h5>
                           <ul className="list list-inline">
-                            {/* <li className="list-inline-item">
-                      <Link to={""}>
-                        <FacebookOutlinedIcon className="text-beta-pink ml-2" />
-                      </Link>
-                    </li> */}
                             <li className="list-inline-item">
                               <Link to={"https://wa.me/+918830641796"}>
                                 <WhatsAppIcon className="text-beta-pink" />
@@ -256,15 +251,14 @@ const Header = () => {
 
           <a
             href="/cart"
-            className="a-cart mt-3 "
+            className="a-cart mt-3"
             style={{ textDecoration: "none" }}
           >
-            <span id="cart" className="">
-              {" "}
+            <span id="cart">
               <ShoppingCartRoundedIcon className="cartIcon ml-3" />
               <span className="cart_count" id="cart_count">
                 {cartItems?.length}
-              </span>{" "}
+              </span>
             </span>
           </a>
         </div>
@@ -278,132 +272,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// export default function NavigationBar() {
-
-//   const navigate = useNavigate();
-//   const { isLoading } = useGetMeQuery();
-
-//   const [logout] = useLazyLogoutQuery();
-
-//   const { user } = useSelector((state) => state.auth);
-//   const { cartItems } = useSelector((state) => state.cart);
-
-//   const logoutHandler = () => {
-//     logout();
-//     navigate(0);
-//   };
-
-//   const textStyle = {
-//     fontFamily: "Allura",
-//     fontSize: "3.2rem",
-//     fontWeight: "900",
-//     letterSpacing: "2.7px",
-//     color: "red",
-//   };
-
-//   return (
-//     <div className="bg-white">
-//       {/* Mobile menu */}
-
-//       <header className="relative bg-white">
-//         <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-//           Get free delivery on orders over $100
-//         </p>
-
-//         <nav
-//           aria-label="Top"
-//           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
-//         >
-//           <div className="border-b border-gray-200">
-//             <div className="flex h-16 items-center">
-
-//               {/* Logo */}
-//               <div className="ml-4 flex lg:ml-0">
-//                 <a style={{ textDecoration: "none" }} href="/">
-//                   <img src={CakelifyLogo} className="w-36 mr-5 z-50" alt="" />
-//                 </a>
-//               </div>
-
-//               {/* Flyout menus */}
-
-//               <div className="ml-auto flex items-center">
-//                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-//                   <a
-//                     href="#"
-//                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
-//                   >
-//                     Sign in
-//                   </a>
-//                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-//                   <a
-//                     href="#"
-//                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
-//                   >
-//                     Create account
-//                   </a>
-//                 </div>
-
-//                 <div className="hidden lg:ml-8 lg:flex">
-//                   <a
-//                     href="#"
-//                     className="flex items-center text-gray-700 hover:text-gray-800"
-//                   >
-//                     <img
-//                       src="https://tailwindui.com/img/flags/flag-canada.svg"
-//                       alt=""
-//                       className="block h-auto w-5 flex-shrink-0"
-//                     />
-//                     <span className="ml-3 block text-sm font-medium">CAD</span>
-//                     <span className="sr-only">, change currency</span>
-//                   </a>
-//                 </div>
-
-//                 {/* Search */}
-//                 {/* <div className="flex lg:ml-6">
-//                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-//                     <span className="sr-only">Search</span>
-//                     <MagnifyingGlassIcon
-//                       className="h-6 w-6"
-//                       aria-hidden="true"
-//                     />
-//                   </a>
-//                 </div> */}
-
-//                 {/* Cart */}
-//                 <div className="ml-4 flow-root lg:ml-6">
-//                   {/* <a href="#" className="group -m-2 flex items-center p-2">
-//                     <ShoppingBagIcon
-//                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-//                       aria-hidden="true"
-//                     />
-//                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-//                       0
-//                     </span>
-//                     <span className="sr-only">items in cart, view bag</span>
-//                   </a> */}
-//                   <a
-//                     href="/cart"
-//                     className="a-cart mt-3"
-//                     style={{ textDecoration: "none" }}
-//                   >
-//                     <span id="cart" className="ms-3">
-//                       {" "}
-//                       <ShoppingBagIcon
-//                         className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-//                         aria-hidden="true"
-//                       />
-//                       <span className="cart_count" id="cart_count">
-//                         {cartItems?.length}
-//                       </span>{" "}
-//                     </span>
-//                   </a>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </nav>
-//       </header>
-//     </div>
-//   );
-// }

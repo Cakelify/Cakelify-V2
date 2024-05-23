@@ -14,6 +14,7 @@ import "./button.css";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Button } from "@mui/material";
+import PV from "./PureVeg.png";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -125,7 +126,11 @@ const ProductDetails = () => {
         </div>
         <div className="p-3">
           <div className="col-12 col-lg-5 mt-3 ">
-            <h3 className="pl-1 fontHeading ">{product?.name}</h3>
+            <div className="flex">
+              <h3 className="pl-1 fontHeading text-xl">{product?.name}</h3>
+              <img className=" w-4 h-4 mt-2 mr-2  " src={PV} alt="" />
+            </div>
+
             <p className="pl-1" id="product_id">
               Product # {product?._id}
             </p>
@@ -182,7 +187,7 @@ const ProductDetails = () => {
               ) : (
                 <a
                   href="/cart" // Replace '/cart' with the actual URL of your cart page
-                  className="buttonBG ml-6 p-2.5 rounded-md bg-beta-pink text-white font-semibold no-underline"
+                  className="buttonBG ml-6 p-2.5 rounded-md bg-white text-beta-pink border-beta-pink border-2 font-semibold no-underline"
                 >
                   {buttonText}
                 </a>

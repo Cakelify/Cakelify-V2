@@ -27,6 +27,7 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import MenuBar from "./layout/MenuBar";
 import CatSlider from "./catSlider";
+import MarqueeFC from "./layout/MarqueeFC";
 
 const Home = () => {
   let [searchParams] = useSearchParams();
@@ -143,6 +144,7 @@ const Home = () => {
             </h2>
             <CatSlider />
           </div>
+          <MarqueeFC />
           <h5 className="mt-6 mb-3 ml-2 text-lg font-bold"> Offers for you</h5>
           <div className="Offer m-2 rounded-md text-white mt-3 max-w-46">
             <h6 className="font-black text-xl mb-1">

@@ -34,12 +34,15 @@ import productRoutes from "./routes/products.js";
 import authRoutes from "./routes/auth.js";
 import orderRoutes from "./routes/order.js";
 import messageRoute from "./routes/careerRoute.js";
+import couponRoute from "./routes/couponRoutes.js";
+
 import { fileURLToPath } from "url";
 
 app.use("/api/v1", productRoutes);
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", orderRoutes);
 app.use("/api/v1", messageRoute);
+app.use("/api/v1", couponRoute);
 
 if (process.env.NODE_ENV === "PRODUCTION") {
   app.use(express.static(path.join(__dirname, "../frontend/build")));

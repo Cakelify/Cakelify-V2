@@ -33,7 +33,6 @@
 }
 
 .card_style {
-  background-color: #f8f9fa;
   border-radius: 1rem;
 }
 
@@ -50,4 +49,14 @@
 
 .buttonBG {
   box-shadow: 0 0.2rem 0.5rem 0 rgba(213, 217, 217, 0.5);
+}
+
+.buttonBG1 {
+  border-top: 1px solid #d4d5d9;
+  -ms-box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.15);
+  z-index: 11;
 }

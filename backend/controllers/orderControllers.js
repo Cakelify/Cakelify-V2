@@ -4,6 +4,7 @@ import Order from "../models/order.js";
 import ErrorHandler from "../utils/errorHandler.js";
 import Razorpay from "razorpay";
 import crypto from "crypto";
+import Coupon from "../models/coupon.js";
 
 // Create new Order  =>  /api/v1/orders/new
 export const newOrder = catchAsyncErrors(async (req, res, next) => {
@@ -16,7 +17,28 @@ export const newOrder = catchAsyncErrors(async (req, res, next) => {
     totalAmount,
     paymentMethod,
     paymentInfo,
+    couponCode,
   } = req.body;
+
+  let finalAmount = totalAmount;
+
+  if (couponCode) {
+    const coupon = await Coupon.findOne({ code: couponCode });
+    if (coupon) {
+      const currentDate = new Date();
+      if (
+        currentDate >= coupon.validFrom &&
+        currentDate <= coupon.validUntil &&
+        coupon.active
+      ) {
+        finalAmount -= (finalAmount * coupon.discount) / 100;
+      } else {
+        return next(new ErrorHandler("Invalid coupon", 400));
+      }
+    } else {
+      return next(new ErrorHandler("Coupon not found", 404));
+    }
+  }
 
   const order = await Order.create({
     orderItems,
@@ -24,7 +46,7 @@ export const newOrder = catchAsyncErrors(async (req, res, next) => {
     itemsPrice,
     taxAmount,
     shippingAmount,
-    totalAmount,
+    totalAmount: finalAmount,
     paymentMethod,
     paymentInfo,
     user: req.user._id,

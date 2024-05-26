@@ -11,6 +11,7 @@ import ProcessOrder from "../admin/ProcessOrder";
 import ListUsers from "../admin/ListUsers";
 import UpdateUser from "../admin/UpdateUser";
 import ProductReviews from "../admin/ProductReviews";
+import CreateCouponForm from "../admin/CreateCouponForm";
 
 const adminRoutes = () => {
   return (
@@ -97,6 +98,14 @@ const adminRoutes = () => {
         element={
           <ProtectedRoute admin={true}>
             <ProductReviews />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/createcouponform"
+        element={
+          <ProtectedRoute admin={true}>
+            <CreateCouponForm />
           </ProtectedRoute>
         }
       />

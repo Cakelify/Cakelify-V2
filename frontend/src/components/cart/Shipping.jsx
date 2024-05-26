@@ -166,9 +166,18 @@ const Shipping = () => {
             >
               Get My Location 📌
             </button>
-            {/* <button id="shipping_btn" type="submit" className="btn w-100 py-2">
-              CONTINUE
-            </button> */}
+            <div className="h-28 w-full  absolute bottom-0 buttonBG1 bg-white left-0">
+              {" "}
+              <p className="text-center h-7 bg-beta-yellow text-sm pt-1 font-semibold">
+                Delivery within 2 hour of Purchase
+              </p>
+              <button
+                id=""
+                className="bg-beta-pink text-sm text-white text-center w-80 h-12 rounded-md font-medium mb-8 buttonBG1 ml-8"
+              >
+                CONTINUE
+              </button>
+            </div>
           </form>
         </div>
       </div>

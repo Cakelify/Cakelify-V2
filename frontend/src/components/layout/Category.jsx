@@ -5,6 +5,7 @@ import { useGetProductsQuery } from "../../redux/api/productsApi";
 import ProductItem from "../product/ProductItem";
 import Loader from "./Loader";
 import CustomPagination from "./CustomPagination";
+import ReviewList from "./ReviewList";
 
 function FlavourCategory() {
   let [searchParams] = useSearchParams();
@@ -55,6 +56,7 @@ function FlavourCategory() {
         resPerPage={data?.resPerPage}
         filteredProductsCount={data?.filteredProductsCount}
       />
+      <ReviewList />
     </>
   );
 }

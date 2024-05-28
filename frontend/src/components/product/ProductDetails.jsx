@@ -126,7 +126,7 @@ const ProductDetails = () => {
         </div>
         <div className="p-3">
           <div className="col-12 col-lg-5 mt-3 ">
-            <div className="flex">
+            <div className="flex justify-between">
               <h3 className="pl-1 fontHeading text-xl">{product?.name}</h3>
               <img className=" w-4 h-4 mt-2 mr-2  " src={PV} alt="" />
             </div>
@@ -157,7 +157,7 @@ const ProductDetails = () => {
               &#8377;{product?.price}
             </p>
 
-            <div className="addCartSection pt-4 pb-4 d-flex align-items-center ml-1 ">
+            <div className="addCartSection pt-4 pb-4 d-flex align-items-center ml-1 flex ">
               <div className="counterSec flex">
                 <input
                   type="number"

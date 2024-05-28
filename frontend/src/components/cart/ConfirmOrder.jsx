@@ -95,7 +95,7 @@ const ConfirmOrder = () => {
             address: shippingInfo.address,
           },
           theme: {
-            color: "#3399cc",
+            color: "#f42e9f",
           },
         };
 
@@ -110,20 +110,17 @@ const ConfirmOrder = () => {
       <MetaData title={"Confirm Order Info"} />
       <div className="row d-flex justify-content-between m-1 ">
         <div className="col-12  pt-32 col-lg-8  order-confirm ">
-          <h4 className="mb-3 mt-12">Shipping Info</h4>
+          <h5 className="mb-3 mt-12">Shipping Info</h5>
           <p>
-            <b>Name:</b> {user?.name}
-          </p>
-          <p>
+            <b>Name:</b> {user?.name} <br />
             <b>Phone:</b> {shippingInfo?.phoneNo}
-          </p>
-          <p className="mb-4">
+            <br />
             <b>Address:</b> {shippingInfo?.address}, {shippingInfo?.city},{" "}
             {shippingInfo?.zipCode}, India
           </p>
 
           <hr />
-          <h4 className="mt-4">Your Cart Items:</h4>
+          <h5 className="mt-4">Your Cart Items:</h5>
 
           {cartItems?.map((item) => (
             <>
@@ -140,7 +137,7 @@ const ConfirmOrder = () => {
 
                   <div className="pl-5 text-neutral-950">
                     <Link
-                      className="text-neutral-950 text-lg no-underline"
+                      className="text-neutral-950 text-base no-underline text"
                       to={`/product/${item.product}`}
                     >
                       {item?.name}
@@ -188,32 +185,35 @@ const ConfirmOrder = () => {
 
             <hr />
             <form className="" onSubmit={submitHandler}>
-              <h2 className="mb-4 mt-12 ml-4">Select Payment Method</h2>
-
-              <div className="">
-                <button
-                  name="payment_mode"
-                  value="COD"
-                  onClick={(e) => setMethod("COD")}
-                  id="checkout_btn"
-                  type="submit"
-                  className="h-12 text-white font-semibold w-100 "
-                >
-                  Cash on Delivery
-                </button>
-              </div>
-
-              <div className="">
-                <button
-                  name="payment_mode"
-                  value="COD"
-                  onClick={(e) => setMethod("Card")}
-                  id="checkout_btn"
-                  type="submit"
-                  className="h-12 text-white font-semibold w-100 "
-                >
-                  Pay-UPI/CARD/NET-BANKING
-                </button>
+              <div className="h-28 w-full  absolute bottom-0 buttonBG1 bg-white left-0">
+                {" "}
+                <p className="text-center h-7 bg-beta-yellow text-sm pt-1 font-semibold">
+                  Enjoy ₹30 cashback when you pay online!
+                </p>
+                <div className="flex justify-around">
+                  <button
+                    name="payment_mode"
+                    value="COD"
+                    onClick={(e) => setMethod("COD")}
+                    id="checkout_btn"
+                    type="submit"
+                    className="bg-beta-pink text-sm text-white text-center w-44 h-12 rounded-md font-medium  buttonBG1 mt-2"
+                  >
+                    Cash on Delivery
+                  </button>
+                  <button
+                    name="payment_mode"
+                    value="COD"
+                    onClick={(e) => setMethod("Card")}
+                    id="checkout_btn"
+                    type="submit"
+                    className="bg-beta-pink text-sm text-white text-center w-44 h-12 rounded-md font-medium  buttonBG1 mt-2"
+                  >
+                    Pay-UPI/CARD/
+                    <br />
+                    NET-BANKING
+                  </button>
+                </div>
               </div>
             </form>
           </div>

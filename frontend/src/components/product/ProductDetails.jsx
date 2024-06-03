@@ -15,6 +15,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Button } from "@mui/material";
 import PV from "./PureVeg.png";
+import ProductCarousel from "./ProductCarousel";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -255,6 +256,11 @@ const ProductDetails = () => {
               </div>
             )}
           </div>
+        </div>
+        <div className="m-2 mt-0">
+          {" "}
+          <h3 className="mb-4">You may Also Like</h3>
+          <ProductCarousel />
         </div>
       </div>
     </>

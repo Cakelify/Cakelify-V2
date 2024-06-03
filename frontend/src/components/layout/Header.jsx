@@ -81,6 +81,46 @@ const Header = () => {
                     </div>
 
                     <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                      {user ? (
+                        <div>
+                          <div className="flex">
+                            <h6
+                              className="mr-2"
+                              style={{ fontFamily: "cursive" }}
+                            >
+                              Welcome
+                            </h6>
+                            <h6>{user.name}</h6>
+                            <img src={Verified} className="h-6" alt="" />
+                          </div>
+                          <div className="bg-beta-pink w-56 h-10 rounded-md  mb-8 buttonBG1 mt-2">
+                            <Link
+                              to="/"
+                              className="text-sm  text-center mt-0.5 -m-2 block p-2 font-medium  no-underline text-white"
+                              onClick={() => {
+                                logoutHandler();
+                                handleLinkClick();
+                              }}
+                            >
+                              Logout
+                            </Link>
+                          </div>
+                        </div>
+                      ) : (
+                        !isLoading && (
+                          <div className="flow-root">
+                            <div className="bg-beta-pink w-56 h-10 rounded-md  mb-8 buttonBG1">
+                              <Link
+                                to="/login"
+                                className="text-sm  text-center mt-0.5 -m-2 block p-2 font-medium  no-underline text-white"
+                                onClick={handleLinkClick}
+                              >
+                                Log in / Register Now
+                              </Link>
+                            </div>
+                          </div>
+                        )
+                      )}
                       <ul className="m-0 p-0">
                         <h6>
                           <li className="mb-3">
@@ -155,42 +195,6 @@ const Header = () => {
                           <hr />
                         </h6>
                       </ul>
-
-                      {user ? (
-                        <div>
-                          <div className="flex">
-                            <h6
-                              className="mr-2"
-                              style={{ fontFamily: "cursive" }}
-                            >
-                              Hello {user.name}
-                            </h6>
-                            <img src={Verified} className="h-6" alt="" />
-                          </div>
-                          <Link
-                            to="/"
-                            className="-m-2 block p-2 font-medium text-gray-900"
-                            onClick={() => {
-                              logoutHandler();
-                              handleLinkClick();
-                            }}
-                          >
-                            Logout
-                          </Link>
-                        </div>
-                      ) : (
-                        !isLoading && (
-                          <div className="flow-root">
-                            <Link
-                              to="/login"
-                              className="-m-2 block p-2 font-medium text-gray-900"
-                              onClick={handleLinkClick}
-                            >
-                              Sign in
-                            </Link>
-                          </div>
-                        )
-                      )}
 
                       {user?.role === "admin" && (
                         <div className="flow-root">

@@ -153,10 +153,21 @@ const ProductDetails = () => {
               </span>
             </div>
             <hr />
-
-            <p className="pl-1 fontHeading text-beta-pink" id="product_price">
-              &#8377;{product?.price}
-            </p>
+            <div className="flex gap-2">
+              {" "}
+              <p className="card-text font-semibold text-lg text-alpha-grey mt-1 ml-3 line-through">
+                &#8377;{product?.beforePrice}
+              </p>
+              <p className="pl-1 textStyle text-2xl mt-1 text-beta-pink">
+                &#8377;{product?.price}
+              </p>
+              <p className="mt-2 text-base textStyle text-alpha-green">
+                ({product?.discount}% off)
+              </p>
+              <p className="mt-2 text-xs textStyle text-black">
+                (Inclusive of GST)
+              </p>
+            </div>
 
             <div className="addCartSection pt-4 pb-4 d-flex align-items-center ml-1 flex ">
               <div className="counterSec flex">

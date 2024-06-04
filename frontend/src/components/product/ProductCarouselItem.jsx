@@ -1,18 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import StarRatings from "react-star-ratings";
 import "./button.css";
 import PureVeg from "./PureVeg.png";
 
+function truncateTitle(name, maxLength) {
+  if (name.length <= maxLength) {
+    return name;
+  }
+  return name.slice(0, maxLength) + "...";
+}
+
 const ProductCarouselItem = ({ product, columnSize }) => {
+  const maxTitleLength = 18; // Define the maximum length for the title
+  const truncatedTitle = truncateTitle(product.name, maxTitleLength);
+
   return (
     <>
       {" "}
-      <div
-        className={`col-sm-12 col-md-6 cakeBG col-lg-${columnSize} my-3 ml-1.5`}
-      >
-        <div className="cardProduct">
+      <div className={`col-sm-12 col-md-6 cakeBG col-lg-${columnSize}  mx-2`}>
+        <div className="w-36 border-1 border-black p-1 rounded-md productCarousel">
           <a href={`/product/${product?._id}`}>
             <img
               className="card-img-top mx-auto"
@@ -38,7 +44,7 @@ const ProductCarouselItem = ({ product, columnSize }) => {
 
           <div className="max-w-72">
             <h5 className="card-title mt-0">
-              <a href={`/product/${product?._id}`}>{product?.name}</a>
+              <a href={`/product/${product?._id}`}>{truncatedTitle}</a>
             </h5>
 
             <div className="flex  ">

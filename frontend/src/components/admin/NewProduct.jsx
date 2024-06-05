@@ -103,7 +103,7 @@ const NewProduct = () => {
                   id="price_field"
                   className="form-control"
                   name="price"
-                  value={price}
+                  value={beforePrice - (beforePrice * discount) / 100}
                   onChange={onChange}
                 />
               </div>

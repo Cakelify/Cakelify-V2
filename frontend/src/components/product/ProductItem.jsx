@@ -31,7 +31,7 @@ const ProductItem = ({ product, columnSize }) => {
             />
           </div>
           <p className="bg-alpha-red w-16 rounded-sm mt-1 p-1 text-xs text-white text-center font-extrabold mb-1">
-            {product?.discount} off
+            {product?.discount}% off
           </p>
 
           <div className="max-w-72">

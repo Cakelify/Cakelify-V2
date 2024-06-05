@@ -154,12 +154,12 @@ const Home = () => {
               Get 20% off up to &#8377;60 on orders of &#8377;300
             </p>
           </div>
-          <div className="divCategory ">
-            <h5 className="mt-12 mb-3 text-lg font-bold ml-2 ">
+          <div className="divCategory bg-beta-yellow">
+            <h5 className="mt-12 mb-3 text-lg font-bold ml-2 text-alpha-gold pt-4">
               What &nbsp;<span style={textStyle}>tantalizing</span> &nbsp;treat
               is on your mind?
             </h5>
-            <div className="flex justify-around mb-12 ">
+            <div className="flex justify-around mb-12 bg-beta-yellow pb-4">
               {sata.map((d) => (
                 <div className="border-1 border-gray-200 rounded-md">
                   <Link to={d.link} className="no-underline text-black">
@@ -169,7 +169,9 @@ const Home = () => {
                       src={d.review}
                       alt=""
                     />
-                    <p className="text-center mt-1 font-semibold">{d.name}</p>
+                    <p className="text-center mt-1 font-semibold text-alpha-gold">
+                      {d.name}
+                    </p>
                   </Link>
                 </div>
               ))}
@@ -179,8 +181,8 @@ const Home = () => {
             <MenuBar />
           </div>
         </div>
-        <div className="flex  flex-col mt-2  ">
-          <h1 id="" className="text-secondary text-center">
+        <div className="flex  flex-col mt-2 ">
+          <h1 id="" className=" text-center text-alpha-gold">
             {keyword ? `${keyword}` : "Our Best Seller"}
           </h1>
         </div>

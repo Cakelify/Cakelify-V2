@@ -315,7 +315,29 @@ function ReviewList() {
       <div className="flex flex-col justify-center">
         <div className="w-11/12 h-100 ml-auto mr-auto ">
           <div className="mt-2">
-            <p className="text-center mt-3 mb-4 fontStyle1 text-xl ">Reviews</p>
+            <p className="text-center mt-3 mb-4 fontStyle1 text-3xl ">
+              Reviews
+            </p>
+            <div className="flex justify-evenly mb-4 text-lg text-alpha-grey font-semibold">
+              <div className="flex pr-6">
+                {" "}
+                <img
+                  src="https://bkmedia.bakingo.com/images/common/review-stars.svg"
+                  alt=""
+                  className="w-auto h-10 pb-2"
+                />
+                <p className="pl-1">4.9 out of 5</p>
+              </div>
+              <div className="flex">
+                {" "}
+                <img
+                  src="https://bkmedia.bakingo.com/images/common/recomended.svg"
+                  alt=""
+                  className="w-auto h-10 pb-2"
+                />{" "}
+                <p className="pl-1">98% Recommended</p>
+              </div>
+            </div>
             <div className="flex gap-2">
               <div>
                 {" "}

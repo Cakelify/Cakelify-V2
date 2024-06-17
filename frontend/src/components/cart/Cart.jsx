@@ -97,7 +97,7 @@ const Cart = () => {
                 <>
                   <div className="p-1" data-key="product1">
                     <div className="row ">
-                      <div className="img_title_gap">
+                      <div className="flex">
                         <div className="col-4 col-lg-3 mt-2">
                           <img
                             src={item?.image}
@@ -106,7 +106,7 @@ const Cart = () => {
                             width="80"
                           />
                         </div>
-                        <div className="pl-2 pt-2 text-left text-base font-medium ">
+                        <div className="pl-2 pt-2 text-base font-medium ">
                           <Link
                             className=" text-black no-underline"
                             to={`/products/${item?.product}`}

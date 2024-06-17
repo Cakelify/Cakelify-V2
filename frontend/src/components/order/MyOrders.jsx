@@ -60,7 +60,7 @@ const MyOrders = () => {
 
     data?.orders?.forEach((order) => {
       orders.rows.push({
-        amount: `₹${order?.totalAmount}`,
+        amount: `₹${order?.totalAmount.toFixed(2)}`,
         status: order?.paymentInfo?.status?.toUpperCase(),
         orderStatus: order?.orderStatus,
         actions: (

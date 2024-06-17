@@ -25,6 +25,14 @@ const UpdateProduct = () => {
     seller: "",
     beforePrice: "",
     discount: "",
+    cakeFlavour: "",
+    cakeShape: "",
+    typeOfCake: "",
+    cakeSponge: "",
+    typeOfCream: "",
+    cakeFilling: "",
+    cakeToppings: "",
+    cakeWeight: "",
   });
 
   const {
@@ -36,6 +44,14 @@ const UpdateProduct = () => {
     seller,
     beforePrice,
     discount,
+    cakeFlavour,
+    cakeShape,
+    typeOfCake,
+    cakeSponge,
+    typeOfCream,
+    cakeFilling,
+    cakeToppings,
+    cakeWeight,
   } = product;
 
   const [updateProduct, { isLoading, error, isSuccess }] =
@@ -200,6 +216,118 @@ const UpdateProduct = () => {
                   className="form-control"
                   name="beforePrice"
                   value={beforePrice}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="mb-3 col">
+                <label htmlFor="seller_field" className="form-label">
+                  {" "}
+                  Cake Flavour{" "}
+                </label>
+                <input
+                  type="text"
+                  id="seller_field"
+                  className="form-control"
+                  name="cakeFlavour"
+                  value={cakeFlavour}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="mb-3 col">
+                <label htmlFor="seller_field" className="form-label">
+                  {" "}
+                  Shape{" "}
+                </label>
+                <input
+                  type="text"
+                  id="seller_field"
+                  className="form-control"
+                  name="cakeShape"
+                  value={cakeShape}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="mb-3 col">
+                <label htmlFor="seller_field" className="form-label">
+                  {" "}
+                  Type Of Cake{" "}
+                </label>
+                <input
+                  type="text"
+                  id="seller_field"
+                  className="form-control"
+                  name="typeOfCake"
+                  value={typeOfCake}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="mb-3 col">
+                <label htmlFor="seller_field" className="form-label">
+                  {" "}
+                  Type of Sponge{" "}
+                </label>
+                <input
+                  type="text"
+                  id="seller_field"
+                  className="form-control"
+                  name="cakeSponge"
+                  value={cakeSponge}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="mb-3 col">
+                <label htmlFor="seller_field" className="form-label">
+                  {" "}
+                  Type of Cream{" "}
+                </label>
+                <input
+                  type="text"
+                  id="seller_field"
+                  className="form-control"
+                  name="typeOfCream"
+                  value={typeOfCream}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="mb-3 col">
+                <label htmlFor="seller_field" className="form-label">
+                  {" "}
+                  Filling in Layer{" "}
+                </label>
+                <input
+                  type="text"
+                  id="seller_field"
+                  className="form-control"
+                  name="cakeFilling"
+                  value={cakeFilling}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="mb-3 col">
+                <label htmlFor="seller_field" className="form-label">
+                  {" "}
+                  Toppings{" "}
+                </label>
+                <input
+                  type="text"
+                  id="seller_field"
+                  className="form-control"
+                  name="cakeToppings"
+                  value={cakeToppings}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="mb-3 col">
+                <label htmlFor="seller_field" className="form-label">
+                  {" "}
+                  Weight{" "}
+                </label>
+                <input
+                  type="text"
+                  id="seller_field"
+                  className="form-control"
+                  name="cakeWeight"
+                  value={cakeWeight}
                   onChange={onChange}
                 />
               </div>

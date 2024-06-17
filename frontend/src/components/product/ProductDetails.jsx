@@ -243,8 +243,108 @@ const ProductDetails = () => {
                 <br />
                 {activeTabs === 0 && (
                   <div className="tabContent">
-                    <p className="pl-1 font-sans tracking-normal wordSpacing text-slate-100p-2">
-                      {product?.description}
+                    <p className="pl-1 font-sans p-2 text-black">
+                      <p className="text-lg font-semibold">
+                        {" "}
+                        Product Details :
+                      </p>
+                      <div>
+                        <p className="pb-0 mb-1 flex ">
+                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                          Cake Flavour: {product?.cakeFlavour}
+                        </p>
+                        <p className="pb-0 mb-1 flex">
+                          {" "}
+                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                          Shape: {product?.cakeShape}
+                        </p>
+                        <p className="pb-0 mb-1 flex">
+                          {" "}
+                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                          Type of Cake: {product?.typeOfCake}
+                        </p>
+                        <p className="pb-0 mb-1 flex">
+                          {" "}
+                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                          Type of Sponge: {product?.cakeSponge}
+                        </p>
+                        <p className="pb-0 mb-1 flex">
+                          {" "}
+                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                          Type of Cream: {product?.typeOfCream}
+                        </p>
+                        <p className="pb-0 mb-1 flex">
+                          {" "}
+                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                          Filpng in Layers: {product?.cakeFilpng}
+                        </p>
+                        <p className="pb-0 mb-1 flex">
+                          {" "}
+                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                          Toppings: {product?.cakeToppings}
+                        </p>
+                        <p className="pb-0 mb-1 flex">
+                          {" "}
+                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                          Weight: {product?.cakeWeight}
+                        </p>
+                        <p className="mt-10">
+                          {" "}
+                          <p>
+                            <p className="pt-4 font-semibold text-lg">
+                              Delivery Information:
+                            </p>
+                            Our delivery boy hand-delivers the delicious cake in
+                            a good quality cardboard box. Candles and knives are
+                            complementary but they will deliver as per the
+                            availability.
+                          </p>{" "}
+                          <p>
+                            {" "}
+                            Every cake we offer is handcrafted, and since each
+                            chef has his/her way of baking and designing a cake,
+                            there might be slight variation in the product in
+                            terms of design and shape.{" "}
+                          </p>
+                          <p>
+                            This product is perishable therefore delivery will
+                            be attempted only once, the delivery cannot redirect
+                            to any other address.
+                          </p>
+                          <p>
+                            We promise express delivery to provide superior
+                            customer services The delivery cannot redirect to
+                            any other address.
+                          </p>
+                          <p>
+                            This product is hand delivered and will not deliver
+                            along with courier products
+                          </p>
+                          <p>
+                            {" "}
+                            Occasionally, substitutions of flavors/designs are
+                            necessary due to temporary and regional
+                            unavailability issues.
+                          </p>
+                          <p className="pt-4 font-semibold text-lg">
+                            Care Instructions:
+                          </p>
+                          <p>
+                            Store cream cakes in a refrigerator. Fondant cakes
+                            should store in an air-conditioned environment.
+                          </p>
+                          <p>
+                            The cake should consume within 24 hours. Slice and
+                            serve the cake at room temperature and make sure it
+                            is not exposed to heat.{" "}
+                          </p>
+                          <p>
+                            Sculptural elements and figurines may contain wire
+                            supports or toothpicks or wooden skewers for
+                            support.
+                          </p>
+                        </p>
+                      </div>
                     </p>
                   </div>
                 )}

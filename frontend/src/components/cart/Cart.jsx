@@ -116,7 +116,7 @@ const Cart = () => {
                           <br />
                           <div className="bg-alpha-red w-16 rounded-sm">
                             <p className="mt-1 p-1 text-xs text-white text-center font-extrabold">
-                              {item?.discount} off
+                              {item?.discount}% off
                             </p>
                           </div>
                         </div>

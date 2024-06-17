@@ -22,6 +22,39 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please enter product description"],
     },
+    cakeFlavour: {
+      type: String,
+      required: [true, "Please enter product flavour"],
+    },
+
+    cakeShape: {
+      type: String,
+      required: [true, "Please enter product Shape"],
+    },
+    typeOfCake: {
+      type: String,
+      required: [true, "Please enter product type"],
+    },
+    cakeSponge: {
+      type: String,
+      required: [true, "Please enter cake Sponge Type"],
+    },
+    typeOfCream: {
+      type: String,
+      required: [true, "Please enter cream type"],
+    },
+    cakeFilling: {
+      type: String,
+      required: [true, "Please enter product filling"],
+    },
+    cakeToppings: {
+      type: String,
+      required: [true, "Please enter product topping"],
+    },
+    cakeWeight: {
+      type: String,
+      required: [true, "Please enter product weight"],
+    },
     ratings: {
       type: Number,
       default: 0,

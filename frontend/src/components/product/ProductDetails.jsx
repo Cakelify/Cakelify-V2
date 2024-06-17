@@ -155,15 +155,19 @@ const ProductDetails = () => {
             <hr />
             <div className="flex gap-2">
               {" "}
-              <p className="card-text font-semibold text-lg text-alpha-grey mt-1 ml-3 line-through">
-                &#8377;{product?.beforePrice}
-              </p>
+              {product && product?.beforePrice ? (
+                <p className="card-text font-semibold text-lg text-alpha-grey mt-1 ml-3 line-through">
+                  &#8377;{product?.beforePrice}
+                </p>
+              ) : null}
               <p className="pl-1 textStyle text-2xl mt-1 text-beta-pink">
                 &#8377;{product?.price}
               </p>
-              <p className="mt-2 text-base textStyle text-alpha-green">
-                ({product?.discount}% off)
-              </p>
+              {product && product.discount ? (
+                <p className="mt-2 text-base textStyle text-alpha-green">
+                  ({product?.discount}% off)
+                </p>
+              ) : null}
               <p className="mt-2 text-xs textStyle text-black">
                 (Inclusive of GST)
               </p>

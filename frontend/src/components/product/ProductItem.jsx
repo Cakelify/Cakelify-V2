@@ -30,9 +30,13 @@ const ProductItem = ({ product, columnSize }) => {
               alt=""
             />
           </div>
-          <p className="bg-alpha-red w-16 rounded-sm mt-1 p-1 text-xs text-white text-center font-extrabold mb-1">
-            {product?.discount}% off
-          </p>
+          {product && product.discount ? (
+            <p className="bg-alpha-red h-6 w-16 rounded-sm mt-1 p-1 text-xs text-white text-center font-extrabold mb-1">
+              {product?.discount}% off
+            </p>
+          ) : (
+            <p className=" w-16 h-6 rounded-sm mt-1 p-1 mb-1"></p>
+          )}
 
           <div className="max-w-72">
             <h5 className="card-title mt-0">
@@ -56,9 +60,12 @@ const ProductItem = ({ product, columnSize }) => {
               <p className="card-text font-semibold text-lg mt-2">
                 &#8377;{product?.price}
               </p>
-              <p className="card-text font-semibold text-lg text-alpha-grey mt-2 ml-3 line-through">
-                &#8377;{product?.beforePrice}
-              </p>
+
+              {product && product?.beforePrice ? (
+                <p className="card-text font-semibold text-lg text-alpha-grey mt-2 ml-3 line-through">
+                  &#8377;{product?.beforePrice}
+                </p>
+              ) : null}
             </div>
             <a
               href={`/product/${product?._id}`}

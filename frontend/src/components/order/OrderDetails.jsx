@@ -87,6 +87,13 @@ const OrderDetails = () => {
             </tbody>
           </table>
 
+          <table className="table table-striped table-bordered">
+            <tr>
+              <th scope="row">Cake Message</th>
+              <td>{shippingInfo?.cakeMessage}</td>
+            </tr>
+          </table>
+
           <h3 className="mt-5 mb-4">Payment Info</h3>
           <table className="table table-striped table-bordered">
             <tbody>

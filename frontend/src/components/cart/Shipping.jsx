@@ -4,17 +4,51 @@ import { saveShippingInfo } from "../../redux/features/cartSlice";
 import { useNavigate } from "react-router-dom";
 import MetaData from "../layout/MetaData";
 import "./Cart.css";
+import {
+  useCreateNewOrderMutation,
+  useRazorpayCheckoutSessionMutation,
+  useValidateCouponQuery,
+} from "../../redux/api/orderApi";
+import { toast } from "react-hot-toast";
 
 const Shipping = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [couponCode, setCouponCode] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [cakeMessage, setCakeMessage] = useState(null);
+
+  const { data: couponData, error: couponError } = useValidateCouponQuery(
+    couponCode,
+    {
+      skip: !couponCode,
+    }
+  );
+
+  useEffect(() => {
+    if (submitted) {
+      if (couponError) {
+        toast.error(couponError.data.message);
+      } else if (couponData) {
+        toast.success("Coupon applied successfully");
+      }
+      setSubmitted(false); // Reset submission state after handling
+    }
+  }, [couponData, couponError, submitted]);
+
+  const applyCouponHandler = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+
+    // Coupon validation logic will be handled automatically by useValidateCouponQuery
+  };
 
   const { shippingInfo } = useSelector((state) => state.cart);
   const getLocation = () => {
@@ -41,6 +75,8 @@ const Shipping = () => {
       setPhoneNo(shippingInfo?.phoneNo);
       setLatitude(shippingInfo?.latitude);
       setLongitude(shippingInfo?.longitude);
+      setCakeMessage(shippingInfo?.cakeMessage);
+      setCouponCode(shippingInfo?.couponCode);
     }
   }, [shippingInfo]);
 
@@ -55,6 +91,8 @@ const Shipping = () => {
         zipCode,
         latitude,
         longitude,
+        cakeMessage,
+        couponCode,
       })
     );
     navigate("/confirm_order");
@@ -65,9 +103,48 @@ const Shipping = () => {
       <MetaData title={"Shipping Info"} />
 
       <div className="row wrapper mb-5">
-        <div className="col-10 col-lg-5">
-          <form className="shadow rounded bg-body" onSubmit={submiHandler}>
-            <h2 className="mb-4 mt-32">Shipping Info</h2>
+        <div className="col-10 col-lg-5 shadow rounded bg-body">
+          <div className="mt-32">
+            <form onSubmit={applyCouponHandler}>
+              <label>Coupon Code</label>
+              <input
+                type="text"
+                value={couponCode}
+                className="p-3 rounded-md border-1 border-gray-300 bg-white w-100 font-normal w-full my-2"
+                onChange={(e) => setCouponCode(e.target.value)}
+              />
+              <button>Apply Coupon</button>
+            </form>
+          </div>
+          <form className="" onSubmit={submiHandler}>
+            <div className="mb-3">
+              <label htmlFor="address_field" className="font-medium mb-1">
+                Cake Message
+              </label>
+              <input
+                type="text"
+                className="p-3 rounded-md border-1 border-gray-300 bg-white w-100 font-normal w-full"
+                name="cakeMessage"
+                placeholder="Enter message on Cake "
+                onChange={(e) => setCakeMessage(e.target.value)}
+              />
+            </div>
+
+            <h2 className="mb-4 mt-4">Shipping Info</h2>
+
+            <div className="mb-3 hidden">
+              <label htmlFor="address_field" className="form-label">
+                Coupon Code
+              </label>
+              <input
+                type="text"
+                id="address_field"
+                className="p-3 rounded-md border-1 border-gray-300 bg-white w-100 font-normal"
+                name="address"
+                value={couponCode}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
 
             <div className="mb-3">
               <label htmlFor="address_field" className="form-label">
@@ -76,7 +153,7 @@ const Shipping = () => {
               <input
                 type="text"
                 id="address_field"
-                className="form-control"
+                className="p-3 rounded-md border-1 border-gray-300 bg-white w-100 font-normal"
                 name="address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}

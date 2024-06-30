@@ -98,6 +98,14 @@ const ProcessOrder = () => {
                   {shippingInfo?.zipCode}, {shippingInfo?.country}
                 </td>
               </tr>
+              <tr>
+                <th scope="row">Cake Message</th>
+                <td>{shippingInfo?.cakeMessage},</td>
+              </tr>
+              <tr>
+                <th scope="row">CouponCode</th>
+                <td>{shippingInfo?.couponCode},</td>
+              </tr>
             </tbody>
           </table>
 

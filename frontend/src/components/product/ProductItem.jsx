@@ -57,7 +57,7 @@ const ProductItem = ({ product, columnSize }) => {
               </span>
             </div>
             <div className="flex  ">
-              <p className="card-text font-semibold text-lg mt-2">
+              <p className="card-text font-semibold text-lg mt-2 mb-0">
                 &#8377;{product?.price}
               </p>
 

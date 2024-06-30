@@ -6,8 +6,6 @@ import { setCartItem, removeCartItem } from "../../redux/features/cartSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Cart.css";
 import EmptyCart from "./EmptyCart.png";
-import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import ContentCutIcon from "@mui/icons-material/ContentCut";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -201,21 +199,21 @@ const Cart = () => {
                   fill="#282C3F"
                 ></path>
               </svg>
-              <p className=" font-bold ">Best Coupon For You</p>
+              <p className=" font-bold ">Have a Coupon</p>
             </div>
             <div className="border-1 rounded-md  border-alpha-green mx-2">
               <div className="py-3 px-2">
                 <div className="flex">
-                  <p className="mb-0.5 font-bold">Extra &#8377;30 Cashback</p>
-                  <ContentCutIcon className="relative top-14 right-36 text-green-400 " />
+                  {/* <p className="mb-0.5 font-bold">Extra &#8377;30 Cashback</p> */}
+                  {/* <ContentCutIcon className="relative top-14 right-36 text-green-400 " /> */}
                 </div>
                 <p className="text-sm">
-                  Rs. 30 cashback on minimum purchase of Rs.349
+                  {/* Rs. 30 cashback on minimum purchase of Rs.349 */}
                 </p>
                 <div className="flex justify-between">
-                  <div className="border-2 h-12 mt-1 bg-green-100 border-alpha-green border-dashed">
-                    <p className="pt-2 px-2 font-bold">CAKELIFY30</p>
-                  </div>{" "}
+                  {/* <div className="border-2 h-12 mt-1 bg-green-100 border-alpha-green border-dashed">
+                    {/* <p className="pt-2 px-2 font-bold">CAKELIFY30</p> */}
+                  {/* </div>{" "} */}
                   <button className="border-2 border-alpha-pink text-alpha-pink  rounded-sm p-2 font-bold">
                     APPLY COUPON
                   </button>

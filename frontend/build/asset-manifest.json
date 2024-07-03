@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a752107b.css",
-    "main.js": "/static/js/main.5c9b38a2.js",
+    "main.css": "/static/css/main.9b1d77d5.css",
+    "main.js": "/static/js/main.1b087ea0.js",
     "static/js/703.dd222d96.chunk.js": "/static/js/703.dd222d96.chunk.js",
     "static/js/198.b9f0d502.chunk.js": "/static/js/198.b9f0d502.chunk.js",
     "static/media/bgImage.png": "/static/media/bgImage.0f5ca73ba82b9825b78a.png",
@@ -11,9 +11,6 @@
     "static/media/WB3.jpg": "/static/media/WB3.074332388a37eb09fb32.jpg",
     "static/media/PureVeg.png": "/static/media/PureVeg.1684fc71ddb0a0991cc9.png",
     "static/media/CakelifyLogo.png": "/static/media/CakelifyLogo.aa42d9ff8fc4ca9b6fdc.png",
-    "static/media/Cakes.png": "/static/media/Cakes.978707ddee87e87a8734.png",
-    "static/media/pastry.png": "/static/media/pastry.05da4641d7976d54027f.png",
-    "static/media/JarCakes.png": "/static/media/JarCakes.6b3d22403ddd687a169a.png",
     "static/media/verify.png": "/static/media/verify.b8bc1fd1c42eb60c61c8.png",
     "static/media/icon-2.svg": "/static/media/icon-2.622b96aa8375916171721496261f6986.svg",
     "static/media/icon-1.svg": "/static/media/icon-1.5b1776e2a1d7ec897722f605a8118984.svg",
@@ -24,13 +21,13 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "static/media/email-icon.svg": "/static/media/email-icon.3c8b9b35bb180a4286d97ba3799d776f.svg",
-    "main.a752107b.css.map": "/static/css/main.a752107b.css.map",
-    "main.5c9b38a2.js.map": "/static/js/main.5c9b38a2.js.map",
+    "main.9b1d77d5.css.map": "/static/css/main.9b1d77d5.css.map",
+    "main.1b087ea0.js.map": "/static/js/main.1b087ea0.js.map",
     "703.dd222d96.chunk.js.map": "/static/js/703.dd222d96.chunk.js.map",
     "198.b9f0d502.chunk.js.map": "/static/js/198.b9f0d502.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a752107b.css",
-    "static/js/main.5c9b38a2.js"
+    "static/css/main.9b1d77d5.css",
+    "static/js/main.1b087ea0.js"
   ]
 }

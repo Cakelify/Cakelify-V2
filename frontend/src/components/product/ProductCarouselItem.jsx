@@ -3,25 +3,37 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./button.css";
 import PureVeg from "./PureVeg.png";
 
-function truncateTitle(name, maxLength) {
-  if (name.length <= maxLength) {
-    return name;
-  }
-  return name.slice(0, maxLength) + "...";
-}
-
 const ProductCarouselItem = ({ product, columnSize }) => {
-  const maxTitleLength = 18; // Define the maximum length for the title
-  const truncatedTitle = truncateTitle(product.name, maxTitleLength);
-
   return (
     <>
       {" "}
-      <div className={`col-sm-12 col-md-6 cakeBG col-lg-${columnSize}  mx-2`}>
-        <div className="w-36 border-1 border-black p-1 rounded-md productCarousel">
+      <div className={``}>
+        {product && product.discount ? (
+          <div className="flex justify-between">
+            {" "}
+            <p className="bg-alpha-red h-6 w-16 rounded-sm p-1 text-xs text-white text-center font-extrabold -mb-2 relative top-10 left-5">
+              {product?.discount}% off
+            </p>
+            <img
+              className="w-4 h-4  -mb-2 relative top-10 right-6"
+              src={PureVeg}
+              alt=""
+            />
+          </div>
+        ) : (
+          <div>
+            <p className="  h-6 w-16 rounded-sm p-1 text-xs text-white text-center font-extrabold -mb-2 relative top-10 left-5"></p>
+            <img
+              className="w-4 h-4  -mb-2 relative top-10 left-72"
+              src={PureVeg}
+              alt=""
+            />
+          </div>
+        )}
+        <div className="w-80 mx-2">
           <a href={`/product/${product?._id}`}>
             <img
-              className="card-img-top mx-auto"
+              className=" h-80 w-80 rounded-lg"
               src={
                 product?.images[0]
                   ? product?.images[0]?.url
@@ -31,30 +43,24 @@ const ProductCarouselItem = ({ product, columnSize }) => {
             />
           </a>
 
-          <div>
-            <img
-              className="relative w-4 bottom-36 ml-1 mb-0 left-28"
-              src={PureVeg}
-              alt=""
-            />
-          </div>
-          <p className="bg-alpha-red w-16 rounded-sm mt-1 p-1 text-xs text-white text-center font-extrabold mb-1">
-            {product?.discount} off
-          </p>
-
-          <div className="max-w-72">
-            <h5 className="card-title mt-0">
-              <a href={`/product/${product?._id}`}>{truncatedTitle}</a>
-            </h5>
-
-            <div className="flex  ">
-              <p className="card-text font-semibold text-lg mt-2">
-                &#8377;{product?.price}
-              </p>
-              <p className="card-text font-semibold text-lg text-alpha-grey mt-2 ml-3 line-through">
-                &#8377;{product?.beforePrice}
-              </p>
+          <div className="max-w-72 ml-4 mt-1">
+            <div>
+              {" "}
+              <h5 className="card-title mt-0 flex">
+                <a href={`/product/${product?._id}`}>{product?.name}</a>
+              </h5>
+              <div className="flex">
+                <p className="card-text font-semibold text-lg mt-1">
+                  &#8377;{product?.price}
+                </p>
+                {product && product?.beforePrice ? (
+                  <p className="card-text font-semibold text-lg text-alpha-grey mt-1 ml-3 line-through">
+                    &#8377;{product?.beforePrice}
+                  </p>
+                ) : null}
+              </div>
             </div>
+            <div></div>
           </div>
         </div>
       </div>

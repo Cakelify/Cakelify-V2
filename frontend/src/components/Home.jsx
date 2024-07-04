@@ -14,6 +14,7 @@ import ReviewSlider from "./layout/ReviewSlider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import WB1 from "./WB1.jpg";
 import Crown from "./Crown.jpg";
+import WB2 from "./WB3.jpg";
 
 // Import Swiper styles
 import "swiper/css";
@@ -26,6 +27,8 @@ import CatSlider from "./catSlider";
 import MarqueeFC from "./layout/MarqueeFC";
 import WhatsNew from "./layout/WhatsNew";
 import ProductCarousel from "./product/ProductCarousel";
+import ProductCarouselOne from "./product/ProductCarouselOne";
+import ProductCarouselTwo from "./product/ProductCarouselTwo";
 
 const Home = () => {
   let [searchParams] = useSearchParams();
@@ -189,12 +192,30 @@ const Home = () => {
               {keyword ? `${keyword}` : "Top 10 Bestsellers"}
             </h1>
           </div>
-          <section className="">
+          <section>
             <ProductCarousel />
           </section>
         </div>
-
-        <div className="flex justify-center mt-6 mr-3">
+        <h5 className="mt-6 mb-0 text-lg font-bold ml-2  pt-4">
+          Exclusive Offer
+        </h5>
+        <SwiperSlide className="-z-50 p-2">
+          <img src={WB2} alt="" className="-z-50 rounded-md" />
+        </SwiperSlide>
+        <section>
+          {" "}
+          <h5 className="mt-2 mb-0 text-lg font-bold ml-2  pt-4">
+            🤩 Popular Delights
+          </h5>
+          <ProductCarouselOne />
+        </section>
+        <section>
+          <h5 className="mt-2 mb-0 text-lg font-bold ml-2  pt-4">
+            🍰 Desserts
+          </h5>
+          <ProductCarouselTwo />
+        </section>
+        {/* <div className="flex justify-center mt-6 mr-3">
           <a
             href="/flavourfulCategory"
             id="view_btn"
@@ -202,7 +223,7 @@ const Home = () => {
           >
             View All
           </a>
-        </div>
+        </div> */}
         {/* <CustomPagination
           resPerPage={data?.resPerPage}
           filteredProductsCount={data?.filteredProductsCount}

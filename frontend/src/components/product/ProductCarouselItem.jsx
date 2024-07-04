@@ -30,10 +30,10 @@ const ProductCarouselItem = ({ product, columnSize }) => {
             />
           </div>
         )}
-        <div className="w-80 mx-2">
+        <div className="w-72 mx-2">
           <a href={`/product/${product?._id}`}>
             <img
-              className=" h-80 w-80 rounded-lg"
+              className=" h-72 w-72 rounded-lg"
               src={
                 product?.images[0]
                   ? product?.images[0]?.url
@@ -43,7 +43,7 @@ const ProductCarouselItem = ({ product, columnSize }) => {
             />
           </a>
 
-          <div className="max-w-72 ml-4 mt-1">
+          <div className="max-w-72 ml-4 mt-1 flex justify-between">
             <div>
               {" "}
               <h5 className="card-title mt-0 flex">
@@ -60,7 +60,13 @@ const ProductCarouselItem = ({ product, columnSize }) => {
                 ) : null}
               </div>
             </div>
-            <div></div>
+            <a
+              href={`/product/${product?._id}`}
+              id="view_btn"
+              className="button-6 buttonBG "
+            >
+              View
+            </a>
           </div>
         </div>
       </div>

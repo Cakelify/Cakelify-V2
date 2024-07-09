@@ -110,7 +110,7 @@ const ConfirmOrder = () => {
       <MetaData title={"Confirm Order Info"} />
       <div className="row d-flex justify-content-between m-1 ">
         <div className="col-12  pt-32 col-lg-8  order-confirm ">
-          <h5 className="mb-3 mt-12">Shipping Info</h5>
+          <h5 className="mb-3 mt-12 PlayfairDisplay">Shipping Info</h5>
           <p>
             <b>Name:</b> {user?.name} <br />
             <b>Phone:</b> {shippingInfo?.phoneNo}
@@ -120,7 +120,7 @@ const ConfirmOrder = () => {
           </p>
 
           <hr />
-          <h5 className="mt-4">Your Cart Items:</h5>
+          <h5 className="mt-4 PlayfairDisplay">Your Cart Items:</h5>
 
           {cartItems?.map((item) => (
             <>
@@ -158,8 +158,8 @@ const ConfirmOrder = () => {
         </div>
 
         <div className="col-12 col-lg-3 my-4">
-          <div id="order_summary">
-            <h4>Order Summary</h4>
+          <div id="order_summary ">
+            <h4 className="PlayfairDisplay">Order Summary</h4>
             <hr />
             <p>
               Subtotal:{" "}

@@ -89,7 +89,7 @@ const Cart = () => {
                 </li>
               </ul>
             </div>
-            <div className="h-6 bg-bg-grey  w-full "></div>
+            <div className="h-4 bg-bg-grey  w-full "></div>
             <div className="col-12 col-lg-8 ">
               {cartItems?.map((item) => (
                 <>
@@ -162,7 +162,7 @@ const Cart = () => {
                         </i>
                       </div>
                     </div>{" "}
-                    <div className="h-6 bg-bg-grey  w-full "></div>
+                    <div className="h-4 bg-bg-grey  w-full "></div>
                   </div>
 
                   <div className="h-28 w-full  absolute bottom-0 buttonBG1 bg-white left-0">
@@ -189,42 +189,10 @@ const Cart = () => {
               ))}
             </div>
           </div>
-          <div className="my-3">
-            <div className="mx-2 flex">
-              <svg className="h-4 w-6 mt-1 mr-2">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M15.626 1.5A4.007 4.007 0 0018.5 4.374v5.252a4.007 4.007 0 00-2.874 2.874H4.374A4.007 4.007 0 001.5 9.626V4.374A4.007 4.007 0 004.374 1.5h11.252zM17.05 1a2.503 2.503 0 002.45 2c.26 0 .5.193.5.453v7.094c0 .26-.24.453-.5.453a2.503 2.503 0 00-2.5 2.5c0 .26-.193.5-.453.5H3.453c-.26 0-.453-.24-.453-.5A2.503 2.503 0 00.5 11c-.26 0-.5-.193-.5-.453V3.453C0 3.193.24 3 .5 3A2.503 2.503 0 003 .5c0-.26.193-.5.453-.5h13.094c.26 0 .453.24.453.5 0 .171.017.338.05.5zM6.5 4.5c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1-1 .45-1 1zm.75 6c-.19 0-.38-.07-.53-.22a.754.754 0 010-1.06l5.5-5.5c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-5.5 5.5c-.15.15-.34.22-.53.22zm5.25 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"
-                  fill="#282C3F"
-                ></path>
-              </svg>
-              <p className=" font-bold ">Have a Coupon</p>
-            </div>
-            <div className="border-1 rounded-md  border-alpha-green mx-2">
-              <div className="py-3 px-2">
-                <div className="flex">
-                  {/* <p className="mb-0.5 font-bold">Extra &#8377;30 Cashback</p> */}
-                  {/* <ContentCutIcon className="relative top-14 right-36 text-green-400 " /> */}
-                </div>
-                <p className="text-sm">
-                  {/* Rs. 30 cashback on minimum purchase of Rs.349 */}
-                </p>
-                <div className="flex justify-between">
-                  {/* <div className="border-2 h-12 mt-1 bg-green-100 border-alpha-green border-dashed">
-                    {/* <p className="pt-2 px-2 font-bold">CAKELIFY30</p> */}
-                  {/* </div>{" "} */}
-                  <button className="border-2 border-alpha-pink text-alpha-pink  rounded-sm p-2 font-bold">
-                    APPLY COUPON
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="h-6 bg-bg-grey  w-full "></div>
+
           <div className="h-56 buttonBG">
             <div className="px-2">
-              <p className="font-bold pt-2">
+              <p className="font-bold pt-2 PlayfairDisplay">
                 PRICE DETAILS ({cartItems?.length} items)
               </p>
             </div>
@@ -259,7 +227,7 @@ const Cart = () => {
               </div>
             </div>
           </div>
-          <div className="h-6 bg-bg-grey  w-full "></div>
+          <div className="h-4 bg-bg-grey  w-full "></div>
         </>
       )}
     </div>

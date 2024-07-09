@@ -39,8 +39,13 @@ const ProductItem = ({ product, columnSize }) => {
           )}
 
           <div className="max-w-72">
-            <h5 className="card-title mt-0 Montserrat">
-              <a href={`/product/${product?._id}`}>{product?.name}</a>
+            <h5 className="mt-0 Montserrat">
+              <a
+                className="no-underline text-black text-lg leading-none"
+                href={`/product/${product?._id}`}
+              >
+                {product?.name}
+              </a>
             </h5>
             <div className="ratings mt-auto d-flex">
               <StarRatings

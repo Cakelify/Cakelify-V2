@@ -182,7 +182,7 @@ const Home = () => {
         <div className="productCarousel">
           <div className="flex  flex-col mt-1">
             <img src={Crown} alt="" />
-            <h1 className=" text-center text-alpha-gold mt-1 mb-0">
+            <h1 className="PlayfairDisplay text-center text-alpha-gold mt-1 mb-0">
               {keyword ? `${keyword}` : "Top 10 Bestsellers"}
             </h1>
           </div>

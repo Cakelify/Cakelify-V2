@@ -49,7 +49,7 @@ function ProductCarouselOne() {
         >
           <motion.div
             drag="x"
-            dragConstraints={{ right: 0, left: -2320 }}
+            dragConstraints={{ right: 0, left: -2060 }}
             className="inner-carousel"
           >
             {data?.products?.map((product) => (

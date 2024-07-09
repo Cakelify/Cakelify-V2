@@ -46,15 +46,20 @@ const ProductCarouselItem = ({ product, columnSize }) => {
           <div className="max-w-72 ml-4 mt-1 flex justify-between">
             <div>
               {" "}
-              <h5 className="card-title mt-0 flex Montserrat">
-                <a href={`/product/${product?._id}`}>{product?.name}</a>
+              <h5 className=" mt-0 flex Montserrat">
+                <a
+                  className="no-underline text-black text-lg leading-none"
+                  href={`/product/${product?._id}`}
+                >
+                  {product?.name}
+                </a>
               </h5>
               <div className="flex">
-                <p className="card-text font-semibold text-lg mt-1">
+                <p className="card-text font-semibold text-lg">
                   &#8377;{product?.price}
                 </p>
                 {product && product?.beforePrice ? (
-                  <p className="card-text font-semibold text-lg text-alpha-grey mt-1 ml-3 line-through">
+                  <p className="card-text font-semibold text-lg text-alpha-grey  ml-3 line-through">
                     &#8377;{product?.beforePrice}
                   </p>
                 ) : null}

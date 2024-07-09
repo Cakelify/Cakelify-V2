@@ -46,7 +46,7 @@ const ProductCarouselItem = ({ product, columnSize }) => {
           <div className="max-w-72 ml-4 mt-1 flex justify-between">
             <div>
               {" "}
-              <h5 className="card-title mt-0 flex">
+              <h5 className="card-title mt-0 flex Montserrat">
                 <a href={`/product/${product?._id}`}>{product?.name}</a>
               </h5>
               <div className="flex">

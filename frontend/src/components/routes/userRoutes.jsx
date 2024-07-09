@@ -12,7 +12,6 @@ import ResetPassword from "../auth/ResetPassword";
 import Cart from "../cart/Cart";
 import Shipping from "../cart/Shipping";
 import ConfirmOrder from "../cart/ConfirmOrder";
-import PaymentMethod from "../cart/PaymentMethod";
 import MyOrders from "../order/MyOrders";
 import OrderDetails from "../order/OrderDetails";
 import Invoice from "../invoice/Invoice";
@@ -97,14 +96,6 @@ const userRoutes = () => {
         element={
           <ProtectedRoute>
             <ConfirmOrder />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/payment_method"
-        element={
-          <ProtectedRoute>
-            <PaymentMethod />
           </ProtectedRoute>
         }
       />

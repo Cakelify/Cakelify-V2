@@ -137,16 +137,10 @@ const Home = () => {
               <SwiperSlide className="-z-50 p-2">
                 <img src={WB1} alt="" className="-z-50 rounded-md" />
               </SwiperSlide>
-              {/* <SwiperSlide>
-                <img src={WB2} alt="" className="-z-50" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={WB3} alt="" className="-z-50" />
-              </SwiperSlide> */}
             </Swiper>
           </div>
           {/* <MarqueeFC /> */}
-          <h5 className="mt-4 mb-3 ml-2 text-lg font-bold"> Offers for you</h5>
+          <h5 className="mt-4 mb-3 ml-2 PlayfairDisplay"> Offers for you</h5>
           <div className="Offer m-2 rounded-md text-white mt-2 max-w-46">
             <p className="font-black text-lg mb-1">Up to &#8377;60 Cashback</p>
             <p className="text-md mb-0 font-medium">
@@ -154,7 +148,7 @@ const Home = () => {
             </p>
           </div>
           <div className="divCategory">
-            <h5 className="mt-6 mb-3 text-lg font-bold ml-2  pt-4">
+            <h5 className="mt-6 mb-3 PlayfairDisplay ml-2  pt-4">
               What &nbsp;<span style={textStyle}>tantalizing</span> &nbsp;treat
               is on your mind?
             </h5>
@@ -178,7 +172,7 @@ const Home = () => {
             <CatSlider />
           </div>
 
-          <h5 className="mt-4  ml-2 text-lg font-bold">What's New</h5>
+          <h5 className="mt-4  ml-2 PlayfairDisplay">What's New</h5>
           <WhatsNew />
           <div className="">
             <MenuBar />
@@ -196,7 +190,7 @@ const Home = () => {
             <ProductCarousel />
           </section>
         </div>
-        <h5 className="mt-6 mb-0 text-lg font-bold ml-2  pt-4">
+        <h5 className="mt-6 mb-0 PlayfairDisplay ml-2  pt-4">
           Exclusive Offer
         </h5>
         <SwiperSlide className="-z-50 p-2">
@@ -204,15 +198,13 @@ const Home = () => {
         </SwiperSlide>
         <section>
           {" "}
-          <h5 className="mt-2 mb-0 text-lg font-bold ml-2  pt-4">
+          <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">
             🤩 Popular Delights
           </h5>
           <ProductCarouselOne />
         </section>
         <section>
-          <h5 className="mt-2 mb-0 text-lg font-bold ml-2  pt-4">
-            🍰 Desserts
-          </h5>
+          <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">🍰 Desserts</h5>
           <ProductCarouselTwo />
         </section>
         {/* <div className="flex justify-center mt-6 mr-3">
@@ -231,7 +223,7 @@ const Home = () => {
 
         <div className="mt-4 pt-4 bg-alpha-liteyellow boxShadow">
           {" "}
-          <h2 className="text-xl text-center mb-4 font-serif ">
+          <h2 className="text-xl text-center mb-4 PlayfairDisplay ">
             Flavourful Options
           </h2>
           <div className="flex flex-wrap justify-around mb-4 p-2 ">

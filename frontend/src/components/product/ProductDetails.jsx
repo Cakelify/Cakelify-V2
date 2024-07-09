@@ -247,13 +247,13 @@ const ProductDetails = () => {
                 <br />
                 {activeTabs === 0 && (
                   <div className="tabContent">
-                    <p className="pl-1 font-sans p-2 text-black">
-                      <p className="text-lg font-semibold">
+                    <p className="pl-1 p-2  Roboto">
+                      <p className="text-lg font-semibold Roboto">
                         {" "}
                         Product Details :
                       </p>
                       <div>
-                        <p className="pb-0 mb-1 flex ">
+                        <p className="pb-0 mb-1 flex Roboto ">
                           <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
                           Cake Flavour: {product?.cakeFlavour}
                         </p>

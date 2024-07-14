@@ -48,18 +48,27 @@ const Search = () => {
     <>
       <div className="ForDesktop">
         <form onSubmit={submitHandler}>
-          <div className="input-group search-container">
+          <div className="flex justify-center mt-3 ">
             <input
               type="text"
               id="search_field"
               aria-describedby="search_btn"
-              placeholder="Enter Product Name ..."
+              className="w-106 border-1 border-black rounded-start-2 buttonBG"
+              placeholder={
+                isLoading
+                  ? "🔎 Search for your favorite Cakes"
+                  : placeholderText
+              }
               name="keyword"
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
             />
-            <button id="search_btn" className="btn" type="submit">
-              <i className="fa fa-search" aria-hidden="true"></i>
+            <button
+              id="search_btn"
+              className="w-11 h-10 relative bottom-0.5 border-1 rounded-end-2 "
+              type="submit"
+            >
+              <SearchIcon />
             </button>
           </div>
         </form>

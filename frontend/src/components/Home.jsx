@@ -65,19 +65,19 @@ const Home = () => {
 
   const sata = [
     {
-      link: "/?keyword=Jar%20Cakes",
+      link: "/flavourfulCategory/?keyword=Jar%20Cakes",
       name: "JarCake",
       review:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjMyHds7vLSoiw4yPLmqVN8-yLpm1xISG97w&s",
     },
     {
-      link: "/?keyword=Pastry",
+      link: "/flavourfulCategory/?keyword=Pastry",
       name: "Pastries",
       review:
         "https://bakewithshivesh.com/wp-content/uploads/2021/07/IMG_0745-scaled.jpg",
     },
     {
-      link: "/?keyword=Cup%20Cake",
+      link: "/flavourfulCategory/?keyword=Cup%20Cake",
       name: "Cup Cake",
       review:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN5SOEC9jypaD84nmE-ruTPJVh7AA3HPZLdg&s",
@@ -155,7 +155,7 @@ const Home = () => {
             <div className="flex justify-around  pb-4">
               {sata.map((d) => (
                 <div className=" border-gray-200 rounded-md">
-                  <Link to={d.link} className="no-underline text-black">
+                  <a href={d.link} className="no-underline text-black">
                     {" "}
                     <img
                       className=" h-24 w-24 rounded-full"
@@ -165,7 +165,7 @@ const Home = () => {
                     <p className="text-center mt-1 font-semibold text-gray-500 ">
                       {d.name}
                     </p>
-                  </Link>
+                  </a>
                 </div>
               ))}
             </div>
@@ -198,13 +198,13 @@ const Home = () => {
         </SwiperSlide>
         <section>
           {" "}
-          <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">
-            🤩 Popular Delights
-          </h5>
+          <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">🍰 Desserts</h5>
           <ProductCarouselOne />
         </section>
         <section>
-          <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">🍰 Desserts</h5>
+          <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">
+            🤩 Popular Delights
+          </h5>
           <ProductCarouselTwo />
         </section>
         {/* <div className="flex justify-center mt-6 mr-3">

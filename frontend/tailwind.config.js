@@ -16,6 +16,11 @@ module.exports = {
         "alpha-green": "#1c9550",
         "alpha-gold": "#a9802a",
       },
+      spacing: {
+        72: "18rem",
+        84: "21rem",
+        106: "40rem",
+      },
     },
   },
   plugins: [],

@@ -254,7 +254,6 @@ const Shipping = () => {
                 name="latitude"
                 value={latitude}
                 onChange={(e) => setZipCode(e.target.value)}
-                required
               />
             </div>
 
@@ -269,7 +268,6 @@ const Shipping = () => {
                 name="longitude"
                 value={longitude}
                 onChange={(e) => setZipCode(e.target.value)}
-                required
               />
             </div>
             <div>{latitude && longitude && <div></div>}</div>

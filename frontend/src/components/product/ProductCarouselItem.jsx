@@ -24,7 +24,7 @@ const ProductCarouselItem = ({ product, columnSize }) => {
           <div>
             <p className="  h-6 w-16 rounded-sm p-1 text-xs text-white text-center font-extrabold -mb-2 relative top-10 left-5"></p>
             <img
-              className="w-4 h-4  -mb-2 relative top-10 left-72"
+              className="w-4 h-4  -mb-2 relative top-10 left-64"
               src={PureVeg}
               alt=""
             />

@@ -22,7 +22,7 @@ function ProductCarouselOne() {
   //   setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   // }, []);
 
-  const params = { page, keyword, category: "Camera" };
+  const params = { page, keyword, category: "Cameras" };
 
   min !== null && (params.min = min);
   max !== null && (params.max = max);

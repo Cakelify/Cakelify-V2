@@ -42,7 +42,7 @@ const Login = () => {
       <div className="row wrapper mt-4 h-auto bgImage">
         <div className="col-10 col-lg-5">
           <form className="shadow rounded bg-body" onSubmit={submitHandler}>
-            <h2 className="mb-4 mt-24">Login</h2>
+            <h2 className="mb-4 mt-28">Login</h2>
             <div className="mb-3 ">
               <label htmlFor="email_field" className="form-label">
                 Email

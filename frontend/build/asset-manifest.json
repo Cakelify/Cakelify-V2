@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.929e4526.css",
-    "main.js": "/static/js/main.c1c77bcb.js",
+    "main.css": "/static/css/main.b889f5cd.css",
+    "main.js": "/static/js/main.3ee72b40.js",
     "static/js/703.dd222d96.chunk.js": "/static/js/703.dd222d96.chunk.js",
     "static/js/198.b9f0d502.chunk.js": "/static/js/198.b9f0d502.chunk.js",
+    "static/media/JarCakeB1.jpg": "/static/media/JarCakeB1.9dd6967c51425f2886fe.jpg",
     "static/media/bgImage.png": "/static/media/bgImage.0f5ca73ba82b9825b78a.png",
+    "static/media/WB3.jpg": "/static/media/WB3.e811eab466bbf4af2839.jpg",
     "static/media/WB1.jpg": "/static/media/WB1.82488c9859f6c7cb77ff.jpg",
     "static/media/EmptyCart.png": "/static/media/EmptyCart.7664fe40e1931409b380.png",
     "static/media/WB2.jpg": "/static/media/WB2.9a5f64acbc56815caf68.jpg",
-    "static/media/WB3.jpg": "/static/media/WB3.074332388a37eb09fb32.jpg",
     "static/media/PureVeg.png": "/static/media/PureVeg.1684fc71ddb0a0991cc9.png",
     "static/media/CakelifyLogo.png": "/static/media/CakelifyLogo.aa42d9ff8fc4ca9b6fdc.png",
     "static/media/verify.png": "/static/media/verify.b8bc1fd1c42eb60c61c8.png",
@@ -21,13 +22,13 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "static/media/email-icon.svg": "/static/media/email-icon.3c8b9b35bb180a4286d97ba3799d776f.svg",
-    "main.929e4526.css.map": "/static/css/main.929e4526.css.map",
-    "main.c1c77bcb.js.map": "/static/js/main.c1c77bcb.js.map",
+    "main.b889f5cd.css.map": "/static/css/main.b889f5cd.css.map",
+    "main.3ee72b40.js.map": "/static/js/main.3ee72b40.js.map",
     "703.dd222d96.chunk.js.map": "/static/js/703.dd222d96.chunk.js.map",
     "198.b9f0d502.chunk.js.map": "/static/js/198.b9f0d502.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.929e4526.css",
-    "static/js/main.c1c77bcb.js"
+    "static/css/main.b889f5cd.css",
+    "static/js/main.3ee72b40.js"
   ]
 }

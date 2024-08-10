@@ -3,15 +3,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "../product/ProductCarousel.css";
 import WB2 from "../WB2.jpg";
-import WB3 from "../WB3.jpg";
-
+import JarCakeBanner from "../JarCakeB1.jpg";
 function WhatsNew() {
   const [width, setWidth] = useState(0);
   const carousel = useRef();
   // useEffect(() => {
   //   setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   // }, []);
-  const sata = [{ img: WB2 }, { img: WB3 }];
+  const sata = [{ img: WB2 }, { img: JarCakeBanner }];
   return (
     <>
       <div className="mt-0 pt-0">
@@ -28,7 +27,7 @@ function WhatsNew() {
             {" "}
             {sata.map((d) => (
               <img
-                className=" h-56 w-76 rounded-3xl py-4 px-2 mx-1d"
+                className=" h-auto w-84 rounded-3xl py-4 px-2 mx-1d"
                 src={d.img}
                 alt=""
               />

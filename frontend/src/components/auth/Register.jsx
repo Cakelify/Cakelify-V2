@@ -51,7 +51,7 @@ const Register = () => {
       <div className="row wrapper bgImage">
         <div className="col-10 col-lg-5">
           <form className="shadow rounded bg-body" onSubmit={submitHandler}>
-            <h2 className="mb-4 mt-28">Register</h2>
+            <h2 className="mb-4 mt-36">Register</h2>
 
             <div className="mb-3">
               <label htmlFor="name_field" className="form-label">

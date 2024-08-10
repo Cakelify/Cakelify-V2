@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.b889f5cd.css",
-    "main.js": "/static/js/main.3ee72b40.js",
+    "main.js": "/static/js/main.642c41fe.js",
     "static/js/703.dd222d96.chunk.js": "/static/js/703.dd222d96.chunk.js",
     "static/js/198.b9f0d502.chunk.js": "/static/js/198.b9f0d502.chunk.js",
+    "static/media/WB3.jpg": "/static/media/WB3.ed00790a921ad8b483c5.jpg",
     "static/media/JarCakeB1.jpg": "/static/media/JarCakeB1.9dd6967c51425f2886fe.jpg",
     "static/media/bgImage.png": "/static/media/bgImage.0f5ca73ba82b9825b78a.png",
-    "static/media/WB3.jpg": "/static/media/WB3.e811eab466bbf4af2839.jpg",
     "static/media/WB1.jpg": "/static/media/WB1.82488c9859f6c7cb77ff.jpg",
     "static/media/EmptyCart.png": "/static/media/EmptyCart.7664fe40e1931409b380.png",
     "static/media/WB2.jpg": "/static/media/WB2.9a5f64acbc56815caf68.jpg",
@@ -23,12 +23,12 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "static/media/email-icon.svg": "/static/media/email-icon.3c8b9b35bb180a4286d97ba3799d776f.svg",
     "main.b889f5cd.css.map": "/static/css/main.b889f5cd.css.map",
-    "main.3ee72b40.js.map": "/static/js/main.3ee72b40.js.map",
+    "main.642c41fe.js.map": "/static/js/main.642c41fe.js.map",
     "703.dd222d96.chunk.js.map": "/static/js/703.dd222d96.chunk.js.map",
     "198.b9f0d502.chunk.js.map": "/static/js/198.b9f0d502.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b889f5cd.css",
-    "static/js/main.3ee72b40.js"
+    "static/js/main.642c41fe.js"
   ]
 }

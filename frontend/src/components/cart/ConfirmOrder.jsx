@@ -6,6 +6,7 @@ import { caluclateOrderCost } from "../../helpers/helpers";
 import {
   useCreateNewOrderMutation,
   useRazorpayCheckoutSessionMutation,
+  useValidateCouponQuery,
 } from "../../redux/api/orderApi";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +17,12 @@ const ConfirmOrder = () => {
 
   const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
     caluclateOrderCost(cartItems);
+
   const [method, setMethod] = useState("");
+  const [couponCode, setCouponCode] = useState("");
+  const [discount, setDiscount] = useState(0);
+  const [finalTotalPrice, setFinalTotalPrice] = useState(totalPrice);
+  const [validateCoupon, setValidateCoupon] = useState(false);
 
   const navigate = useNavigate();
 
@@ -25,6 +31,34 @@ const ConfirmOrder = () => {
     razorpayCheckoutSession,
     { data: checkoutData, error: checkoutError, isLoading },
   ] = useRazorpayCheckoutSessionMutation();
+
+  // Conditionally call the coupon validation query
+  const { data: couponData, error: couponError } = useValidateCouponQuery(
+    couponCode,
+    {
+      skip: !validateCoupon || !couponCode,
+    }
+  );
+
+  useEffect(() => {
+    if (couponError) {
+      toast.error(couponError.data.message);
+      setDiscount(0);
+    } else if (couponData) {
+      toast.success("Coupon applied successfully");
+      setDiscount(couponData.discount);
+    }
+    // Reset validateCoupon after each attempt
+    setValidateCoupon(false);
+  }, [couponData, couponError]);
+
+  useEffect(() => {
+    if (discount > 0) {
+      setFinalTotalPrice(totalPrice - (totalPrice * discount) / 100);
+    } else {
+      setFinalTotalPrice(totalPrice);
+    }
+  }, [discount, totalPrice]);
 
   useEffect(() => {
     if (error) {
@@ -35,6 +69,12 @@ const ConfirmOrder = () => {
       navigate("/me/orders?order_success=true");
     }
   }, [error, isSuccess]);
+
+  const applyCouponHandler = (e) => {
+    e.preventDefault();
+    // Trigger the coupon validation
+    setValidateCoupon(true);
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -48,8 +88,9 @@ const ConfirmOrder = () => {
       itemsPrice,
       shippingAmount: shippingPrice,
       taxAmount: taxPrice,
-      totalAmount: totalPrice,
+      totalAmount: finalTotalPrice,
       paymentMethod: method,
+      couponCode,
     };
 
     if (method === "COD") {
@@ -95,7 +136,7 @@ const ConfirmOrder = () => {
             address: shippingInfo.address,
           },
           theme: {
-            color: "#f42e9f",
+            color: "#3399cc",
           },
         };
 
@@ -110,17 +151,20 @@ const ConfirmOrder = () => {
       <MetaData title={"Confirm Order Info"} />
       <div className="row d-flex justify-content-between m-1 ">
         <div className="col-12  pt-32 col-lg-8  order-confirm ">
-          <h5 className="mb-3 mt-12 PlayfairDisplay">Shipping Info</h5>
+          <h4 className="mb-3 mt-12">Shipping Info</h4>
           <p>
-            <b>Name:</b> {user?.name} <br />
+            <b>Name:</b> {user?.name}
+          </p>
+          <p>
             <b>Phone:</b> {shippingInfo?.phoneNo}
-            <br />
+          </p>
+          <p className="mb-4">
             <b>Address:</b> {shippingInfo?.address}, {shippingInfo?.city},{" "}
             {shippingInfo?.zipCode}, India
           </p>
 
           <hr />
-          <h5 className="mt-4 PlayfairDisplay">Your Cart Items:</h5>
+          <h4 className="mt-4">Your Cart Items:</h4>
 
           {cartItems?.map((item) => (
             <>
@@ -137,7 +181,7 @@ const ConfirmOrder = () => {
 
                   <div className="pl-5 text-neutral-950">
                     <Link
-                      className="text-neutral-950 text-base no-underline text"
+                      className="text-neutral-950 text-lg no-underline"
                       to={`/product/${item.product}`}
                     >
                       {item?.name}
@@ -158,8 +202,8 @@ const ConfirmOrder = () => {
         </div>
 
         <div className="col-12 col-lg-3 my-4">
-          <div id="order_summary ">
-            <h4 className="PlayfairDisplay">Order Summary</h4>
+          <div id="order_summary">
+            <h4>Order Summary</h4>
             <hr />
             <p>
               Subtotal:{" "}
@@ -180,10 +224,41 @@ const ConfirmOrder = () => {
 
             <p>
               Total:{" "}
-              <span className="order-summary-values">&#8377;{totalPrice}</span>
+              <span className="order-summary-values">
+                &#8377;{finalTotalPrice || "Calculating..."}
+              </span>
             </p>
 
             <hr />
+            {/* <form onSubmit={applyCouponHandler}>
+              <div>
+                <label>Coupon Code</label>
+                <input
+                  type="text"
+                  value={couponCode}
+                  onChange={(e) => setCouponCode(e.target.value)}
+                />
+                <button type="submit">Apply Coupon</button>
+              </div>
+            </form> */}
+            <form onSubmit={applyCouponHandler}>
+              <label className="PlayfairDisplay mb-1">Coupon Code</label>
+              <div className="flex justify-evenly gap-2">
+                <input
+                  type="text"
+                  placeholder="Coupon Code"
+                  value={couponCode}
+                  className="p-3 rounded-md border-1 border-gray-300 bg-white w-100 font-normal w-full "
+                  onChange={(e) => setCouponCode(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className="border-2 border-alpha-pink text-alpha-pink  rounded-sm p-2 font-bold"
+                >
+                  APPLY COUPON
+                </button>
+              </div>
+            </form>
             <form className="" onSubmit={submitHandler}>
               <div className="h-28 w-full  absolute bottom-0 buttonBG1 bg-white left-0">
                 {" "}

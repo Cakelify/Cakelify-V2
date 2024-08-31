@@ -136,10 +136,9 @@ const ConfirmOrder = () => {
             address: shippingInfo.address,
           },
           theme: {
-            color: "#3399cc",
+            color: "#f42e9f",
           },
         };
-
         const rzp1 = new window.Razorpay(options);
         rzp1.open();
       }

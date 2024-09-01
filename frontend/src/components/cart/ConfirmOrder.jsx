@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import InfoIcon from "@mui/icons-material/Info";
 import MetaData from "../layout/MetaData";
 import { useSelector } from "react-redux";
 import { caluclateOrderCost } from "../../helpers/helpers";
@@ -23,6 +24,7 @@ const ConfirmOrder = () => {
   const [discount, setDiscount] = useState(0);
   const [finalTotalPrice, setFinalTotalPrice] = useState(totalPrice);
   const [validateCoupon, setValidateCoupon] = useState(false);
+  const [isCODDisabled, setIsCODDisabled] = useState(false);
 
   const navigate = useNavigate();
 
@@ -44,9 +46,11 @@ const ConfirmOrder = () => {
     if (couponError) {
       toast.error(couponError.data.message);
       setDiscount(0);
+      setIsCODDisabled(false); // Enable COD if coupon fails
     } else if (couponData) {
       toast.success("Coupon applied successfully");
       setDiscount(couponData.discount);
+      setIsCODDisabled(true); // Disable COD if coupon is successfully applied
     }
     // Reset validateCoupon after each attempt
     setValidateCoupon(false);
@@ -229,17 +233,6 @@ const ConfirmOrder = () => {
             </p>
 
             <hr />
-            {/* <form onSubmit={applyCouponHandler}>
-              <div>
-                <label>Coupon Code</label>
-                <input
-                  type="text"
-                  value={couponCode}
-                  onChange={(e) => setCouponCode(e.target.value)}
-                />
-                <button type="submit">Apply Coupon</button>
-              </div>
-            </form> */}
             <form onSubmit={applyCouponHandler}>
               <label className="PlayfairDisplay mb-1">Coupon Code</label>
               <div className="flex justify-evenly gap-2">
@@ -257,6 +250,13 @@ const ConfirmOrder = () => {
                   APPLY COUPON
                 </button>
               </div>
+              <div className="flex mt-3">
+                <InfoIcon fontSize="medium" />
+                <p className="text-sm ml-2 Montserrat mb-0 text-slate-400">
+                  Please note that Cash on Delivery is unavailable for orders
+                  where a coupon code has been successfully applied.
+                </p>
+              </div>
             </form>
             <form className="" onSubmit={submitHandler}>
               <div className="h-28 w-full  absolute bottom-0 buttonBG1 bg-white left-0">
@@ -268,16 +268,28 @@ const ConfirmOrder = () => {
                   <button
                     name="payment_mode"
                     value="COD"
-                    onClick={(e) => setMethod("COD")}
+                    onClick={(e) => {
+                      if (isCODDisabled) {
+                        e.preventDefault();
+                        toast.error(
+                          "Sorry, COD is not available for coupon code orders. Please choose online payment method."
+                        );
+                      } else {
+                        setMethod("COD");
+                      }
+                    }}
                     id="checkout_btn"
                     type="submit"
-                    className="bg-beta-pink text-sm text-white text-center w-44 h-12 rounded-md font-medium  buttonBG1 mt-2"
+                    disabled={isCODDisabled}
+                    className={`bg-beta-pink text-sm text-white text-center w-44 h-12 rounded-md font-medium  buttonBG1 mt-2 ${
+                      isCODDisabled ? "cursor-not-allowed opacity-50" : ""
+                    }`}
                   >
                     Cash on Delivery
                   </button>
                   <button
                     name="payment_mode"
-                    value="COD"
+                    value="Card"
                     onClick={(e) => setMethod("Card")}
                     id="checkout_btn"
                     type="submit"

@@ -29,6 +29,7 @@ import WhatsNew from "./layout/WhatsNew";
 import ProductCarousel from "./product/ProductCarousel";
 import ProductCarouselOne from "./product/ProductCarouselOne";
 import ProductCarouselTwo from "./product/ProductCarouselTwo";
+import Offer from "./layout/Offer";
 
 const Home = () => {
   let [searchParams] = useSearchParams();
@@ -121,34 +122,15 @@ const Home = () => {
         <div className="mt-16 -z-50 ">
           {keyword && <div className="">{/* <Filters /> */}</div>}
           <div className="mt-40 -z-50">
-            <Swiper
-              spaceBetween={30}
-              centeredSlides={true}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[Autoplay, Pagination, Navigation]}
-              className="mySwiper"
-            >
-              <SwiperSlide className="-z-50 p-2">
-                <img src={WB1} alt="" className="-z-50 rounded-md" />
-              </SwiperSlide>
-            </Swiper>
+            <SwiperSlide className="-z-50 p-2">
+              <img src={WB1} alt="" className="-z-50 rounded-md" />
+            </SwiperSlide>
           </div>
           {/* <MarqueeFC /> */}
           <h5 className="mt-4 mb-3 ml-2 PlayfairDisplay"> Offers for you</h5>
-          <div className="Offer m-2 rounded-md text-white mt-2 max-w-46">
-            <p className="font-black text-lg mb-1">Up to &#8377;60 Cashback</p>
-            <p className="text-md mb-0 font-medium">
-              Get 20% off up to &#8377;60 on orders of &#8377;300
-            </p>
-          </div>
+          <Offer />
           <div className="divCategory">
-            <h5 className="mt-6 mb-3 PlayfairDisplay ml-2  pt-4">
+            <h5 className="mt-2 mb-3 PlayfairDisplay ml-2  pt-4">
               What &nbsp;<span style={textStyle}>tantalizing</span> &nbsp;treat
               is on your mind?
             </h5>

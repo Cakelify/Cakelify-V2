@@ -26,19 +26,19 @@ function Offer() {
             {" "}
             <div
               style={gradientStyle}
-              className="Offer m-2 rounded-md text-white h-28"
+              className="Offer m-2 p-2 rounded-md text-white h-20"
             >
-              <p className="font-bold text-lg mb-0">Happy Ganesh Chaturthi</p>
-              <p className="text-base mb-0 font-medium">
+              <p className="font-bold text-base mb-0">Happy Ganesh Chaturthi</p>
+              <p className="text-sm mb-0 font-medium">
                 Use code GANESHA on Order above &#8377;350 and get &#8377;30 Off
               </p>
             </div>
             <div
               style={{ minWidth: "20rem" }}
-              className="Offer m-2 rounded-md text-white h-28"
+              className="Offer m-2 p-2 rounded-md text-white h-20"
             >
-              <p className="font-bold text-lg mb-0">Get &#8377;30 Off</p>
-              <p className="text-base mb-0 font-medium">
+              <p className="font-bold text-base mb-0">Get &#8377;30 Off</p>
+              <p className="text-sm mb-0 font-medium">
                 Use code SAVE30 on Order above &#8377;350 <br />
                 Today
               </p>

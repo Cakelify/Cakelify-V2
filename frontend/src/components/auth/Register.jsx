@@ -20,10 +20,13 @@ const Register = () => {
   const [register, { isLoading, error, data }] = useRegisterMutation();
 
   const { isAuthenticated } = useSelector((state) => state.auth);
+  const { cartItems } = useSelector((state) => state.cart);
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/");
+      {
+        cartItems?.length === 0 ? navigate("/") : navigate("/cart");
+      }
     }
     if (error) {
       toast.error(error?.data?.message);

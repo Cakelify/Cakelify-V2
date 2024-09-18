@@ -30,6 +30,7 @@ import ProductCarousel from "./product/ProductCarousel";
 import ProductCarouselOne from "./product/ProductCarouselOne";
 import ProductCarouselTwo from "./product/ProductCarouselTwo";
 import Offer from "./layout/Offer";
+import ProductCarouselThree from "./product/ProductCarouselThree";
 
 const Home = () => {
   let [searchParams] = useSearchParams();
@@ -182,6 +183,12 @@ const Home = () => {
           {" "}
           <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">🍰 Desserts</h5>
           <ProductCarouselOne />
+          <section>
+            <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">
+              🎂 Deliciously Affordable
+            </h5>
+            <ProductCarouselThree />
+          </section>
         </section>
         <section>
           <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">

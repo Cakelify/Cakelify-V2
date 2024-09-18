@@ -233,31 +233,34 @@ const ConfirmOrder = () => {
             </p>
 
             <hr />
-            <form onSubmit={applyCouponHandler}>
-              <label className="PlayfairDisplay mb-1">Coupon Code</label>
-              <div className="flex justify-evenly gap-2">
-                <input
-                  type="text"
-                  placeholder="Coupon Code"
-                  value={couponCode}
-                  className="p-3 rounded-md border-1 border-gray-300 bg-white w-100 font-normal w-full "
-                  onChange={(e) => setCouponCode(e.target.value)}
-                />
-                <button
-                  type="submit"
-                  className="border-2 border-alpha-pink text-alpha-pink  rounded-sm p-2 font-bold"
-                >
-                  APPLY COUPON
-                </button>
-              </div>
-              <div className="flex mt-3">
-                <InfoIcon fontSize="medium" />
-                <p className="text-sm ml-2 Montserrat mb-0 text-slate-400">
-                  Please note that Cash on Delivery is unavailable for orders
-                  where a coupon code has been successfully applied.
-                </p>
-              </div>
-            </form>
+            {itemsPrice > 300 ? (
+              <form onSubmit={applyCouponHandler}>
+                <label className="PlayfairDisplay mb-1">Coupon Code</label>
+                <div className="flex justify-evenly gap-2">
+                  <input
+                    type="text"
+                    placeholder="Coupon Code"
+                    value={couponCode}
+                    className="p-3 rounded-md border-1 border-gray-300 bg-white w-100 font-normal w-full "
+                    onChange={(e) => setCouponCode(e.target.value)}
+                  />
+                  <button
+                    type="submit"
+                    className="border-2 border-alpha-pink text-alpha-pink  rounded-sm p-2 font-bold"
+                  >
+                    APPLY COUPON
+                  </button>
+                </div>
+                <div className="flex mt-3">
+                  <InfoIcon fontSize="medium" />
+                  <p className="text-sm ml-2 Montserrat mb-0 text-slate-400">
+                    Please note that Cash on Delivery is unavailable for orders
+                    where a coupon code has been successfully applied.
+                  </p>
+                </div>
+              </form>
+            ) : null}
+
             <form className="" onSubmit={submitHandler}>
               <div className="h-28 w-full  absolute bottom-0 buttonBG1 bg-white left-0">
                 {" "}

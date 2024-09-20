@@ -25,7 +25,7 @@ const ProductItem = ({ product, columnSize }) => {
 
           <div>
             <img
-              className="relative w-4 bottom-36 ml-1 mb-0 left-28"
+              className="relative w-4 bottom-36 ml-1 mt-0 mb-0 left-28"
               src={PureVeg}
               alt=""
             />

@@ -183,12 +183,6 @@ const Home = () => {
           {" "}
           <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">🍰 Desserts</h5>
           <ProductCarouselOne />
-          <section>
-            <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">
-              🎂 Deliciously Affordable
-            </h5>
-            <ProductCarouselThree />
-          </section>
         </section>
         <section>
           <h5 className="mt-2 mb-0 PlayfairDisplay ml-2  pt-4">

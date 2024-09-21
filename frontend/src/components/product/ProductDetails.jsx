@@ -25,6 +25,8 @@ const ProductDetails = () => {
   const [activeImg, setActiveImg] = useState("");
   const [buttonText, setButtonText] = useState("Add to Cart");
   const [activeTabs, setActiveTabs] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const { data, isLoading, error, isError } = useGetProductDetailsQuery(
     params?.id
@@ -91,6 +93,15 @@ const ProductDetails = () => {
   if (error && error?.status === 404) {
     return <NotFound />;
   }
+  const handleClick = (img) => {
+    setSelectedImage(img);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelectedImage(null);
+  };
 
   return (
     <>
@@ -98,13 +109,26 @@ const ProductDetails = () => {
       <div className="row d-flex justify-content-around pt-36" id="top">
         <div className="col-12 col-lg-5 img-fluid" id="">
           <div className="p-3">
-            <img
-              className="d-block w-100 rounded-lg"
-              src={activeImg}
-              alt={product?.name}
-              width="340"
-              height="390"
-            />
+            <div className="image-grid">
+              <img
+                className="d-block w-100 rounded-lg thumbnail"
+                src={activeImg}
+                alt={product?.name}
+                width="340"
+                height="390"
+                onClick={() => handleClick(activeImg)}
+              />
+            </div>
+            {isOpen && (
+              <div className="modal" onClick={closeModal}>
+                <span className="close">&times;</span>
+                <img
+                  className="modal-content"
+                  src={selectedImage}
+                  alt="full-size"
+                />
+              </div>
+            )}
           </div>
           <div className="flex mt-2">
             {product?.images?.map((img) => (

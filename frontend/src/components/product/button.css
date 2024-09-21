@@ -154,3 +154,41 @@ input[type="number"] {
   font-weight: 500;
   font-style: normal;
 }
+
+image-grid {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.thumbnail {
+  cursor: pointer;
+  border: 2px solid #ddd;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}

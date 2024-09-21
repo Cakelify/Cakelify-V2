@@ -93,8 +93,8 @@ const ProductDetails = () => {
   if (error && error?.status === 404) {
     return <NotFound />;
   }
-  const handleClick = (img) => {
-    setSelectedImage(img);
+  const handleClick = (activeImg) => {
+    setSelectedImage(activeImg);
     setIsOpen(true);
   };
 
@@ -109,9 +109,9 @@ const ProductDetails = () => {
       <div className="row d-flex justify-content-around pt-36" id="top">
         <div className="col-12 col-lg-5 img-fluid" id="">
           <div className="p-3">
-            <div className="image-grid">
+            <div className="flex justify-center gap-4">
               <img
-                className="d-block w-100 rounded-lg thumbnail"
+                className="d-block w-100 rounded-lg cursor-pointer border-2 border-gray-300"
                 src={activeImg}
                 alt={product?.name}
                 width="340"
@@ -120,12 +120,18 @@ const ProductDetails = () => {
               />
             </div>
             {isOpen && (
-              <div className="modal" onClick={closeModal}>
-                <span className="close">&times;</span>
+              <div
+                className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-80 z-50 cursor-pointer overflow-auto"
+                onClick={closeModal}
+              >
+                <span className="absolute top-5 right-10 text-white text-4xl cursor-pointer">
+                  &times;
+                </span>
                 <img
-                  className="modal-content"
+                  className="max-w-[90%] max-h-[90%] cursor-default"
                   src={selectedImage}
                   alt="full-size"
+                  onClick={(e) => e.stopPropagation()} // Prevent modal close on image click
                 />
               </div>
             )}

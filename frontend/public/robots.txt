@@ -18,3 +18,4 @@ Disallow: /search
 Disallow: /contact
 Allow: /about
 Allow:/Home
+Disallow: /careers

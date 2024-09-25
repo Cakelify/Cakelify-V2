@@ -104,7 +104,7 @@ const Shipping = () => {
         <div className="col-10 col-lg-5 shadow rounded bg-body">
           <div className="mt-40">
             <div className="my-3">
-              <div className="mx-2 flex">
+              {/* <div className="mx-2 flex">
                 <svg className="h-4 w-6 mt-1 mr-2">
                   <path
                     fill-rule="evenodd"
@@ -114,8 +114,8 @@ const Shipping = () => {
                   ></path>
                 </svg>
                 <p className=" font-bold PlayfairDisplay">Have a Coupon</p>
-              </div>
-              <div className="border-1 rounded-md  border-alpha-green ">
+              </div> */}
+              {/* <div className="border-1 rounded-md  border-alpha-green ">
                 <div>
                   {" "}
                   <form onSubmit={applyCouponHandler}>
@@ -134,7 +134,7 @@ const Shipping = () => {
                     </div>
                   </form>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <hr />

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import InfoIcon from "@mui/icons-material/Info";
 import MetaData from "../layout/MetaData";
 import { useSelector } from "react-redux";
 import { caluclateOrderCost } from "../../helpers/helpers";
@@ -11,6 +10,7 @@ import {
 } from "../../redux/api/orderApi";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Modal from "./Modal";
 
 const ConfirmOrder = () => {
   const { cartItems, shippingInfo } = useSelector((state) => state.cart);
@@ -25,6 +25,8 @@ const ConfirmOrder = () => {
   const [finalTotalPrice, setFinalTotalPrice] = useState(totalPrice);
   const [validateCoupon, setValidateCoupon] = useState(false);
   const [isCODDisabled, setIsCODDisabled] = useState(false);
+  const [showModal, setShowModal] = useState(false); // Modal visibility state
+  const [modalHasBeenShown, setModalHasBeenShown] = useState(false);
 
   const navigate = useNavigate();
 
@@ -41,6 +43,17 @@ const ConfirmOrder = () => {
       skip: !validateCoupon || !couponCode,
     }
   );
+
+  const handleInputClick = () => {
+    if (!modalHasBeenShown) {
+      setShowModal(true);
+      setModalHasBeenShown(true); // Prevents the modal from showing again on subsequent clicks
+    }
+  };
+
+  const closeModal = () => {
+    setShowModal(false); // Close modal on clicking the close button
+  };
 
   useEffect(() => {
     if (couponError) {
@@ -152,6 +165,7 @@ const ConfirmOrder = () => {
   return (
     <>
       <MetaData title={"Confirm Order Info"} />
+      <Modal show={showModal} onClose={closeModal} />
       <div className="row d-flex justify-content-between m-1 ">
         <div className="col-12  pt-32 col-lg-8  order-confirm ">
           <h4 className="mb-3 mt-12">Shipping Info</h4>
@@ -243,6 +257,7 @@ const ConfirmOrder = () => {
                     value={couponCode}
                     className="p-3 rounded-md border-1 border-gray-300 bg-white w-100 font-normal w-full "
                     onChange={(e) => setCouponCode(e.target.value)}
+                    onClick={handleInputClick}
                   />
                   <button
                     type="submit"
@@ -250,13 +265,6 @@ const ConfirmOrder = () => {
                   >
                     APPLY COUPON
                   </button>
-                </div>
-                <div className="flex mt-3">
-                  <InfoIcon fontSize="medium" />
-                  <p className="text-sm ml-2 Montserrat mb-0 text-slate-400">
-                    Please note that Cash on Delivery is unavailable for orders
-                    where a coupon code has been successfully applied.
-                  </p>
                 </div>
               </form>
             ) : null}

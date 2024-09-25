@@ -67,7 +67,7 @@ const Home = () => {
 
   const sata = [
     {
-      link: "/flavourfulCategory/?keyword=Jar%20Cakes",
+      link: "/flavourfulCategory/?keyword=Jar%20Cake",
       name: "JarCake",
       review:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjMyHds7vLSoiw4yPLmqVN8-yLpm1xISG97w&s",

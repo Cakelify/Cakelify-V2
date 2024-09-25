@@ -69,7 +69,7 @@ const Footer = () => {
                 </p> */}
                 <p className="mb-1">
                   <HeadphonesOutlinedIcon className="text-beta-pink" />{" "}
-                  <strong>Call Us:</strong> (+91) - 7875380727{" "}
+                  <strong>Call Us:</strong> (+91) - 9021893678{" "}
                 </p>
                 <p>
                   <EmailOutlinedIcon className="text-beta-pink" />{" "}
@@ -159,15 +159,15 @@ const Footer = () => {
                       </Link>
                     </li> */}
                     <li className="list-inline-item">
-                      <Link to={"https://wa.me/+918830641796"}>
+                      <Link to={"https://wa.me/+919021893678"}>
                         <WhatsAppIcon className="text-beta-pink" />
                       </Link>
                     </li>
-                    <li className="list-inline-item">
+                    {/* <li className="list-inline-item">
                       <Link to={"https://instagram.com/cakelify.in"}>
                         <InstagramIcon className="text-beta-pink" />
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>

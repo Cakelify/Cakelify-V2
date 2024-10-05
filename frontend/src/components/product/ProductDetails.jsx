@@ -310,7 +310,7 @@ const ProductDetails = () => {
                         <p className="pb-0 mb-1 flex">
                           {" "}
                           <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
-                          Filpng in Layers: {product?.cakeFilpng}
+                          Filling in Layers: {product?.cakeFilpng}
                         </p>
                         <p className="pb-0 mb-1 flex">
                           {" "}

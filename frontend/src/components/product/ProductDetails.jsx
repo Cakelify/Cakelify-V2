@@ -27,6 +27,8 @@ const ProductDetails = () => {
   const [activeTabs, setActiveTabs] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedWeight, setSelectedWeight] = useState(0.5);
+  const [price, setPrice] = useState(0);
 
   const { data, isLoading, error, isError } = useGetProductDetailsQuery(
     params?.id
@@ -34,12 +36,17 @@ const ProductDetails = () => {
   const product = data?.product;
   const { isAuthenticated } = useSelector((state) => state.auth);
 
+  const isDecorationCategory = product?.category === "Decoration";
+
   useEffect(() => {
     setActiveImg(
       product?.images[0]
         ? product?.images[0]?.url
         : "/images/default_product.png"
     );
+    if (product) {
+      setPrice(product.price); // Set initial price from backend
+    }
   }, [product]);
 
   useEffect(() => {
@@ -77,11 +84,12 @@ const ProductDetails = () => {
     const cartItem = {
       product: product?._id,
       name: product?.name,
-      price: product?.price,
+      price: price,
       image: product?.images[0]?.url,
       stock: product?.stock,
       quantity,
       discount: product?.discount,
+      weight: selectedWeight,
     };
 
     dispatch(setCartItem(cartItem));
@@ -101,6 +109,26 @@ const ProductDetails = () => {
   const closeModal = () => {
     setIsOpen(false);
     setSelectedImage(null);
+  };
+
+  const handleWeightChange = (weight) => {
+    setSelectedWeight(weight);
+    // Change price based on weight
+    let newPrice = 0;
+    switch (weight) {
+      case 0.5:
+        newPrice = product?.price || 549;
+        break;
+      case 1:
+        newPrice = product?.price * 1.5 || 999;
+        break;
+      case 2:
+        newPrice = product?.price * 2 || 1999;
+        break;
+      default:
+        newPrice = product?.price || 549;
+    }
+    setPrice(newPrice);
   };
 
   return (
@@ -161,13 +189,10 @@ const ProductDetails = () => {
               <h3 className="pl-1 fontHeading text-xl">{product?.name}</h3>
               <img className=" w-4 h-4 mt-2 mr-2  " src={PV} alt="" />
             </div>
-
             <p className="pl-1" id="product_id">
               Product # {product?._id}
             </p>
-
             <hr />
-
             <div className="d-flex">
               <StarRatings
                 rating={product?.ratings}
@@ -185,15 +210,15 @@ const ProductDetails = () => {
             <hr />
             <div className="flex gap-2">
               {" "}
-              {product && product?.beforePrice ? (
+              {selectedWeight === 0.5 && product && product?.beforePrice ? (
                 <p className="card-text font-semibold text-lg text-alpha-grey mt-1 ml-3 line-through">
                   &#8377;{product?.beforePrice}
                 </p>
               ) : null}
               <p className="pl-1 textStyle text-2xl mt-1 text-beta-pink">
-                &#8377;{product?.price}
+                &#8377;{Math.round(price)}
               </p>
-              {product && product.discount ? (
+              {selectedWeight === 0.5 && product && product.discount ? (
                 <p className="mt-2 text-base textStyle text-alpha-green">
                   ({product?.discount}% off)
                 </p>
@@ -202,6 +227,30 @@ const ProductDetails = () => {
                 (Inclusive of GST)
               </p>
             </div>
+            {product?.price > 300 ? (
+              <div className="weight-selection my-2">
+                <p className="text-lg text-gray-500 fontHeading">
+                  Select Weight:
+                </p>
+                <div className="flex gap-2">
+                  {[0.5, 1, 2].map((weight) => (
+                    <button
+                      key={weight}
+                      className={`weight-btn p-2 px-4 rounded-full border ${
+                        selectedWeight === weight
+                          ? "buttonBG ml-2 p-2.5 rounded-md bg-beta-pink text-white font-semibold"
+                          : "buttonBG ml-2 p-2.5 rounded-md bg-white text-beta-pink font-semibold"
+                      } hover:bg-beta-pink hover:text-white transition-colors`}
+                      onClick={() => handleWeightChange(weight)}
+                    >
+                      {weight} Kg
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
 
             <div className="addCartSection pt-4 pb-4 d-flex align-items-center ml-1 flex ">
               <div className="counterSec flex">
@@ -240,7 +289,6 @@ const ProductDetails = () => {
               )}
             </div>
             <hr />
-
             <p className="pl-1">
               Status:{" "}
               <span
@@ -250,156 +298,155 @@ const ProductDetails = () => {
                 {product?.stock > 0 ? "In Stock" : "Out of Stock"}
               </span>
             </p>
-
             <hr />
-
-            <div className="card mt-3 p-3 detailsPageTabs">
-              <div className="customTabs">
-                <ul className="list list-inline">
-                  <li className="list-inline-item">
-                    <Button
-                      className={`${activeTabs === 0 && "active"}`}
-                      onClick={() => setActiveTabs(0)}
-                    >
-                      Description
-                    </Button>
-                  </li>
-                  <li className="list-inline-item">
-                    <Button
-                      className={`${activeTabs === 1 && "active"}`}
-                      onClick={() => setActiveTabs(1)}
-                    >
-                      {" "}
-                      Reviews
-                    </Button>
-                  </li>
-                </ul>
-                <br />
-                {activeTabs === 0 && (
-                  <div className="tabContent">
-                    <p className="pl-1 p-2  Roboto">
-                      <p className="text-lg font-semibold Roboto">
-                        {" "}
-                        Product Details :
-                      </p>
-                      <div>
-                        <p className="pb-0 mb-1 flex Roboto ">
-                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
-                          Cake Flavour: {product?.cakeFlavour}
-                        </p>
-                        <p className="pb-0 mb-1 flex">
+            {product && product?.cakeFlavour ? (
+              <>
+                <div className="card mt-3 p-3 detailsPageTabs">
+                  <div className="customTabs">
+                    <ul className="list list-inline">
+                      <li className="list-inline-item">
+                        <Button
+                          className={`${activeTabs === 0 && "active"}`}
+                          onClick={() => setActiveTabs(0)}
+                        >
+                          Description
+                        </Button>
+                      </li>
+                      <li className="list-inline-item">
+                        <Button
+                          className={`${activeTabs === 1 && "active"}`}
+                          onClick={() => setActiveTabs(1)}
+                        >
                           {" "}
-                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
-                          Shape: {product?.cakeShape}
-                        </p>
-                        <p className="pb-0 mb-1 flex">
-                          {" "}
-                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
-                          Type of Cake: {product?.typeOfCake}
-                        </p>
-                        <p className="pb-0 mb-1 flex">
-                          {" "}
-                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
-                          Type of Sponge: {product?.cakeSponge}
-                        </p>
-                        <p className="pb-0 mb-1 flex">
-                          {" "}
-                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
-                          Type of Cream: {product?.typeOfCream}
-                        </p>
-                        <p className="pb-0 mb-1 flex">
-                          {" "}
-                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
-                          Filling in Layers: {product?.cakeFilpng}
-                        </p>
-                        <p className="pb-0 mb-1 flex">
-                          {" "}
-                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
-                          Toppings: {product?.cakeToppings}
-                        </p>
-                        <p className="pb-0 mb-1 flex">
-                          {" "}
-                          <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
-                          Weight: {product?.cakeWeight}
-                        </p>
-                        <p className="mt-10">
-                          {" "}
-                          <p>
-                            <p className="pt-4 font-semibold text-lg">
-                              Delivery Information:
+                          Reviews
+                        </Button>
+                      </li>
+                    </ul>
+                    <br />
+                    {activeTabs === 0 && (
+                      <div className="tabContent">
+                        <p className="pl-1 p-2  Roboto">
+                          <p className="text-lg font-semibold Roboto">
+                            {" "}
+                            Product Details :
+                          </p>
+                          <div>
+                            <p className="pb-0 mb-1 flex Roboto ">
+                              <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                              Cake Flavour: {product?.cakeFlavour}
                             </p>
-                            Our delivery boy hand-delivers the delicious cake in
-                            a good quality cardboard box. Candles and knives are
-                            complementary but they will deliver as per the
-                            availability.
-                          </p>{" "}
-                          <p>
-                            {" "}
-                            Every cake we offer is handcrafted, and since each
-                            chef has his/her way of baking and designing a cake,
-                            there might be slight variation in the product in
-                            terms of design and shape.{" "}
-                          </p>
-                          <p>
-                            This product is perishable therefore delivery will
-                            be attempted only once, the delivery cannot redirect
-                            to any other address.
-                          </p>
-                          <p>
-                            We promise express delivery to provide superior
-                            customer services The delivery cannot redirect to
-                            any other address.
-                          </p>
-                          <p>
-                            This product is hand delivered and will not deliver
-                            along with courier products
-                          </p>
-                          <p>
-                            {" "}
-                            Occasionally, substitutions of flavors/designs are
-                            necessary due to temporary and regional
-                            unavailability issues.
-                          </p>
-                          <p className="pt-4 font-semibold text-lg">
-                            Care Instructions:
-                          </p>
-                          <p>
-                            Store cream cakes in a refrigerator. Fondant cakes
-                            should store in an air-conditioned environment.
-                          </p>
-                          <p>
-                            The cake should consume within 24 hours. Slice and
-                            serve the cake at room temperature and make sure it
-                            is not exposed to heat.{" "}
-                          </p>
-                          <p>
-                            Sculptural elements and figurines may contain wire
-                            supports or toothpicks or wooden skewers for
-                            support.
-                          </p>
+                            <p className="pb-0 mb-1 flex">
+                              {" "}
+                              <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                              Shape: {product?.cakeShape}
+                            </p>
+                            <p className="pb-0 mb-1 flex">
+                              {" "}
+                              <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                              Type of Cake: {product?.typeOfCake}
+                            </p>
+                            <p className="pb-0 mb-1 flex">
+                              {" "}
+                              <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                              Type of Sponge: {product?.cakeSponge}
+                            </p>
+                            <p className="pb-0 mb-1 flex">
+                              {" "}
+                              <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                              Type of Cream: {product?.typeOfCream}
+                            </p>
+                            <p className="pb-0 mb-1 flex">
+                              {" "}
+                              <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                              Filling in Layers: {product?.cakeFilling}
+                            </p>
+                            <p className="pb-0 mb-1 flex">
+                              {" "}
+                              <div className="h-2 w-2 rounded bg-alpha-grey  mt-2 mr-2"></div>
+                              Toppings: {product?.cakeToppings}
+                            </p>
+
+                            <p className="mt-10">
+                              {" "}
+                              <p>
+                                <p className="pt-4 font-semibold text-lg">
+                                  Delivery Information:
+                                </p>
+                                Our delivery boy hand-delivers the delicious
+                                cake in a good quality cardboard box. Candles
+                                and knives are complementary but they will
+                                deliver as per the availability.
+                              </p>{" "}
+                              <p>
+                                {" "}
+                                Every cake we offer is handcrafted, and since
+                                each chef has his/her way of baking and
+                                designing a cake, there might be slight
+                                variation in the product in terms of design and
+                                shape.{" "}
+                              </p>
+                              <p>
+                                This product is perishable therefore delivery
+                                will be attempted only once, the delivery cannot
+                                redirect to any other address.
+                              </p>
+                              <p>
+                                We promise express delivery to provide superior
+                                customer services The delivery cannot redirect
+                                to any other address.
+                              </p>
+                              <p>
+                                This product is hand delivered and will not
+                                deliver along with courier products
+                              </p>
+                              <p>
+                                {" "}
+                                Occasionally, substitutions of flavors/designs
+                                are necessary due to temporary and regional
+                                unavailability issues.
+                              </p>
+                              <p className="pt-4 font-semibold text-lg">
+                                Care Instructions:
+                              </p>
+                              <p>
+                                Store cream cakes in a refrigerator. Fondant
+                                cakes should store in an air-conditioned
+                                environment.
+                              </p>
+                              <p>
+                                The cake should consume within 24 hours. Slice
+                                and serve the cake at room temperature and make
+                                sure it is not exposed to heat.{" "}
+                              </p>
+                              <p>
+                                Sculptural elements and figurines may contain
+                                wire supports or toothpicks or wooden skewers
+                                for support.
+                              </p>
+                            </p>
+                          </div>
                         </p>
                       </div>
-                    </p>
-                  </div>
-                )}
+                    )}
 
-                {activeTabs === 1 && (
-                  <div className="tabContent">
-                    {product?.reviews?.length > 0 && (
-                      <ListReviews reviews={product?.reviews} />
+                    {activeTabs === 1 && (
+                      <div className="tabContent">
+                        {product?.reviews?.length > 0 && (
+                          <ListReviews reviews={product?.reviews} />
+                        )}
+                      </div>
                     )}
                   </div>
+                </div>
+                {isAuthenticated ? (
+                  <NewReview productId={product?._id} />
+                ) : (
+                  <div className="alert alert-danger my-5" type="alert">
+                    Login to post your review.
+                  </div>
                 )}
-              </div>
-            </div>
-
-            {isAuthenticated ? (
-              <NewReview productId={product?._id} />
-            ) : (
-              <div className="alert alert-danger my-5" type="alert">
-                Login to post your review.
-              </div>
-            )}
+              </>
+            ) : null}
           </div>
         </div>
         <div className="m-2 mt-0">

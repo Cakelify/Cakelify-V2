@@ -18,11 +18,9 @@ const UpdateProduct = () => {
 
   const [product, setProduct] = useState({
     name: "",
-    description: "",
     price: "",
     category: "",
     stock: "",
-    seller: "",
     beforePrice: "",
     discount: "",
     cakeFlavour: "",
@@ -32,16 +30,13 @@ const UpdateProduct = () => {
     typeOfCream: "",
     cakeFilling: "",
     cakeToppings: "",
-    cakeWeight: "",
   });
 
   const {
     name,
-    description,
     price,
     category,
     stock,
-    seller,
     beforePrice,
     discount,
     cakeFlavour,
@@ -51,7 +46,6 @@ const UpdateProduct = () => {
     typeOfCream,
     cakeFilling,
     cakeToppings,
-    cakeWeight,
   } = product;
 
   const [updateProduct, { isLoading, error, isSuccess }] =
@@ -112,20 +106,6 @@ const UpdateProduct = () => {
               />
             </div>
 
-            <div className="mb-3">
-              <label htmlFor="description_field" className="form-label">
-                Description
-              </label>
-              <textarea
-                className="form-control"
-                id="description_field"
-                rows="8"
-                name="description"
-                value={description}
-                onChange={onChange}
-              ></textarea>
-            </div>
-
             <div className="row">
               <div className="mb-3 col">
                 <label htmlFor="price_field" className="form-label">
@@ -177,20 +157,7 @@ const UpdateProduct = () => {
                   ))}
                 </select>
               </div>
-              <div className="mb-3 col">
-                <label htmlFor="seller_field" className="form-label">
-                  {" "}
-                  Seller Name{" "}
-                </label>
-                <input
-                  type="text"
-                  id="seller_field"
-                  className="form-control"
-                  name="seller"
-                  value={seller}
-                  onChange={onChange}
-                />
-              </div>
+
               <div className="mb-3 col">
                 <label htmlFor="seller_field" className="form-label">
                   {" "}
@@ -314,20 +281,6 @@ const UpdateProduct = () => {
                   className="form-control"
                   name="cakeToppings"
                   value={cakeToppings}
-                  onChange={onChange}
-                />
-              </div>
-              <div className="mb-3 col">
-                <label htmlFor="seller_field" className="form-label">
-                  {" "}
-                  Weight{" "}
-                </label>
-                <input
-                  type="text"
-                  id="seller_field"
-                  className="form-control"
-                  name="cakeWeight"
-                  value={cakeWeight}
                   onChange={onChange}
                 />
               </div>

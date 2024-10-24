@@ -18,10 +18,6 @@ const productSchema = new mongoose.Schema(
     beforePrice: {
       type: Number,
     },
-    description: {
-      type: String,
-      required: [true, "Please enter product description"],
-    },
     cakeFlavour: {
       type: String,
       required: [true, "Please enter product flavour"],
@@ -51,10 +47,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please enter product topping"],
     },
-    cakeWeight: {
-      type: String,
-      required: [true, "Please enter product weight"],
-    },
+
     ratings: {
       type: Number,
       default: 0,
@@ -76,23 +69,24 @@ const productSchema = new mongoose.Schema(
       required: [true, "Please enter product category"],
       enum: {
         values: [
-          "Laptops",
-          "Electronics",
-          "Cameras",
-          "Accessories",
-          "Headphones",
-          "Food",
-          "Books",
-          "Sports",
-          "Outdoor",
-          "Home",
+          "NullValue",
+          "JarCake",
+          "Pastry",
+          "CupCake",
+          "Annniversary",
+          "Birthday",
+          "Wedding",
+          "Pineapple",
+          "Butterscotch",
+          "Chocolate",
+          "Redvelvet",
+          "Strawberry",
+          "Blackforest",
+          "PopularDelight",
+          "Decoration",
         ],
         message: "Please select correct category",
       },
-    },
-    seller: {
-      type: String,
-      required: ["Please enter product seller"],
     },
     stock: {
       type: Number,

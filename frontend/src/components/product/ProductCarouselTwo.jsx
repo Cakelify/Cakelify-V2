@@ -11,7 +11,7 @@ function ProductCarouselTwo() {
   let [searchParams] = useSearchParams();
   const page = searchParams.get("page") || 1;
   const keyword = searchParams.get("keyword") || "";
-  const min = searchParams.get("min");
+  const min = searchParams.get("min") || 400;
   const max = searchParams.get("max");
   const category = searchParams.get("category");
   const ratings = searchParams.get("ratings");
@@ -22,7 +22,7 @@ function ProductCarouselTwo() {
   //   setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   // }, []);
 
-  const params = { page, keyword, category: "Sports" };
+  const params = { page, keyword, min: 400 };
 
   min !== null && (params.min = min);
   max !== null && (params.max = max);

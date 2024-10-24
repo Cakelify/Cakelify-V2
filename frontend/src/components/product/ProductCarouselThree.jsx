@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import toast from "react-hot-toast";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useGetProductsQuery } from "../../redux/api/productsApi";
 import Loader from "../layout/Loader";
-import ProductCarouselItem from "./ProductCarouselItem";
+import ProductCarouselItemTwo from "./ProductItem";
 import { motion } from "framer-motion";
 import "./ProductCarousel.css";
 
 function ProductCarouselThree() {
-  let [searchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const page = searchParams.get("page") || 1;
   const keyword = searchParams.get("keyword") || "";
   const min = searchParams.get("min");
@@ -16,18 +16,17 @@ function ProductCarouselThree() {
   const category = searchParams.get("category");
   const ratings = searchParams.get("ratings");
 
-  const [width, setWidth] = useState(0);
   const carousel = useRef();
-  // useEffect(() => {
-  //   setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-  // }, []);
 
-  const params = { page, keyword, category: "Headphones" };
-
-  min !== null && (params.min = min);
-  max !== null && (params.max = max);
-  category !== null && (params.category = category);
-  ratings !== null && (params.ratings = ratings);
+  const params = {
+    page,
+    keyword,
+    category: "Decoration",
+    ...(min && { min }),
+    ...(max && { max }),
+    ...(category && { category }),
+    ...(ratings && { ratings }),
+  };
 
   const { data, isLoading, error, isError } = useGetProductsQuery(params);
 
@@ -35,30 +34,28 @@ function ProductCarouselThree() {
     if (isError) {
       toast.error(error?.data?.message);
     }
-  }, [isError]);
+  }, [isError, error]);
 
   if (isLoading) return <Loader />;
 
   return (
-    <>
-      <div className=" m-1">
+    <div className="m-1">
+      <motion.div
+        ref={carousel}
+        className="carousel"
+        whileTap={{ cursor: "grabbing" }}
+      >
         <motion.div
-          ref={carousel}
-          className="carousel"
-          whileTap={{ cursor: "grabbing" }}
+          drag="x"
+          dragConstraints={{ right: 0, left: -1140 }}
+          className="inner-carousel"
         >
-          <motion.div
-            drag="x"
-            dragConstraints={{ right: 0, left: -1140 }}
-            className="inner-carousel"
-          >
-            {data?.products?.map((product) => (
-              <ProductCarouselItem product={product} />
-            ))}
-          </motion.div>
+          {data?.products?.map((product) => (
+            <ProductCarouselItemTwo key={product._id} product={product} />
+          ))}
         </motion.div>
-      </div>
-    </>
+      </motion.div>
+    </div>
   );
 }
 

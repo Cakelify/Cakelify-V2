@@ -6,6 +6,8 @@ import { setCartItem, removeCartItem } from "../../redux/features/cartSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Cart.css";
 import EmptyCart from "./EmptyCart.png";
+import ProductCarouselThree from "../product/ProductCarouselThree";
+import ProductCarouselOne from "../product/ProductCarouselOne";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -189,6 +191,12 @@ const Cart = () => {
               ))}
             </div>
           </div>
+          <p className="font-bold pt-2 PlayfairDisplay">
+            Celebration Accessories{" "}
+          </p>
+          <ProductCarouselThree />
+
+          <div className="h-4 bg-bg-grey  w-full "></div>
 
           <div className="h-56 buttonBG">
             <div className="px-2">

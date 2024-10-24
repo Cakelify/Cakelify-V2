@@ -22,7 +22,7 @@ function ProductCarouselOne() {
   //   setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   // }, []);
 
-  const params = { page, keyword, category: "Home" };
+  const params = { page, keyword, category: "JarCake" };
 
   min !== null && (params.min = min);
   max !== null && (params.max = max);

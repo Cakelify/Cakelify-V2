@@ -28,9 +28,9 @@ function Offer() {
               style={gradientStyle}
               className="Offer m-2 p-2 rounded-md text-white h-20"
             >
-              <p className="font-bold text-base mb-0">Happy Ganesh Chaturthi</p>
+              <p className="font-bold text-base mb-0">Happy Tuesday</p>
               <p className="text-sm mb-0 font-medium">
-                Use code GANESHA on Order above &#8377;350 and get &#8377;30 Off
+                Use code TUESDAY on Order above &#8377;350 and get &#8377;30 Off
               </p>
             </div>
             <div

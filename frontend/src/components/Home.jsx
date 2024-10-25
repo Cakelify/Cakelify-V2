@@ -89,32 +89,8 @@ const Home = () => {
   return (
     <>
       <MetaData title={"Buy Best Cakes Online"} />
-      <div className="ForDesktop">
-        <div className="row">
-          {keyword && (
-            <div className="col-6 col-md-3 mt-5">{/* <Filters /> */}</div>
-          )}
-          <div className={keyword ? "col-6 col-md-9" : "col-6 col-md-12"}>
-            <h1 id="products_heading" className="text-secondary">
-              {keyword
-                ? `${data?.products?.length} Products found with keyword: ${keyword}`
-                : "Latest Products"}
-            </h1>
-
-            <section id="products" className="mt-5">
-              <div className="row">
-                {data?.products?.map((product) => (
-                  <ProductItem product={product} columnSize={columnSize} />
-                ))}
-              </div>
-            </section>
-
-            <CustomPagination
-              resPerPage={data?.resPerPage}
-              filteredProductsCount={data?.filteredProductsCount}
-            />
-          </div>
-        </div>
+      <div className="ForDesktop mt-40 mx-72">
+        <p>Mobile only! Desktop version not supported. Thanks for visiting</p>
       </div>
 
       {/* For Mobile Version */}

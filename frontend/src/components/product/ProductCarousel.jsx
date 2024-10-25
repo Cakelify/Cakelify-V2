@@ -22,7 +22,7 @@ function ProductCarousel() {
   //   setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   // }, []);
 
-  const params = { page, keyword };
+  const params = { page, keyword, min: 250, max: 400 };
 
   min !== null && (params.min = min);
   max !== null && (params.max = max);
@@ -39,6 +39,10 @@ function ProductCarousel() {
 
   if (isLoading) return <Loader />;
 
+  const sortedProducts = data?.products
+    ?.filter((product) => product.price >= 250 && product.price <= 400)
+    ?.sort((a, b) => a.price - b.price);
+
   return (
     <>
       <div className=" m-1">
@@ -52,8 +56,8 @@ function ProductCarousel() {
             dragConstraints={{ right: 0, left: -2060 }}
             className="inner-carousel"
           >
-            {data?.products?.map((product) => (
-              <ProductCarouselItem product={product} />
+            {sortedProducts?.map((product) => (
+              <ProductCarouselItem key={product._id} product={product} />
             ))}
           </motion.div>
         </motion.div>

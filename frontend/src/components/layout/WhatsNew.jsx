@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "../product/ProductCarousel.css";
 import WB2 from "../WB2.jpg";
+import VenomWB from "../VenomWB.jpg";
 import JarCakeBanner from "../JarCakeB1.jpg";
 function WhatsNew() {
   const [width, setWidth] = useState(0);
@@ -10,10 +11,10 @@ function WhatsNew() {
   // useEffect(() => {
   //   setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   // }, []);
-  const sata = [{ img: WB2 }, { img: JarCakeBanner }];
+  const sata = [{ img: VenomWB }, { img: WB2 }, { img: JarCakeBanner }];
   return (
     <>
-      <div className="mt-0 pt-0">
+      <div className="mt-0 pt-0 ">
         <motion.div
           ref={carousel}
           className="carousel"
@@ -21,7 +22,7 @@ function WhatsNew() {
         >
           <motion.div
             drag="x"
-            dragConstraints={{ right: 0, left: -360 }}
+            dragConstraints={{ right: 0, left: -620 }}
             className="inner-carousel"
           >
             {" "}

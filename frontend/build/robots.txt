@@ -9,12 +9,9 @@ Disallow: /login
 Disallow: /signup
 Disallow: /logout
 Disallow: /orders
-Allow: /profile
 Disallow: /update-profile
 Disallow: /update-password
-Disallow: /reset-password
 Disallow: /forgot-password
-Disallow: /search
-Disallow: /contact
+Allow: /profile
 Allow: /about
-Allow:/Home
+Allow: /Home

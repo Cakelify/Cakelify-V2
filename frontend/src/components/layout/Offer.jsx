@@ -24,7 +24,7 @@ function Offer() {
             className="inner-carousel"
           >
             {" "}
-            <div
+            {/* <div
               style={gradientStyle}
               className="Offer m-2 p-2 rounded-md text-white h-20"
             >
@@ -32,7 +32,7 @@ function Offer() {
               <p className="text-sm mb-0 font-medium">
                 Use code TUESDAY on Order above &#8377;350 and get &#8377;30 Off
               </p>
-            </div>
+            </div> */}
             <div
               style={{ minWidth: "20rem" }}
               className="Offer m-2 p-2 rounded-md text-white h-20"

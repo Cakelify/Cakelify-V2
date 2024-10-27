@@ -6,6 +6,7 @@ import "../product/ProductCarousel.css";
 import WB2 from "../WB2.jpg";
 import VenomWB from "../VenomWB.jpg";
 import JarCakeBanner from "../JarCakeB1.jpg";
+
 function WhatsNew() {
   const [width, setWidth] = useState(0);
   const carousel = useRef();

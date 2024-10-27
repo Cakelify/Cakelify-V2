@@ -34,8 +34,7 @@ function CakelifyGiveawayModal({ isOpen, closeModal }) {
             </li>
             <li>
               📲 <span className="font-semibold">Instagram Story</span>: Post a
-              photo of your Jar Cake on your Instagram story. Tag
-              @CakelifyOfficial!
+              photo of your Jar Cake on your Instagram story. Tag @Cakelify
             </li>
             <li>
               🔑 <span className="font-semibold">Coupon Validation</span>: DM us
@@ -43,7 +42,7 @@ function CakelifyGiveawayModal({ isOpen, closeModal }) {
             </li>
             <li>
               👥 <span className="font-semibold">Follow Us</span>: Follow
-              @CakelifyOfficial on Instagram to stay updated with giveaway news.
+              @Cakelify on Instagram to stay updated with giveaway news.
             </li>
             <li>
               🎬 <span className="font-semibold">Movie Ticket Details</span>:

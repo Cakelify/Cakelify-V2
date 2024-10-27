@@ -1,7 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import { motion } from "framer-motion";
+import CakelifyGiveawayModal from "./Venom.jsx";
 function Offer() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
   const [width, setWidth] = useState(0);
   const carousel = useRef();
 
@@ -28,9 +33,25 @@ function Offer() {
               style={gradientStyle}
               className="Offer m-2 p-2 rounded-md text-white h-20"
             >
-              <p className="font-bold text-base mb-0">Venom The Last Dance</p>
+              <div className="flex justify-between">
+                {" "}
+                <p className="font-bold text-base mb-0">
+                  Venom The Last Dance
+                </p>{" "}
+                <button
+                  onClick={openModal}
+                  className="border-2 border-white rounded-md py-0.5 px-1 text-sm mr-3"
+                >
+                  View
+                </button>
+                <CakelifyGiveawayModal
+                  isOpen={isOpen}
+                  closeModal={closeModal}
+                />
+              </div>
+
               <p className="text-sm mb-0 font-medium">
-                Use code Venom on Order above &#8377;350 and get &#8377;30 Off
+                Win Big with Every Jar! 🍰 Venom Movie Night on Us at Cinepolis!
               </p>
             </div>
             <div

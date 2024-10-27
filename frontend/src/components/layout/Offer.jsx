@@ -51,7 +51,7 @@ function Offer() {
               </div>
 
               <p className="text-sm mb-0 font-medium">
-                Win Big with Every Jar! 🍰 Venom Movie Night on Us at Cinepolis!
+                Win Big with Every Jar! 🍰 Venom Movie on Us at Cinepolis!
               </p>
             </div>
             <div
